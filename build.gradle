@@ -54,12 +54,5 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 }
 
-repositories {
-    maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }
-}
-
-dependencies {
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.16.5:3.0.19')
-}
 apply from: 'mcreator.gradle'
 

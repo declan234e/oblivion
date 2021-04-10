@@ -262,7 +262,7 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
-      "path": "~/tiny_reactor"
+      "path": "~/tiny_reactor/UI"
     },
     {
       "name": "TinyReactorState1",
@@ -301,7 +301,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/tiny_reactor/procedures"
     },
     {
       "name": "TinyReactorUpdateTick",
@@ -331,7 +332,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor"
+      "path": "~/tiny_reactor/procedures"
     },
     {
       "name": "CheckForIngot",
@@ -361,16 +362,16 @@
           }
         ]
       },
-      "path": "~/tiny_reactor"
+      "path": "~/tiny_reactor/procedures"
     },
     {
-      "name": "ReactorGUIOpen",
+      "name": "OneRodReturn",
       "type": "procedure",
-      "sortid": 20,
+      "sortid": 25,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "reactor_gui_open",
+      "registry_name": "one_rod_return",
       "metadata": {
         "return_type": "LOGIC",
         "dependencies": [
@@ -392,7 +393,162 @@
           }
         ]
       },
-      "path": "~/tiny_reactor"
+      "path": "~/tiny_reactor/procedures"
+    },
+    {
+      "name": "TwoRodReturn",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "two_rod_return",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures"
+    },
+    {
+      "name": "ThreeRodReturn",
+      "type": "procedure",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "three_rod_return",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures"
+    },
+    {
+      "name": "FourRodReturn",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "four_rod_return",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures"
+    },
+    {
+      "name": "EnergyLessThan1k",
+      "type": "procedure",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_less_than_1k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures"
+    },
+    {
+      "name": "EnergyMoreThan1k",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_more_than_1k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures"
     }
   ],
   "variable_elements": [],
@@ -409,16 +565,16 @@
   "language_map": {
     "en_us": {
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
-      "advancements.reactor_melt.descr": "put a reactor into meltdown (or be near one)",
-      "block.atlas_multi.urandia_ore": "Urandia Ore",
       "block.atlas_multi.reactor_controller_start": "Reactor Controller Start",
-      "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
-      "block.atlas_multi.meltdown_test": "Meltdown Test",
-      "advancements.reactor_melt.title": "oh no",
-      "block.atlas_multi.reactor_controller": "Reactor Controller",
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
-      "block.atlas_multi.boom_box": "Boom Box",
-      "itemGroup.tabreactors": "Reactors"
+      "itemGroup.tabreactors": "Reactors",
+      "block.atlas_multi.urandia_ore": "Urandia Ore",
+      "advancements.reactor_melt.descr": "put a reactor into meltdown (or be near one)",
+      "block.atlas_multi.reactor_controller": "Reactor Controller",
+      "advancements.reactor_melt.title": "oh no",
+      "block.atlas_multi.meltdown_test": "Meltdown Test",
+      "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
+      "block.atlas_multi.boom_box": "Boom Box"
     }
   },
   "foldersRoot": {
@@ -430,6 +586,14 @@
           {
             "name": "blockstates",
             "children": []
+          },
+          {
+            "name": "procedures",
+            "children": []
+          },
+          {
+            "name": "UI",
+            "children": []
           }
         ]
       }
@@ -437,7 +601,7 @@
   },
   "workspaceSettings": {
     "modid": "atlas_multi",
-    "modName": "atlas reactors",
+    "modName": "atlas multi superpack ",
     "version": "0.0.1",
     "description": "just adds rectors",
     "author": "declan234e, ROLEMAYMOLY",
@@ -450,8 +614,8 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
-    "credits": "model designer - ROLEMAYMOLY, model animator and developer - declan234e",
-    "modElementsPackage": "gmz.reactors",
+    "credits": "model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e",
+    "modElementsPackage": "tas.atlas",
     "lockBaseModFiles": false
   },
   "mcreatorVersion": 202100112313

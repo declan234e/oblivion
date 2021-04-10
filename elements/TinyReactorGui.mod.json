@@ -11,19 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "label",
-        "data": {
-          "text": "<BNBT:number:numOfUrandie> rods",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "name": "<BNBT:number:numOfUrandie> rods",
-          "x": 132,
-          "y": 41
-        }
-      },
-      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -33,8 +20,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #0",
-          "x": 139,
-          "y": 57
+          "x": 258,
+          "y": 80
         }
       },
       {
@@ -42,31 +29,58 @@
         "data": {
           "text": "<energy> FE",
           "color": {
-            "value": -12829636,
+            "value": -3355444,
             "falpha": 0.0
           },
+          "displayCondition": {
+            "name": "EnergyLessThan1k"
+          },
           "name": "<energy> FE",
-          "x": 196,
-          "y": 42
+          "x": 166,
+          "y": 59
         }
       },
       {
-        "type": "button",
+        "type": "outputslot",
         "data": {
-          "text": "activate",
-          "displayCondition": {
-            "name": "ReactorGUIOpen"
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 150,
+          "y": 80
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "Items.WATER_BUCKET"
           },
-          "width": 65,
-          "height": 20,
-          "name": "activate",
-          "x": 176,
-          "y": 94
+          "id": 2,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #2",
+          "x": 243,
+          "y": 45
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "EnergyMoreThan1k"
+          },
+          "name": "1K FE",
+          "x": 167,
+          "y": 59
         }
       }
-    ],
-    "onOpen": {
-      "name": "ReactorGUIOpen"
-    }
+    ]
   }
 }

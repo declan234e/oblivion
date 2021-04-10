@@ -2,7 +2,7 @@
   "_fv": 17,
   "_type": "gui",
   "definition": {
-    "type": 0,
+    "type": 1,
     "width": 176,
     "height": 166,
     "inventoryOffsetX": 0,
@@ -34,7 +34,7 @@
           "height": 20,
           "name": "MELTDOWN!",
           "x": 177,
-          "y": 103
+          "y": 110
         }
       },
       {
@@ -48,6 +48,20 @@
           "name": "this goes boom (loud)",
           "x": 158,
           "y": 85
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 259,
+          "y": 50
         }
       }
     ]
