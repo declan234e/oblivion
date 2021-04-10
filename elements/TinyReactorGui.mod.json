@@ -1,0 +1,72 @@
+{
+  "_fv": 17,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:numOfUrandie> rods",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:numOfUrandie> rods",
+          "x": 132,
+          "y": 41
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "CUSTOM:UrandiaIngot"
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 139,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<energy> FE",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<energy> FE",
+          "x": 196,
+          "y": 42
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "activate",
+          "displayCondition": {
+            "name": "ReactorGUIOpen"
+          },
+          "width": 65,
+          "height": 20,
+          "name": "activate",
+          "x": 176,
+          "y": 94
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "ReactorGUIOpen"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="atlas_multi"
+version="0.0.1"
+displayName="atlas reactors"
+credits="model designer - ROLEMAYMOLY, model animator and developer - declan234e"
+displayURL="https://mcreator.net"
+authors="declan234e, ROLEMAYMOLY"
+description='''
+just adds rectors
+'''
+
+[[dependencies.atlas_multi]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+

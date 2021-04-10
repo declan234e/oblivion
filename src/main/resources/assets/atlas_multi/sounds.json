@@ -1,0 +1,12 @@
+{
+  "reactor_meltdown": {
+    "category": "master",
+    "subtitle": "subtitles.reactor_meltdown",
+    "sounds": [
+      {
+        "name": "atlas_multi:reactor_alert",
+        "stream": false
+      }
+    ]
+  }
+}

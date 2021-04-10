@@ -1,0 +1,11 @@
+{
+  "_fv": 17,
+  "_type": "tab",
+  "definition": {
+    "name": "Reactors",
+    "icon": {
+      "value": "CUSTOM:UrandiaOre"
+    },
+    "showSearch": false
+  }
+}

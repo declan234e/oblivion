@@ -1,0 +1,21 @@
+{
+  "parent": "atlas_multi:custom/reactor_controller",
+  "textures": {
+    "all": "atlas_multi:blocks/servers",
+    "particle": "atlas_multi:blocks/base",
+    "11": "atlas_multi:blocks/top_wall_1",
+    "12": "atlas_multi:blocks/glass",
+    "13": "atlas_multi:blocks/power_charger_pole",
+    "14": "atlas_multi:blocks/hammer_joint_coil_pole",
+    "0": "atlas_multi:blocks/servers",
+    "3": "atlas_multi:blocks/servers_top",
+    "4": "atlas_multi:blocks/front_wall",
+    "5": "atlas_multi:blocks/controller_screen",
+    "6": "atlas_multi:blocks/wire_1",
+    "7": "atlas_multi:blocks/base",
+    "missing": "atlas_multi:blocks/missing",
+    "8": "atlas_multi:blocks/battery_cell_platform",
+    "9": "atlas_multi:blocks/top_detail_power_cell_1",
+    "10": "atlas_multi:blocks/power_wire_1"
+  }
+}

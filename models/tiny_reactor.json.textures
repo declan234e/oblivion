@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "full_tiny_reactor_texture",
+        "1": "glass",
+        "missing": "missing"
+      },
+      "name": "default"
+    }
+  }
+}
