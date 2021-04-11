@@ -54,6 +54,14 @@ public class TinyReactorUpdateTickProcedure extends AtlasMultiModElements.ModEle
 			$_dependencies.put("world", world);
 			CheckForIngotProcedure.executeProcedure($_dependencies);
 		}
+		{
+			Map<String, Object> $_dependencies = new HashMap<>();
+			$_dependencies.put("x", x);
+			$_dependencies.put("y", y);
+			$_dependencies.put("z", z);
+			$_dependencies.put("world", world);
+			CheckForFilterProcedure.executeProcedure($_dependencies);
+		}
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;

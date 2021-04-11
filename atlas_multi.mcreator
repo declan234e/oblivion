@@ -2,116 +2,14 @@
   "id_map": {},
   "mod_elements": [
     {
-      "name": "Rtgegfsw",
-      "type": "procedure",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "rtgegfsw",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Atlasreactor",
-      "type": "gui",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "atlasreactor"
-    },
-    {
-      "name": "BoomBox",
-      "type": "block",
-      "sortid": 2,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "boom_box"
-    },
-    {
-      "name": "MeltdownTest",
-      "type": "block",
-      "sortid": 3,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "meltdown_test"
-    },
-    {
-      "name": "MeltdownGUI",
-      "type": "gui",
-      "sortid": 4,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "meltdown_gui"
-    },
-    {
-      "name": "MeltDown",
-      "type": "procedure",
-      "sortid": 5,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "melt_down",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ReactorMelt",
-      "type": "achievement",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_melt"
-    },
-    {
       "name": "Reactors",
       "type": "tab",
       "sortid": 7,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "reactors"
+      "registry_name": "reactors",
+      "path": "~/Misc"
     },
     {
       "name": "UrandiaOre",
@@ -120,92 +18,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "urandia_ore"
-    },
-    {
-      "name": "ReactorController",
-      "type": "block",
-      "sortid": 8,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_controller"
-    },
-    {
-      "name": "ReactorControllerMain",
-      "type": "gui",
-      "sortid": 9,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_controller_main"
-    },
-    {
-      "name": "ReactorControllerActivate",
-      "type": "procedure",
-      "sortid": 10,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_controller_activate",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ReactorControllerUpdateTick",
-      "type": "procedure",
-      "sortid": 11,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_controller_update_tick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ReactorControllerStart",
-      "type": "block",
-      "sortid": 12,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "reactor_controller_start"
+      "registry_name": "urandia_ore",
+      "path": "~/blocks/ores"
     },
     {
       "name": "UrandiaIngot",
@@ -214,7 +28,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "urandia_ingot"
+      "registry_name": "urandia_ingot",
+      "path": "~/items/urandia ingot"
     },
     {
       "name": "UrandiaOreSmelt",
@@ -223,7 +38,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "urandia_ore_smelt"
+      "registry_name": "urandia_ore_smelt",
+      "path": "~/recipes"
     },
     {
       "name": "UrandiaIngotItemIsCraftedsmelted",
@@ -252,7 +68,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/items/urandia ingot"
     },
     {
       "name": "TinyReactorGui",
@@ -262,7 +79,7 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
-      "path": "~/tiny_reactor/UI"
+      "path": "~/blocks/tiny_reactor/UI"
     },
     {
       "name": "TinyReactorState1",
@@ -272,7 +89,7 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
-      "path": "~/tiny_reactor/blockstates"
+      "path": "~/blocks/tiny_reactor/blockstates"
     },
     {
       "name": "TinyReactorState1BlockAdded",
@@ -302,7 +119,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/blocks/tiny_reactor/procedures"
     },
     {
       "name": "TinyReactorUpdateTick",
@@ -332,7 +149,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/blocks/tiny_reactor/procedures"
     },
     {
       "name": "CheckForIngot",
@@ -362,7 +179,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/blocks/tiny_reactor/procedures/checkFor"
     },
     {
       "name": "OneRodReturn",
@@ -393,7 +210,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/rods"
+      "path": "~/blocks/tiny_reactor/procedures/rods"
     },
     {
       "name": "TwoRodReturn",
@@ -424,7 +241,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/rods"
+      "path": "~/blocks/tiny_reactor/procedures/rods"
     },
     {
       "name": "ThreeRodReturn",
@@ -455,7 +272,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/rods"
+      "path": "~/blocks/tiny_reactor/procedures/rods"
     },
     {
       "name": "FourRodReturn",
@@ -486,7 +303,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/rods"
+      "path": "~/blocks/tiny_reactor/procedures/rods"
     },
     {
       "name": "EnergyLessThan1k",
@@ -517,7 +334,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "EnergyMoreThan1k",
@@ -548,7 +365,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "EnergyMoreThan2k",
@@ -579,7 +396,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy3K",
@@ -610,7 +427,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy4K",
@@ -641,7 +458,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy5K",
@@ -672,7 +489,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy6k",
@@ -703,7 +520,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy7k",
@@ -734,7 +551,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy8k",
@@ -765,7 +582,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy9k",
@@ -796,7 +613,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy10k",
@@ -827,7 +644,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy11k",
@@ -858,7 +675,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy12k",
@@ -889,7 +706,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy13k",
@@ -920,7 +737,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy14k",
@@ -951,7 +768,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     },
     {
       "name": "Energy15k",
@@ -982,7 +799,78 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures/energy"
+      "path": "~/blocks/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Filter",
+      "type": "item",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "filter",
+      "path": "~/items/filter"
+    },
+    {
+      "name": "OneFilter",
+      "type": "procedure",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "one_filter",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/filter"
+    },
+    {
+      "name": "CheckForFilter",
+      "type": "procedure",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "check_for_filter",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/checkFor"
     }
   ],
   "variable_elements": [],
@@ -999,15 +887,10 @@
   "language_map": {
     "en_us": {
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
-      "block.atlas_multi.reactor_controller_start": "Reactor Controller Start",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
-      "advancements.reactor_melt.descr": "put a reactor into meltdown (or be near one)",
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
-      "block.atlas_multi.reactor_controller": "Reactor Controller",
-      "advancements.reactor_melt.title": "oh no",
-      "block.atlas_multi.meltdown_test": "Meltdown Test",
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
-      "block.atlas_multi.boom_box": "Boom Box",
+      "item.atlas_multi.filter": "Water Filter",
       "itemGroup.tabreactors": "Reactors"
     }
   },
@@ -1015,30 +898,72 @@
     "name": "~",
     "children": [
       {
-        "name": "tiny_reactor",
+        "name": "items",
         "children": [
           {
-            "name": "blockstates",
+            "name": "filter",
             "children": []
           },
           {
-            "name": "procedures",
-            "children": [
-              {
-                "name": "energy",
-                "children": []
-              },
-              {
-                "name": "rods",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "UI",
+            "name": "urandia ingot",
             "children": []
           }
         ]
+      },
+      {
+        "name": "blocks",
+        "children": [
+          {
+            "name": "ores",
+            "children": []
+          },
+          {
+            "name": "tiny_reactor",
+            "children": [
+              {
+                "name": "blockstates",
+                "children": []
+              },
+              {
+                "name": "procedures",
+                "children": [
+                  {
+                    "name": "energy",
+                    "children": []
+                  },
+                  {
+                    "name": "rods",
+                    "children": []
+                  },
+                  {
+                    "name": "filter",
+                    "children": []
+                  },
+                  {
+                    "name": "checkFor",
+                    "children": []
+                  },
+                  {
+                    "name": "temperature",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "UI",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "recipes",
+        "children": []
+      },
+      {
+        "name": "Misc",
+        "children": []
       }
     ]
   },

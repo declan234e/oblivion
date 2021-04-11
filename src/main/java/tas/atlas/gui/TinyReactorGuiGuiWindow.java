@@ -4,6 +4,7 @@ package tas.atlas.gui;
 import tas.atlas.procedures.TwoRodReturnProcedure;
 import tas.atlas.procedures.ThreeRodReturnProcedure;
 import tas.atlas.procedures.OneRodReturnProcedure;
+import tas.atlas.procedures.OneFilterProcedure;
 import tas.atlas.procedures.EnergyMoreThan2kProcedure;
 import tas.atlas.procedures.EnergyMoreThan1kProcedure;
 import tas.atlas.procedures.EnergyLessThan1kProcedure;
@@ -73,6 +74,8 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_gui.png"));
+		this.blit(ms, this.guiLeft + 0, this.guiTop + 0, 0, 0, 176, 166, 176, 166);
 		if (OneRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.guiLeft + 64, this.guiTop + 46, 0, 0, 46, 2, 46, 2);
@@ -84,6 +87,14 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		if (ThreeRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.guiLeft + 64, this.guiTop + 56, 0, 0, 46, 2, 46, 2);
+		}
+		if (OneFilterProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/filtergui.png"));
+			this.blit(ms, this.guiLeft + 119, this.guiTop + 10, 0, 0, 14, 3, 14, 3);
+		}
+		if (OneFilterProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/filtergui.png"));
+			this.blit(ms, this.guiLeft + 119, this.guiTop + 21, 0, 0, 14, 3, 14, 3);
 		}
 	}
 
@@ -143,6 +154,14 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 			this.font.drawString(ms, "14K FE", 41, 22, -3355444);
 		if (Energy15kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "15K FE", 41, 22, -3355444);
+		this.font.drawString(ms, "" + (new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return 0;
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "tagName")) + "\u00B0", 119, 32, -12829636);
 	}
 
 	@Override

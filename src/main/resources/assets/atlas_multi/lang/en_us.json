@@ -1,13 +1,8 @@
 {
   "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
-  "block.atlas_multi.reactor_controller_start": "Reactor Controller Start",
   "block.atlas_multi.urandia_ore": "Urandia Ore",
-  "advancements.reactor_melt.descr": "put a reactor into meltdown (or be near one)",
   "item.atlas_multi.urandia_ingot": "Urandia Ingot",
-  "block.atlas_multi.reactor_controller": "Reactor Controller",
-  "advancements.reactor_melt.title": "oh no",
-  "block.atlas_multi.meltdown_test": "Meltdown Test",
   "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
-  "block.atlas_multi.boom_box": "Boom Box",
+  "item.atlas_multi.filter": "Water Filter",
   "itemGroup.tabreactors": "Reactors"
 }

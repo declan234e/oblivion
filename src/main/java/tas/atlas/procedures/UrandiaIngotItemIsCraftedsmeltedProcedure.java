@@ -46,7 +46,7 @@ public class UrandiaIngotItemIsCraftedsmeltedProcedure extends AtlasMultiModElem
 		IWorld world = (IWorld) dependencies.get("world");
 		double random_chance = 0;
 		random_chance = (double) Math.random();
-		if (((random_chance) == 0)) {
+		if (((random_chance) <= 0.5)) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

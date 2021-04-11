@@ -2,6 +2,7 @@
 package tas.atlas.gui;
 
 import tas.atlas.item.UrandiaIngotItem;
+import tas.atlas.item.FilterItem;
 import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
@@ -22,7 +23,6 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.inventory.container.ContainerType;
@@ -130,7 +130,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (new ItemStack(Items.WATER_BUCKET, (int) (1)).getItem() == stack.getItem());
+					return (new ItemStack(FilterItem.block, (int) (1)).getItem() == stack.getItem());
 				}
 			}));
 			int si;

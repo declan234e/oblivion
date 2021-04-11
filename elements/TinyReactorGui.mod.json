@@ -11,6 +11,16 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "tiny_reactor_gui.png",
+          "use1Xscale": false,
+          "name": "tiny_reactor_gui.png",
+          "x": 125,
+          "y": 37
+        }
+      },
+      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -55,7 +65,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "Items.WATER_BUCKET"
+            "value": "CUSTOM:Filter"
           },
           "id": 2,
           "disableStackInteraction": false,
@@ -342,6 +352,45 @@
           "name": "15K FE",
           "x": 167,
           "y": 59
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "filtergui.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OneFilter"
+          },
+          "name": "filtergui.png",
+          "x": 245,
+          "y": 47
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "filtergui.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OneFilter"
+          },
+          "name": "filtergui.png",
+          "x": 245,
+          "y": 58
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:tagName>°",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:tagName>°",
+          "x": 245,
+          "y": 69
         }
       }
     ]
