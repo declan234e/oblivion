@@ -47,6 +47,6 @@ public class FourRodReturnProcedure extends AtlasMultiModElements.ModElement {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandie")) == 4);
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 4);
 	}
 }

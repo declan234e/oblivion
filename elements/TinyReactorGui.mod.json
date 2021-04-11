@@ -80,6 +80,269 @@
           "x": 167,
           "y": 59
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tiny_reactor_fuelrod.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OneRodReturn"
+          },
+          "name": "tiny_reactor_fuelrod.png",
+          "x": 190,
+          "y": 83
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tiny_reactor_fuelrod.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "TwoRodReturn"
+          },
+          "name": "tiny_reactor_fuelrod.png",
+          "x": 190,
+          "y": 88
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tiny_reactor_fuelrod.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ThreeRodReturn"
+          },
+          "name": "tiny_reactor_fuelrod.png",
+          "x": 190,
+          "y": 93
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "2k FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "EnergyMoreThan2k"
+          },
+          "name": "2k FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "3K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy3K"
+          },
+          "name": "3K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "4K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy4K"
+          },
+          "name": "4K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5k FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy5K"
+          },
+          "name": "5k FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "6K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy6k"
+          },
+          "name": "6K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "7K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy7k"
+          },
+          "name": "7K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "8K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy8k"
+          },
+          "name": "8K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "9K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy9k"
+          },
+          "name": "9K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "10K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy10k"
+          },
+          "name": "10K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "11K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy11k"
+          },
+          "name": "11K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "12K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy12k"
+          },
+          "name": "12K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "13K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy13k"
+          },
+          "name": "13K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "14K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy14k"
+          },
+          "name": "14K FE",
+          "x": 167,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "15K FE",
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Energy15k"
+          },
+          "name": "15K FE",
+          "x": 167,
+          "y": 59
+        }
       }
     ]
   }

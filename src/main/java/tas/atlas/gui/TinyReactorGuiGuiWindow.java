@@ -1,8 +1,25 @@
 
 package tas.atlas.gui;
 
+import tas.atlas.procedures.TwoRodReturnProcedure;
+import tas.atlas.procedures.ThreeRodReturnProcedure;
+import tas.atlas.procedures.OneRodReturnProcedure;
+import tas.atlas.procedures.EnergyMoreThan2kProcedure;
 import tas.atlas.procedures.EnergyMoreThan1kProcedure;
 import tas.atlas.procedures.EnergyLessThan1kProcedure;
+import tas.atlas.procedures.Energy9kProcedure;
+import tas.atlas.procedures.Energy8kProcedure;
+import tas.atlas.procedures.Energy7kProcedure;
+import tas.atlas.procedures.Energy6kProcedure;
+import tas.atlas.procedures.Energy5KProcedure;
+import tas.atlas.procedures.Energy4KProcedure;
+import tas.atlas.procedures.Energy3KProcedure;
+import tas.atlas.procedures.Energy15kProcedure;
+import tas.atlas.procedures.Energy14kProcedure;
+import tas.atlas.procedures.Energy13kProcedure;
+import tas.atlas.procedures.Energy12kProcedure;
+import tas.atlas.procedures.Energy11kProcedure;
+import tas.atlas.procedures.Energy10kProcedure;
 
 import org.lwjgl.opengl.GL11;
 
@@ -56,6 +73,18 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (OneRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
+			this.blit(ms, this.guiLeft + 64, this.guiTop + 46, 0, 0, 46, 2, 46, 2);
+		}
+		if (TwoRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
+			this.blit(ms, this.guiLeft + 64, this.guiTop + 51, 0, 0, 46, 2, 46, 2);
+		}
+		if (ThreeRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
+			this.blit(ms, this.guiLeft + 64, this.guiTop + 56, 0, 0, 46, 2, 46, 2);
+		}
 	}
 
 	@Override
@@ -86,6 +115,34 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 			}.getEnergyStored(new BlockPos((int) x, (int) y, (int) z))) + " FE", 40, 22, -3355444);
 		if (EnergyMoreThan1kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "1K FE", 41, 22, -3355444);
+		if (EnergyMoreThan2kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "2k FE", 41, 22, -3355444);
+		if (Energy3KProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "3K FE", 41, 22, -3355444);
+		if (Energy4KProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "4K FE", 41, 22, -3355444);
+		if (Energy5KProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "5k FE", 41, 22, -3355444);
+		if (Energy6kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "6K FE", 41, 22, -3355444);
+		if (Energy7kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "7K FE", 41, 22, -3355444);
+		if (Energy8kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "8K FE", 41, 22, -3355444);
+		if (Energy9kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "9K FE", 41, 22, -3355444);
+		if (Energy10kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "10K FE", 41, 22, -3355444);
+		if (Energy11kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "11K FE", 41, 22, -3355444);
+		if (Energy12kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "12K FE", 41, 22, -3355444);
+		if (Energy13kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "13K FE", 41, 22, -3355444);
+		if (Energy14kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "14K FE", 41, 22, -3355444);
+		if (Energy15kProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "15K FE", 41, 22, -3355444);
 	}
 
 	@Override

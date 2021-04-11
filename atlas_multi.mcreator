@@ -393,7 +393,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/rods"
     },
     {
       "name": "TwoRodReturn",
@@ -424,7 +424,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/rods"
     },
     {
       "name": "ThreeRodReturn",
@@ -455,7 +455,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/rods"
     },
     {
       "name": "FourRodReturn",
@@ -486,7 +486,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/rods"
     },
     {
       "name": "EnergyLessThan1k",
@@ -517,7 +517,7 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/energy"
     },
     {
       "name": "EnergyMoreThan1k",
@@ -548,7 +548,441 @@
           }
         ]
       },
-      "path": "~/tiny_reactor/procedures"
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "EnergyMoreThan2k",
+      "type": "procedure",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_more_than_2k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy3K",
+      "type": "procedure",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_3_k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy4K",
+      "type": "procedure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_4_k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy5K",
+      "type": "procedure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_5_k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy6k",
+      "type": "procedure",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_6k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy7k",
+      "type": "procedure",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_7k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy8k",
+      "type": "procedure",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_8k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy9k",
+      "type": "procedure",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_9k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy10k",
+      "type": "procedure",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_10k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy11k",
+      "type": "procedure",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_11k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy12k",
+      "type": "procedure",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_12k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy13k",
+      "type": "procedure",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_13k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy14k",
+      "type": "procedure",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_14k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
+    },
+    {
+      "name": "Energy15k",
+      "type": "procedure",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energy_15k",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tiny_reactor/procedures/energy"
     }
   ],
   "variable_elements": [],
@@ -566,15 +1000,15 @@
     "en_us": {
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
       "block.atlas_multi.reactor_controller_start": "Reactor Controller Start",
-      "item.atlas_multi.urandia_ingot": "Urandia Ingot",
-      "itemGroup.tabreactors": "Reactors",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
       "advancements.reactor_melt.descr": "put a reactor into meltdown (or be near one)",
+      "item.atlas_multi.urandia_ingot": "Urandia Ingot",
       "block.atlas_multi.reactor_controller": "Reactor Controller",
       "advancements.reactor_melt.title": "oh no",
       "block.atlas_multi.meltdown_test": "Meltdown Test",
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
-      "block.atlas_multi.boom_box": "Boom Box"
+      "block.atlas_multi.boom_box": "Boom Box",
+      "itemGroup.tabreactors": "Reactors"
     }
   },
   "foldersRoot": {
@@ -589,7 +1023,16 @@
           },
           {
             "name": "procedures",
-            "children": []
+            "children": [
+              {
+                "name": "energy",
+                "children": []
+              },
+              {
+                "name": "rods",
+                "children": []
+              }
+            ]
           },
           {
             "name": "UI",

@@ -3,10 +3,13 @@ package tas.atlas.procedures;
 import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
+import net.minecraftforge.energy.CapabilityEnergy;
+
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 @AtlasMultiModElements.ModElement.Tag
@@ -40,13 +43,22 @@ public class EnergyMoreThan1kProcedure extends AtlasMultiModElements.ModElement 
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		return ((new Object() {
-			public double getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getDouble(tag);
-				return -1;
+		return (((new Object() {
+			public int getEnergyStored(IWorld world, BlockPos pos) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
+				return _retval.get();
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "energyStorage")) >= 1001);
+		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) >= 1001) && ((new Object() {
+			public int getEnergyStored(IWorld world, BlockPos pos) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
+				return _retval.get();
+			}
+		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) < 2000));
 	}
 }

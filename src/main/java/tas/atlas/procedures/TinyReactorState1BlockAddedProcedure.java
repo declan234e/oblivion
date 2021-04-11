@@ -47,7 +47,7 @@ public class TinyReactorState1BlockAddedProcedure extends AtlasMultiModElements.
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
-				_tileEntity.getTileData().putDouble("numOfUrandie", 0);
+				_tileEntity.getTileData().putDouble("numOfUrandia", 0);
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
