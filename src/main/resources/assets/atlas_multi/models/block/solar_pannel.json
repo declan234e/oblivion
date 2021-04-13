@@ -1,0 +1,9 @@
+{
+  "parent": "atlas_multi:custom/solarpannel",
+  "textures": {
+    "all": "atlas_multi:blocks/cobblestone",
+    "particle": "atlas_multi:blocks/cobblestone",
+    "0": "atlas_multi:blocks/solarpanneltop",
+    "2": "atlas_multi:blocks/cobblestone"
+  }
+}

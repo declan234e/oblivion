@@ -389,8 +389,25 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:tagName>°",
-          "x": 245,
+          "x": 246,
           "y": 69
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "start",
+          "onClick": {
+            "name": "StartThing"
+          },
+          "displayCondition": {
+            "name": "StartThing"
+          },
+          "width": 51,
+          "height": 20,
+          "name": "start",
+          "x": 188,
+          "y": 99
         }
       }
     ]

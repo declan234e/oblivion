@@ -1,6 +1,7 @@
 
 package tas.atlas.gui;
 
+import tas.atlas.procedures.StartThingProcedure;
 import tas.atlas.item.UrandiaIngotItem;
 import tas.atlas.item.FilterItem;
 import tas.atlas.AtlasMultiModElements;
@@ -23,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.inventory.container.ContainerType;
@@ -130,7 +132,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (new ItemStack(FilterItem.block, (int) (1)).getItem() == stack.getItem());
+					return (new ItemStack(FilterItem.block, (int) (1)).getItem() == stack.getItem() || new ItemStack(Items.WATER_BUCKET, (int) (1)).getItem() == stack.getItem());
 				}
 			}));
 			int si;
@@ -380,6 +382,16 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				StartThingProcedure.executeProcedure($_dependencies);
+			}
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

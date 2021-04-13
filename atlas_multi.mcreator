@@ -76,7 +76,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
@@ -86,7 +86,7 @@
       "type": "block",
       "sortid": 17,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
       "path": "~/blocks/tiny_reactor/blockstates"
@@ -871,6 +871,176 @@
         ]
       },
       "path": "~/blocks/tiny_reactor/procedures/checkFor"
+    },
+    {
+      "name": "TempSystem",
+      "type": "procedure",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "temp_system",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/temperature"
+    },
+    {
+      "name": "StartThing",
+      "type": "procedure",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "start_thing",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/start"
+    },
+    {
+      "name": "TinyActivateButton",
+      "type": "procedure",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "tiny_activate_button",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/start"
+    },
+    {
+      "name": "SolarPannelUpdateTick",
+      "type": "procedure",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "solar_pannel_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SolarPannel",
+      "type": "block",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "solar_pannel",
+      "path": "~/blocks/solarPannel"
+    },
+    {
+      "name": "TinyReactorState2",
+      "type": "block",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "tiny_reactor_state_2",
+      "path": "~/blocks/tiny_reactor/blockstates"
+    },
+    {
+      "name": "RodBlockstate",
+      "type": "procedure",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rod_blockstate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/rods/blockstateRods"
     }
   ],
   "variable_elements": [],
@@ -887,7 +1057,9 @@
   "language_map": {
     "en_us": {
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
+      "block.atlas_multi.tiny_reactor_state_2": "Tiny Reactor ",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
+      "block.atlas_multi.solar_pannel": "Solar Pannel",
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
       "item.atlas_multi.filter": "Water Filter",
@@ -933,7 +1105,12 @@
                   },
                   {
                     "name": "rods",
-                    "children": []
+                    "children": [
+                      {
+                        "name": "blockstateRods",
+                        "children": []
+                      }
+                    ]
                   },
                   {
                     "name": "filter",
@@ -946,6 +1123,10 @@
                   {
                     "name": "temperature",
                     "children": []
+                  },
+                  {
+                    "name": "start",
+                    "children": []
                   }
                 ]
               },
@@ -954,6 +1135,10 @@
                 "children": []
               }
             ]
+          },
+          {
+            "name": "solarPannel",
+            "children": []
           }
         ]
       },

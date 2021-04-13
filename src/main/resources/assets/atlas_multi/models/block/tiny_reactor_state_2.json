@@ -1,0 +1,10 @@
+{
+  "parent": "atlas_multi:custom/tiny_reactor",
+  "textures": {
+    "all": "atlas_multi:blocks/tiny_reactor_texture_1_rods",
+    "particle": "atlas_multi:blocks/tiny_reactor_texture_1_rods",
+    "0": "atlas_multi:blocks/tiny_reactor_texture_1_rods",
+    "1": "atlas_multi:blocks/glass",
+    "missing": "atlas_multi:blocks/missing"
+  }
+}

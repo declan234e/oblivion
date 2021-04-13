@@ -3,6 +3,7 @@ package tas.atlas.gui;
 
 import tas.atlas.procedures.TwoRodReturnProcedure;
 import tas.atlas.procedures.ThreeRodReturnProcedure;
+import tas.atlas.procedures.StartThingProcedure;
 import tas.atlas.procedures.OneRodReturnProcedure;
 import tas.atlas.procedures.OneFilterProcedure;
 import tas.atlas.procedures.EnergyMoreThan2kProcedure;
@@ -21,6 +22,7 @@ import tas.atlas.procedures.Energy13kProcedure;
 import tas.atlas.procedures.Energy12kProcedure;
 import tas.atlas.procedures.Energy11kProcedure;
 import tas.atlas.procedures.Energy10kProcedure;
+import tas.atlas.AtlasMultiMod;
 
 import org.lwjgl.opengl.GL11;
 
@@ -29,12 +31,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
@@ -161,7 +165,7 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "tagName")) + "\u00B0", 119, 32, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "tagName")) + "\u00B0", 120, 32, -12829636);
 	}
 
 	@Override
@@ -174,5 +178,15 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
+		this.addButton(new Button(this.guiLeft + 62, this.guiTop + 62, 51, 20, new StringTextComponent("start"), e -> {
+			AtlasMultiMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiGui.ButtonPressedMessage(0, x, y, z));
+			TinyReactorGuiGui.handleButtonAction(entity, 0, x, y, z);
+		}) {
+			@Override
+			public void render(MatrixStack ms, int x, int y, float ticks) {
+				if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+					super.render(ms, x, y, ticks);
+			}
+		});
 	}
 }

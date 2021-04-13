@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "atlas_multi:block/tiny_reactor_state_2"
+    },
+    "facing=east": {
+      "model": "atlas_multi:block/tiny_reactor_state_2",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "atlas_multi:block/tiny_reactor_state_2",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "atlas_multi:block/tiny_reactor_state_2",
+      "y": 270
+    }
+  }
+}
