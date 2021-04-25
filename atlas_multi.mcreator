@@ -76,7 +76,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
@@ -86,7 +86,7 @@
       "type": "block",
       "sortid": 17,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
       "path": "~/blocks/tiny_reactor/blockstates"
@@ -1003,16 +1003,6 @@
       "path": "~/blocks/solarPannel"
     },
     {
-      "name": "TinyReactorState2",
-      "type": "block",
-      "sortid": 53,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "tiny_reactor_state_2",
-      "path": "~/blocks/tiny_reactor/blockstates"
-    },
-    {
       "name": "RodBlockstate",
       "type": "procedure",
       "sortid": 54,
@@ -1057,7 +1047,6 @@
   "language_map": {
     "en_us": {
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
-      "block.atlas_multi.tiny_reactor_state_2": "Tiny Reactor ",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
       "block.atlas_multi.solar_pannel": "Solar Pannel",
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
@@ -1171,5 +1160,5 @@
     "modElementsPackage": "tas.atlas",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100112313
+  "mcreatorVersion": 202100116710
 }

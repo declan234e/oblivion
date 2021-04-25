@@ -42,20 +42,20 @@ public class TinyActivateButtonProcedure extends AtlasMultiModElements.ModElemen
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((new Object() {
-			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+		if ((((new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
-					return tileEntity.getTileData().getBoolean(tag);
-				return false;
+					return tileEntity.getTileData().getString(tag);
+				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "active")) == (false))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no"))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putBoolean("active", (true));
+					_tileEntity.getTileData().putString("isActive", "yes");
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}

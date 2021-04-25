@@ -1,5 +1,5 @@
 {
-  "_fv": 17,
+  "_fv": 18,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -398,7 +398,7 @@
         "data": {
           "text": "start",
           "onClick": {
-            "name": "StartThing"
+            "name": "TinyActivateButton"
           },
           "displayCondition": {
             "name": "StartThing"

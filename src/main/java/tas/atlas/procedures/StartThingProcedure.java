@@ -51,13 +51,13 @@ public class StartThingProcedure extends AtlasMultiModElements.ModElement {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) >= 2000) && ((new Object() {
-			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) > 2000) && (((new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
-					return tileEntity.getTileData().getBoolean(tag);
-				return false;
+					return tileEntity.getTileData().getString(tag);
+				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "active")) == (false)));
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no")));
 	}
 }

@@ -24,8 +24,6 @@ import tas.atlas.procedures.Energy11kProcedure;
 import tas.atlas.procedures.Energy10kProcedure;
 import tas.atlas.AtlasMultiMod;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -44,6 +42,7 @@ import net.minecraft.client.Minecraft;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import com.google.common.collect.ImmutableMap;
@@ -72,8 +71,10 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 	}
 
 	@Override
-	protected void drawGuiContainerBackgroundLayer(MatrixStack ms, float par1, int par2, int par3) {
-		GL11.glColor4f(1, 1, 1, 1);
+	protected void drawGuiContainerBackgroundLayer(MatrixStack ms, float partialTicks, int gx, int gy) {
+		RenderSystem.color4f(1, 1, 1, 1);
+		RenderSystem.enableBlend();
+		RenderSystem.defaultBlendFunc();
 		Minecraft.getInstance().getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
@@ -100,6 +101,7 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/filtergui.png"));
 			this.blit(ms, this.guiLeft + 119, this.guiTop + 21, 0, 0, 14, 3, 14, 3);
 		}
+		RenderSystem.disableBlend();
 	}
 
 	@Override
@@ -179,13 +181,15 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
 		this.addButton(new Button(this.guiLeft + 62, this.guiTop + 62, 51, 20, new StringTextComponent("start"), e -> {
-			AtlasMultiMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiGui.ButtonPressedMessage(0, x, y, z));
-			TinyReactorGuiGui.handleButtonAction(entity, 0, x, y, z);
+			if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				AtlasMultiMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiGui.ButtonPressedMessage(0, x, y, z));
+				TinyReactorGuiGui.handleButtonAction(entity, 0, x, y, z);
+			}
 		}) {
 			@Override
-			public void render(MatrixStack ms, int x, int y, float ticks) {
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
 				if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
-					super.render(ms, x, y, ticks);
+					super.render(ms, gx, gy, ticks);
 			}
 		});
 	}
