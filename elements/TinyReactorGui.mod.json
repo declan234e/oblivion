@@ -1,5 +1,5 @@
 {
-  "_fv": 18,
+  "_fv": 24,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -10,16 +10,6 @@
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
-      {
-        "type": "image",
-        "data": {
-          "image": "tiny_reactor_gui.png",
-          "use1Xscale": false,
-          "name": "tiny_reactor_gui.png",
-          "x": 125,
-          "y": 37
-        }
-      },
       {
         "type": "inputslot",
         "data": {
@@ -383,12 +373,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<BNBT:number:tagName>°",
+          "text": "<BNBT:number:temperature>°",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "<BNBT:number:tagName>°",
+          "name": "<BNBT:number:temperature>°",
           "x": 246,
           "y": 69
         }
@@ -409,7 +399,46 @@
           "x": 188,
           "y": 99
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "IS ACTIVE",
+          "color": {
+            "value": -10027162,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "IsActiveTextCall"
+          },
+          "name": "IS ACTIVE",
+          "x": 206,
+          "y": 39
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "NO ACTIVE",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "IsActiveNOCALL"
+          },
+          "name": "NO ACTIVE",
+          "x": 207,
+          "y": 39
+        }
       }
-    ]
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
   }
 }

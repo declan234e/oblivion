@@ -68,6 +68,11 @@ public class UrandiaOreBlock extends AtlasMultiModElements.ModElement {
 		}
 
 		@Override
+		public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return 15;
+		}
+
+		@Override
 		public MaterialColor getMaterialColor() {
 			return MaterialColor.GRASS;
 		}
@@ -93,13 +98,13 @@ public class UrandiaOreBlock extends AtlasMultiModElements.ModElement {
 		static final com.mojang.serialization.Codec<CustomRuleTest> codec = com.mojang.serialization.Codec.unit(() -> INSTANCE);
 		public boolean test(BlockState blockAt, Random random) {
 			boolean blockCriteria = false;
-			if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
+			if (blockAt.getBlock() == Blocks.STONE)
 				blockCriteria = true;
-			if (blockAt.getBlock() == Blocks.DIRT.getDefaultState().getBlock())
+			if (blockAt.getBlock() == Blocks.DIRT)
 				blockCriteria = true;
-			if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
+			if (blockAt.getBlock() == Blocks.STONE)
 				blockCriteria = true;
-			if (blockAt.getBlock() == Blocks.ANDESITE.getDefaultState().getBlock())
+			if (blockAt.getBlock() == Blocks.ANDESITE)
 				blockCriteria = true;
 			return blockCriteria;
 		}

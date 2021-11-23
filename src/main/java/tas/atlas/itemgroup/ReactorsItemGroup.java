@@ -22,7 +22,7 @@ public class ReactorsItemGroup extends AtlasMultiModElements.ModElement {
 			@OnlyIn(Dist.CLIENT)
 			@Override
 			public ItemStack createIcon() {
-				return new ItemStack(UrandiaOreBlock.block, (int) (1));
+				return new ItemStack(UrandiaOreBlock.block);
 			}
 
 			@OnlyIn(Dist.CLIENT)

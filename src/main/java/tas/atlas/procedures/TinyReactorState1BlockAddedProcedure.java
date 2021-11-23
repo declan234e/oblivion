@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraft.world.World;
@@ -11,12 +10,7 @@ import net.minecraft.block.BlockState;
 
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class TinyReactorState1BlockAddedProcedure extends AtlasMultiModElements.ModElement {
-	public TinyReactorState1BlockAddedProcedure(AtlasMultiModElements instance) {
-		super(instance, 18);
-	}
-
+public class TinyReactorState1BlockAddedProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))

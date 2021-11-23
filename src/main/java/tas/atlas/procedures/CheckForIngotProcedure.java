@@ -1,7 +1,6 @@
 package tas.atlas.procedures;
 
 import tas.atlas.item.UrandiaIngotItem;
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -17,12 +16,7 @@ import net.minecraft.block.BlockState;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class CheckForIngotProcedure extends AtlasMultiModElements.ModElement {
-	public CheckForIngotProcedure(AtlasMultiModElements instance) {
-		super(instance, 19);
-	}
-
+public class CheckForIngotProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
@@ -59,8 +53,7 @@ public class CheckForIngotProcedure extends AtlasMultiModElements.ModElement {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == new ItemStack(UrandiaIngotItem.block, (int) (1))
-				.getItem())) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == UrandiaIngotItem.block)) {
 			if (((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);

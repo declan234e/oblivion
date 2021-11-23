@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -12,12 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class EnergyMoreThan2kProcedure extends AtlasMultiModElements.ModElement {
-	public EnergyMoreThan2kProcedure(AtlasMultiModElements instance) {
-		super(instance, 31);
-	}
-
+public class EnergyMoreThan2kProcedure {
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))

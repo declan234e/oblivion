@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraft.world.World;
@@ -11,12 +10,7 @@ import net.minecraft.block.BlockState;
 
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class RodBlockstateProcedure extends AtlasMultiModElements.ModElement {
-	public RodBlockstateProcedure(AtlasMultiModElements instance) {
-		super(instance, 54);
-	}
-
+public class RodBlockstateProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))

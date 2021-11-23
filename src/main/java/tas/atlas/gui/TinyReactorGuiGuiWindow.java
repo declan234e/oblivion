@@ -6,6 +6,8 @@ import tas.atlas.procedures.ThreeRodReturnProcedure;
 import tas.atlas.procedures.StartThingProcedure;
 import tas.atlas.procedures.OneRodReturnProcedure;
 import tas.atlas.procedures.OneFilterProcedure;
+import tas.atlas.procedures.IsActiveTextCallProcedure;
+import tas.atlas.procedures.IsActiveNOCALLProcedure;
 import tas.atlas.procedures.EnergyMoreThan2kProcedure;
 import tas.atlas.procedures.EnergyMoreThan1kProcedure;
 import tas.atlas.procedures.EnergyLessThan1kProcedure;
@@ -41,6 +43,7 @@ import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -52,6 +55,7 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
+	private final static HashMap guistate = TinyReactorGuiGui.guistate;
 	public TinyReactorGuiGuiWindow(TinyReactorGuiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -79,8 +83,6 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_gui.png"));
-		this.blit(ms, this.guiLeft + 0, this.guiTop + 0, 0, 0, 176, 166, 176, 166);
 		if (OneRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.guiLeft + 64, this.guiTop + 46, 0, 0, 46, 2, 46, 2);
@@ -167,7 +169,11 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "tagName")) + "\u00B0", 120, 32, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\u00B0", 120, 32, -12829636);
+		if (IsActiveTextCallProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "IS ACTIVE", 80, 2, -10027162);
+		if (IsActiveNOCALLProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+			this.font.drawString(ms, "NO ACTIVE", 81, 2, -52429);
 	}
 
 	@Override

@@ -1,23 +1,14 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
-
-import net.minecraftforge.energy.CapabilityEnergy;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class StartThingProcedure extends AtlasMultiModElements.ModElement {
-	public StartThingProcedure(AtlasMultiModElements instance) {
-		super(instance, 50);
-	}
-
+public class StartThingProcedure {
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
@@ -43,21 +34,13 @@ public class StartThingProcedure extends AtlasMultiModElements.ModElement {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		return (((new Object() {
-			public int getEnergyStored(IWorld world, BlockPos pos) {
-				AtomicInteger _retval = new AtomicInteger(0);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null)
-					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
-				return _retval.get();
-			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) > 2000) && (((new Object() {
-			public String getValue(IWorld world, BlockPos pos, String tag) {
+		return ((new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
-					return tileEntity.getTileData().getString(tag);
-				return "";
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no")));
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) >= 1);
 	}
 }

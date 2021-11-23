@@ -119,7 +119,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 133, 44) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (new ItemStack(UrandiaIngotItem.block, (int) (1)).getItem() == stack.getItem());
+					return (UrandiaIngotItem.block == stack.getItem());
 				}
 			}));
 			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 25, 44) {
@@ -131,7 +131,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (new ItemStack(FilterItem.block, (int) (1)).getItem() == stack.getItem());
+					return (FilterItem.block == stack.getItem());
 				}
 			}));
 			int si;

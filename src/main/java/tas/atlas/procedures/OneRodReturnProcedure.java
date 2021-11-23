@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraft.world.IWorld;
@@ -9,12 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class OneRodReturnProcedure extends AtlasMultiModElements.ModElement {
-	public OneRodReturnProcedure(AtlasMultiModElements instance) {
-		super(instance, 25);
-	}
-
+public class OneRodReturnProcedure {
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))

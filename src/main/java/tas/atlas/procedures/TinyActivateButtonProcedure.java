@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraft.world.World;
@@ -11,12 +10,7 @@ import net.minecraft.block.BlockState;
 
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class TinyActivateButtonProcedure extends AtlasMultiModElements.ModElement {
-	public TinyActivateButtonProcedure(AtlasMultiModElements instance) {
-		super(instance, 51);
-	}
-
+public class TinyActivateButtonProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
@@ -42,14 +36,21 @@ public class TinyActivateButtonProcedure extends AtlasMultiModElements.ModElemen
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if (((((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no")) && ((new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) >= 1))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

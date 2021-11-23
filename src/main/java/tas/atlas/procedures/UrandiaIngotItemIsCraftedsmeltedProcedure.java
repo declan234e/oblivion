@@ -1,6 +1,5 @@
 package tas.atlas.procedures;
 
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -13,12 +12,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class UrandiaIngotItemIsCraftedsmeltedProcedure extends AtlasMultiModElements.ModElement {
-	public UrandiaIngotItemIsCraftedsmeltedProcedure(AtlasMultiModElements instance) {
-		super(instance, 15);
-	}
-
+public class UrandiaIngotItemIsCraftedsmeltedProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
@@ -46,7 +40,7 @@ public class UrandiaIngotItemIsCraftedsmeltedProcedure extends AtlasMultiModElem
 		IWorld world = (IWorld) dependencies.get("world");
 		double random_chance = 0;
 		random_chance = (double) Math.random();
-		if (((random_chance) <= 0.5)) {
+		if ((random_chance <= 0.5)) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

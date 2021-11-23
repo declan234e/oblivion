@@ -190,7 +190,7 @@
       "ids": {},
       "registry_name": "one_rod_return",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -221,7 +221,7 @@
       "ids": {},
       "registry_name": "two_rod_return",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -252,7 +252,7 @@
       "ids": {},
       "registry_name": "three_rod_return",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -283,7 +283,7 @@
       "ids": {},
       "registry_name": "four_rod_return",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -314,7 +314,7 @@
       "ids": {},
       "registry_name": "energy_less_than_1k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -345,7 +345,7 @@
       "ids": {},
       "registry_name": "energy_more_than_1k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -376,7 +376,7 @@
       "ids": {},
       "registry_name": "energy_more_than_2k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -407,7 +407,7 @@
       "ids": {},
       "registry_name": "energy_3_k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -438,7 +438,7 @@
       "ids": {},
       "registry_name": "energy_4_k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -469,7 +469,7 @@
       "ids": {},
       "registry_name": "energy_5_k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -500,7 +500,7 @@
       "ids": {},
       "registry_name": "energy_6k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -531,7 +531,7 @@
       "ids": {},
       "registry_name": "energy_7k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -562,7 +562,7 @@
       "ids": {},
       "registry_name": "energy_8k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -593,7 +593,7 @@
       "ids": {},
       "registry_name": "energy_9k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -624,7 +624,7 @@
       "ids": {},
       "registry_name": "energy_10k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -655,7 +655,7 @@
       "ids": {},
       "registry_name": "energy_11k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -686,7 +686,7 @@
       "ids": {},
       "registry_name": "energy_12k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -717,7 +717,7 @@
       "ids": {},
       "registry_name": "energy_13k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -748,7 +748,7 @@
       "ids": {},
       "registry_name": "energy_14k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -779,7 +779,7 @@
       "ids": {},
       "registry_name": "energy_15k",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -820,7 +820,7 @@
       "ids": {},
       "registry_name": "one_filter",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -911,7 +911,7 @@
       "ids": {},
       "registry_name": "start_thing",
       "metadata": {
-        "return_type": "LOGIC",
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -1031,6 +1031,78 @@
         ]
       },
       "path": "~/blocks/tiny_reactor/procedures/rods/blockstateRods"
+    },
+    {
+      "name": "Ores",
+      "type": "tag",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ores",
+      "path": "~/blocks/ores/tags"
+    },
+    {
+      "name": "IsActiveTextCall",
+      "type": "procedure",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "is_active_text_call",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/UI/IsActiveText"
+    },
+    {
+      "name": "IsActiveNOCALL",
+      "type": "procedure",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "is_active_nocall",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/UI/IsActiveText"
     }
   ],
   "variable_elements": [],
@@ -1076,7 +1148,12 @@
         "children": [
           {
             "name": "ores",
-            "children": []
+            "children": [
+              {
+                "name": "tags",
+                "children": []
+              }
+            ]
           },
           {
             "name": "tiny_reactor",
@@ -1121,7 +1198,12 @@
               },
               {
                 "name": "UI",
-                "children": []
+                "children": [
+                  {
+                    "name": "IsActiveText",
+                    "children": []
+                  }
+                ]
               }
             ]
           },
@@ -1144,8 +1226,8 @@
   "workspaceSettings": {
     "modid": "atlas_multi",
     "modName": "atlas multi superpack ",
-    "version": "0.0.1",
-    "description": "just adds rectors",
+    "version": "0.0.5",
+    "description": "just adds reactors",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",
     "license": "All Rights Reserved",
@@ -1160,5 +1242,5 @@
     "modElementsPackage": "tas.atlas",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100116710
+  "mcreatorVersion": 202100236710
 }

@@ -1,7 +1,6 @@
 package tas.atlas.procedures;
 
 import tas.atlas.item.FilterItem;
-import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -17,12 +16,7 @@ import net.minecraft.block.BlockState;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
-@AtlasMultiModElements.ModElement.Tag
-public class CheckForFilterProcedure extends AtlasMultiModElements.ModElement {
-	public CheckForFilterProcedure(AtlasMultiModElements instance) {
-		super(instance, 48);
-	}
-
+public class CheckForFilterProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
@@ -59,7 +53,7 @@ public class CheckForFilterProcedure extends AtlasMultiModElements.ModElement {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == new ItemStack(FilterItem.block, (int) (1)).getItem())) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == FilterItem.block)) {
 			if (((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
@@ -67,7 +61,7 @@ public class CheckForFilterProcedure extends AtlasMultiModElements.ModElement {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "filters")) < 2)) {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "filters")) < 1)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
