@@ -11,6 +11,16 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "tiny_reactor_gui.png",
+          "use1Xscale": false,
+          "name": "tiny_reactor_gui.png",
+          "x": 125,
+          "y": 37
+        }
+      },
+      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -55,7 +65,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:Filter"
+            "value": "CUSTOM:PurifiedWater"
           },
           "id": 2,
           "disableStackInteraction": false,
@@ -354,19 +364,6 @@
           },
           "name": "filtergui.png",
           "x": 245,
-          "y": 47
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "filtergui.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "OneFilter"
-          },
-          "name": "filtergui.png",
-          "x": 245,
           "y": 58
         }
       },
@@ -379,8 +376,25 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:temperature>°",
-          "x": 246,
-          "y": 69
+          "x": 244,
+          "y": 67
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": " g",
+          "onClick": {
+            "name": "WDrain"
+          },
+          "displayCondition": {
+            "name": "StartThing"
+          },
+          "width": 18,
+          "height": 20,
+          "name": " g",
+          "x": 280,
+          "y": 79
         }
       },
       {
@@ -396,40 +410,151 @@
           "width": 51,
           "height": 20,
           "name": "start",
-          "x": 188,
+          "x": 190,
           "y": 99
         }
       },
       {
-        "type": "label",
+        "type": "image",
         "data": {
-          "text": "IS ACTIVE",
-          "color": {
-            "value": -10027162,
-            "falpha": 0.0
-          },
+          "image": "red_light.png",
+          "use1Xscale": false,
           "displayCondition": {
-            "name": "IsActiveTextCall"
+            "name": "RedUiLight"
           },
-          "name": "IS ACTIVE",
-          "x": 206,
-          "y": 39
+          "name": "red_light.png",
+          "x": 201,
+          "y": 40
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "orange_light.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrangeUiLight"
+          },
+          "name": "orange_light.png",
+          "x": 191,
+          "y": 40
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "green_light.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GreenUiLight"
+          },
+          "name": "green_light.png",
+          "x": 181,
+          "y": 40
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "filtergui.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OneFilter"
+          },
+          "name": "filtergui.png",
+          "x": 245,
+          "y": 47
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_20.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnW20"
+          },
+          "name": "tank_20.png",
+          "x": 273,
+          "y": 45
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_40.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnW40"
+          },
+          "name": "tank_40.png",
+          "x": 273,
+          "y": 45
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_60.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnW60"
+          },
+          "name": "tank_60.png",
+          "x": 273,
+          "y": 45
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_80.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnW80"
+          },
+          "name": "tank_80.png",
+          "x": 273,
+          "y": 45
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_full.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnW100"
+          },
+          "name": "tank_full.png",
+          "x": 273,
+          "y": 45
         }
       },
       {
         "type": "label",
         "data": {
-          "text": "NO ACTIVE",
+          "text": "<fluidlevel>",
           "color": {
-            "value": -52429,
+            "value": -13369600,
             "falpha": 0.0
           },
-          "displayCondition": {
-            "name": "IsActiveNOCALL"
-          },
-          "name": "NO ACTIVE",
+          "name": "<fluidlevel>",
           "x": 207,
           "y": 39
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tank_button_empty.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "WDReturn"
+          },
+          "name": "tank_button_empty.png",
+          "x": 281,
+          "y": 80
         }
       }
     ],

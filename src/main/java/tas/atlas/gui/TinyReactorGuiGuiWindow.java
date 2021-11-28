@@ -1,13 +1,20 @@
 
 package tas.atlas.gui;
 
+import tas.atlas.procedures.WDReturnProcedure;
 import tas.atlas.procedures.TwoRodReturnProcedure;
 import tas.atlas.procedures.ThreeRodReturnProcedure;
 import tas.atlas.procedures.StartThingProcedure;
+import tas.atlas.procedures.ReturnW80Procedure;
+import tas.atlas.procedures.ReturnW60Procedure;
+import tas.atlas.procedures.ReturnW40Procedure;
+import tas.atlas.procedures.ReturnW20Procedure;
+import tas.atlas.procedures.ReturnW100Procedure;
+import tas.atlas.procedures.RedUiLightProcedure;
+import tas.atlas.procedures.OrangeUiLightProcedure;
 import tas.atlas.procedures.OneRodReturnProcedure;
 import tas.atlas.procedures.OneFilterProcedure;
-import tas.atlas.procedures.IsActiveTextCallProcedure;
-import tas.atlas.procedures.IsActiveNOCALLProcedure;
+import tas.atlas.procedures.GreenUiLightProcedure;
 import tas.atlas.procedures.EnergyMoreThan2kProcedure;
 import tas.atlas.procedures.EnergyMoreThan1kProcedure;
 import tas.atlas.procedures.EnergyLessThan1kProcedure;
@@ -26,6 +33,7 @@ import tas.atlas.procedures.Energy11kProcedure;
 import tas.atlas.procedures.Energy10kProcedure;
 import tas.atlas.AtlasMultiMod;
 
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -83,6 +91,8 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_gui.png"));
+		this.blit(ms, this.guiLeft + 0, this.guiTop + 0, 0, 0, 176, 166, 176, 166);
 		if (OneRodReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.guiLeft + 64, this.guiTop + 46, 0, 0, 46, 2, 46, 2);
@@ -97,11 +107,47 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 		}
 		if (OneFilterProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/filtergui.png"));
-			this.blit(ms, this.guiLeft + 119, this.guiTop + 10, 0, 0, 14, 3, 14, 3);
+			this.blit(ms, this.guiLeft + 119, this.guiTop + 21, 0, 0, 14, 3, 14, 3);
+		}
+		if (RedUiLightProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/red_light.png"));
+			this.blit(ms, this.guiLeft + 75, this.guiTop + 3, 0, 0, 5, 5, 5, 5);
+		}
+		if (OrangeUiLightProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/orange_light.png"));
+			this.blit(ms, this.guiLeft + 65, this.guiTop + 3, 0, 0, 5, 5, 5, 5);
+		}
+		if (GreenUiLightProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/green_light.png"));
+			this.blit(ms, this.guiLeft + 55, this.guiTop + 3, 0, 0, 5, 5, 5, 5);
 		}
 		if (OneFilterProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/filtergui.png"));
-			this.blit(ms, this.guiLeft + 119, this.guiTop + 21, 0, 0, 14, 3, 14, 3);
+			this.blit(ms, this.guiLeft + 119, this.guiTop + 10, 0, 0, 14, 3, 14, 3);
+		}
+		if (ReturnW20Procedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_20.png"));
+			this.blit(ms, this.guiLeft + 147, this.guiTop + 8, 0, 0, 19, 32, 19, 32);
+		}
+		if (ReturnW40Procedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_40.png"));
+			this.blit(ms, this.guiLeft + 147, this.guiTop + 8, 0, 0, 19, 32, 19, 32);
+		}
+		if (ReturnW60Procedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_60.png"));
+			this.blit(ms, this.guiLeft + 147, this.guiTop + 8, 0, 0, 19, 32, 19, 32);
+		}
+		if (ReturnW80Procedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_80.png"));
+			this.blit(ms, this.guiLeft + 147, this.guiTop + 8, 0, 0, 19, 32, 19, 32);
+		}
+		if (ReturnW100Procedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_full.png"));
+			this.blit(ms, this.guiLeft + 147, this.guiTop + 8, 0, 0, 19, 32, 19, 32);
+		}
+		if (WDReturnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("atlas_multi:textures/tank_button_empty.png"));
+			this.blit(ms, this.guiLeft + 155, this.guiTop + 43, 0, 0, 18, 18, 18, 18);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -169,11 +215,17 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\u00B0", 120, 32, -12829636);
-		if (IsActiveTextCallProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
-			this.font.drawString(ms, "IS ACTIVE", 80, 2, -10027162);
-		if (IsActiveNOCALLProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
-			this.font.drawString(ms, "NO ACTIVE", 81, 2, -52429);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\u00B0", 118, 30, -12829636);
+		this.font.drawString(ms, "" + (new Object() {
+			public int getFluidTankLevel(BlockPos pos, int tank) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
+				return _retval.get();
+			}
+		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", 81, 2, -13369600);
 	}
 
 	@Override
@@ -186,10 +238,22 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 62, this.guiTop + 62, 51, 20, new StringTextComponent("start"), e -> {
+		this.addButton(new Button(this.guiLeft + 154, this.guiTop + 42, 18, 20, new StringTextComponent(" g"), e -> {
 			if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
 				AtlasMultiMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiGui.ButtonPressedMessage(0, x, y, z));
 				TinyReactorGuiGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
+		this.addButton(new Button(this.guiLeft + 64, this.guiTop + 62, 51, 20, new StringTextComponent("start"), e -> {
+			if (StartThingProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				AtlasMultiMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiGui.ButtonPressedMessage(1, x, y, z));
+				TinyReactorGuiGui.handleButtonAction(entity, 1, x, y, z);
 			}
 		}) {
 			@Override

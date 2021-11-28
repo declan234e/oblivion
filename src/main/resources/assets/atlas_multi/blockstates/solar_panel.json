@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "atlas_multi:block/solar_panel"
+    }
+  }
+}

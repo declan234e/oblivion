@@ -2,10 +2,12 @@ package tas.atlas.procedures;
 
 import tas.atlas.AtlasMultiMod;
 
-import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.state.Property;
+import net.minecraft.state.IntegerProperty;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 
 import java.util.Map;
@@ -36,6 +38,7 @@ public class RodBlockstateProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
+		BlockState age = Blocks.AIR.getDefaultState();
 		if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -44,14 +47,13 @@ public class RodBlockstateProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 1)) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putString("state", "one");
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			{
+				int _value = (int) 1;
+				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+				BlockState _bs = world.getBlockState(_pos);
+				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+				if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+					world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 			}
 		} else if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
@@ -61,14 +63,13 @@ public class RodBlockstateProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 2)) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putString("state", "two");
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			{
+				int _value = (int) 2;
+				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+				BlockState _bs = world.getBlockState(_pos);
+				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+				if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+					world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 			}
 		} else if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
@@ -78,14 +79,13 @@ public class RodBlockstateProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 3)) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putString("state", "three");
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			{
+				int _value = (int) 3;
+				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+				BlockState _bs = world.getBlockState(_pos);
+				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+				if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+					world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 			}
 		} else if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
@@ -95,14 +95,13 @@ public class RodBlockstateProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 4)) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putString("state", "four");
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			{
+				int _value = (int) 4;
+				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+				BlockState _bs = world.getBlockState(_pos);
+				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+				if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+					world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 			}
 		} else if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
@@ -112,14 +111,13 @@ public class RodBlockstateProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 0)) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putString("state", "zero");
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			{
+				int _value = (int) 0;
+				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+				BlockState _bs = world.getBlockState(_pos);
+				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+				if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+					world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 			}
 		}
 	}

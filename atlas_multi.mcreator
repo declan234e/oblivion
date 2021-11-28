@@ -964,45 +964,6 @@
       "path": "~/blocks/tiny_reactor/procedures/start"
     },
     {
-      "name": "SolarPannelUpdateTick",
-      "type": "procedure",
-      "sortid": 52,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "solar_pannel_update_tick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "SolarPannel",
-      "type": "block",
-      "sortid": 52,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "solar_pannel",
-      "path": "~/blocks/solarPannel"
-    },
-    {
       "name": "RodBlockstate",
       "type": "procedure",
       "sortid": 54,
@@ -1043,15 +1004,14 @@
       "path": "~/blocks/ores/tags"
     },
     {
-      "name": "IsActiveTextCall",
+      "name": "SolarPanelUpdateTick",
       "type": "procedure",
-      "sortid": 57,
+      "sortid": 59,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "is_active_text_call",
+      "registry_name": "solar_panel_update_tick",
       "metadata": {
-        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -1071,16 +1031,26 @@
           }
         ]
       },
-      "path": "~/blocks/tiny_reactor/UI/IsActiveText"
+      "path": "~/blocks/solar panel/procedures"
     },
     {
-      "name": "IsActiveNOCALL",
-      "type": "procedure",
-      "sortid": 58,
+      "name": "SolarPanel",
+      "type": "block",
+      "sortid": 59,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "is_active_nocall",
+      "registry_name": "solar_panel",
+      "path": "~/blocks/solar panel"
+    },
+    {
+      "name": "RedUiLight",
+      "type": "procedure",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "red_ui_light",
       "metadata": {
         "return_type": "logic",
         "dependencies": [
@@ -1102,7 +1072,469 @@
           }
         ]
       },
-      "path": "~/blocks/tiny_reactor/UI/IsActiveText"
+      "path": "~/blocks/tiny_reactor/procedures/UI lights"
+    },
+    {
+      "name": "WaterPurifier",
+      "type": "block",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "water_purifier",
+      "path": "~/blocks/water_purifier/block"
+    },
+    {
+      "name": "WaterPurifierUi",
+      "type": "gui",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "water_purifier_ui",
+      "path": "~/blocks/water_purifier/UI"
+    },
+    {
+      "name": "WaterPurifierUpdateTick",
+      "type": "procedure",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "water_purifier_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/water_purifier/procedures"
+    },
+    {
+      "name": "WaterPurifierBlockAdded",
+      "type": "procedure",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "water_purifier_block_added",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/water_purifier/int"
+    },
+    {
+      "name": "PurifiedWater",
+      "type": "food",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "purified_water",
+      "path": "~/items/purified water"
+    },
+    {
+      "name": "OrangeUiLight",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "orange_ui_light",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/UI lights"
+    },
+    {
+      "name": "GreenUiLight",
+      "type": "procedure",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "green_ui_light",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/UI lights"
+    },
+    {
+      "name": "CheckForWater",
+      "type": "procedure",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "check_for_water",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/checkFor"
+    },
+    {
+      "name": "ReturnW20",
+      "type": "procedure",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "return_w_20",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Ui water"
+    },
+    {
+      "name": "ReturnW40",
+      "type": "procedure",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "return_w_40",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Ui water"
+    },
+    {
+      "name": "ReturnW60",
+      "type": "procedure",
+      "sortid": 72,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "return_w_60",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Ui water"
+    },
+    {
+      "name": "ReturnW80",
+      "type": "procedure",
+      "sortid": 73,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "return_w_80",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Ui water"
+    },
+    {
+      "name": "ReturnW100",
+      "type": "procedure",
+      "sortid": 74,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "return_w_100",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Ui water"
+    },
+    {
+      "name": "WaterSys",
+      "type": "procedure",
+      "sortid": 75,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "water_sys",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Water"
+    },
+    {
+      "name": "WDrain",
+      "type": "procedure",
+      "sortid": 76,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "w_drain",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Water/Drain"
+    },
+    {
+      "name": "WDReturn",
+      "type": "procedure",
+      "sortid": 77,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "wd_return",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Water/Drain"
+    },
+    {
+      "name": "WDReturn2",
+      "type": "procedure",
+      "sortid": 78,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "wd_return_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/Water/Drain"
     }
   ],
   "variable_elements": [],
@@ -1118,11 +1550,13 @@
   ],
   "language_map": {
     "en_us": {
+      "block.atlas_multi.water_purifier": "Water Purifier",
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
-      "block.atlas_multi.solar_pannel": "Solar Pannel",
+      "block.atlas_multi.solar_panel": "Solar Panel",
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
+      "item.atlas_multi.purified_water": "Purified Water",
       "item.atlas_multi.filter": "Water Filter",
       "itemGroup.tabreactors": "Reactors"
     }
@@ -1139,6 +1573,10 @@
           },
           {
             "name": "urandia ingot",
+            "children": []
+          },
+          {
+            "name": "purified water",
             "children": []
           }
         ]
@@ -1193,23 +1631,61 @@
                   {
                     "name": "start",
                     "children": []
+                  },
+                  {
+                    "name": "UI lights",
+                    "children": []
+                  },
+                  {
+                    "name": "Ui water",
+                    "children": []
+                  },
+                  {
+                    "name": "Water",
+                    "children": [
+                      {
+                        "name": "Drain",
+                        "children": []
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "name": "UI",
-                "children": [
-                  {
-                    "name": "IsActiveText",
-                    "children": []
-                  }
-                ]
+                "children": []
               }
             ]
           },
           {
-            "name": "solarPannel",
-            "children": []
+            "name": "solar panel",
+            "children": [
+              {
+                "name": "procedures",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "water_purifier",
+            "children": [
+              {
+                "name": "block",
+                "children": []
+              },
+              {
+                "name": "procedures",
+                "children": []
+              },
+              {
+                "name": "UI",
+                "children": []
+              },
+              {
+                "name": "int",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -1226,7 +1702,7 @@
   "workspaceSettings": {
     "modid": "atlas_multi",
     "modName": "atlas multi superpack ",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "just adds reactors",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",

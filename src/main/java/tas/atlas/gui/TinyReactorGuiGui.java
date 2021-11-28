@@ -1,9 +1,10 @@
 
 package tas.atlas.gui;
 
+import tas.atlas.procedures.WDrainProcedure;
 import tas.atlas.procedures.TinyActivateButtonProcedure;
 import tas.atlas.item.UrandiaIngotItem;
-import tas.atlas.item.FilterItem;
+import tas.atlas.item.PurifiedWaterItem;
 import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
 
@@ -131,7 +132,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (FilterItem.block == stack.getItem());
+					return (PurifiedWaterItem.block == stack.getItem());
 				}
 			}));
 			int si;
@@ -382,6 +383,16 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				WDrainProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 1) {
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("x", x);

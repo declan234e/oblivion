@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "solar_panel_full",
+        "1": "glass"
+      },
+      "name": "default"
+    }
+  }
+}
