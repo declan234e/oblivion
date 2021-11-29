@@ -1,13 +1,14 @@
 modLoader="javafml"
 loaderVersion="[36,)"
-license="All Rights Reserved"
+license="Creative Commons Attribution-NonCommercial 3.0"
 
 [[mods]]
 modId="atlas_multi"
-version="0.0.6"
+version="0.0.7"
 displayName="atlas multi superpack "
 credits="model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e"
 displayURL="https://mcreator.net"
+logoFile="logo.png"
 authors="declan234e, ROLEMAYMOLY"
 description='''
 just adds reactors

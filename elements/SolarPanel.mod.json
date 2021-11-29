@@ -13,7 +13,7 @@
     "rotationMode": 0,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "itemTexture": "",
+    "itemTexture": "solar_panel_item",
     "particleTexture": "",
     "tintType": "No tint",
     "isItemTinted": false,

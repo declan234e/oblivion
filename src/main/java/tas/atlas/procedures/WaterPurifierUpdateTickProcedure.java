@@ -3,6 +3,8 @@ package tas.atlas.procedures;
 import tas.atlas.item.PurifiedWaterItem;
 import tas.atlas.AtlasMultiMod;
 
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -17,7 +19,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
@@ -102,16 +103,17 @@ public class WaterPurifierUpdateTickProcedure {
 				if (_ent != null)
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 			}
-			if (entity instanceof PlayerEntity) {
-				Container _current = ((PlayerEntity) entity).openContainer;
-				if (_current instanceof Supplier) {
-					Object invobj = ((Supplier) _current).get();
-					if (invobj instanceof Map) {
-						ItemStack _setstack = new ItemStack(Items.BUCKET);
-						_setstack.setCount((int) 1);
-						((Slot) ((Map) invobj).get((int) (0))).putStack(_setstack);
-						_current.detectAndSendChanges();
-					}
+			{
+				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+				if (_ent != null) {
+					final int _sltid = (int) (0);
+					final ItemStack _setstack = new ItemStack(Items.BUCKET);
+					_setstack.setCount((int) 1);
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						if (capability instanceof IItemHandlerModifiable) {
+							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
+						}
+					});
 				}
 			}
 			new Object() {
@@ -134,16 +136,28 @@ public class WaterPurifierUpdateTickProcedure {
 				}
 
 				private void run() {
-					if (entity instanceof PlayerEntity) {
-						Container _current = ((PlayerEntity) entity).openContainer;
-						if (_current instanceof Supplier) {
-							Object invobj = ((Supplier) _current).get();
-							if (invobj instanceof Map) {
-								ItemStack _setstack = new ItemStack(PurifiedWaterItem.block);
-								_setstack.setCount((int) 1);
-								((Slot) ((Map) invobj).get((int) (1))).putStack(_setstack);
-								_current.detectAndSendChanges();
-							}
+					{
+						TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+						if (_ent != null) {
+							final int _sltid = (int) (1);
+							final ItemStack _setstack = new ItemStack(PurifiedWaterItem.block);
+							_setstack.setCount((int) ((new Object() {
+								public int getAmount(IWorld world, BlockPos pos, int sltid) {
+									AtomicInteger _retval = new AtomicInteger(0);
+									TileEntity _ent = world.getTileEntity(pos);
+									if (_ent != null) {
+										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+											_retval.set(capability.getStackInSlot(sltid).getCount());
+										});
+									}
+									return _retval.get();
+								}
+							}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 1));
+							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+								if (capability instanceof IItemHandlerModifiable) {
+									((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
+								}
+							});
 						}
 					}
 					if (!world.isRemote()) {

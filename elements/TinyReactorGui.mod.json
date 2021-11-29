@@ -540,8 +540,8 @@
             "falpha": 0.0
           },
           "name": "<fluidlevel>",
-          "x": 207,
-          "y": 39
+          "x": 21,
+          "y": 32
         }
       },
       {
@@ -555,6 +555,32 @@
           "name": "tank_button_empty.png",
           "x": 281,
           "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<ENBT:text:state>",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "name": "<ENBT:text:state>",
+          "x": 19,
+          "y": 20
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<energy>",
+          "color": {
+            "value": -16711732,
+            "falpha": 0.0
+          },
+          "name": "<energy>",
+          "x": 23,
+          "y": 44
         }
       }
     ],

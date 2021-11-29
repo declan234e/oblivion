@@ -1,0 +1,12 @@
+{
+  "group": "urandia_ore",
+  "type": "minecraft:blasting",
+  "experience": 1,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "atlas_multi:urandia_ore"
+  },
+  "result": {
+    "item": "atlas_multi:urandia_ingot"
+  }
+}

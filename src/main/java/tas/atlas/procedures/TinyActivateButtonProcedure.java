@@ -2,12 +2,15 @@ package tas.atlas.procedures;
 
 import tas.atlas.AtlasMultiMod;
 
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.block.BlockState;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 public class TinyActivateButtonProcedure {
@@ -43,14 +46,23 @@ public class TinyActivateButtonProcedure {
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no")) && ((new Object() {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("no")) && (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) >= 1))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) >= 1) && ((new Object() {
+			public int getFluidTankLevel(BlockPos pos, int tank) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
+				return _retval.get();
+			}
+		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1)) >= 100)))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

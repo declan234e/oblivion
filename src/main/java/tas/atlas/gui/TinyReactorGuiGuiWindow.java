@@ -225,7 +225,17 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 				return _retval.get();
 			}
-		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", 81, 2, -13369600);
+		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", -104, -5, -13369600);
+		this.font.drawString(ms, "" + (entity.getPersistentData().getString("state")) + "", -106, -17, -52429);
+		this.font.drawString(ms, "" + (new Object() {
+			public int getEnergyStored(BlockPos pos) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
+				return _retval.get();
+			}
+		}.getEnergyStored(new BlockPos((int) x, (int) y, (int) z))) + "", -102, 7, -16711732);
 	}
 
 	@Override

@@ -13,7 +13,7 @@
     "rotationMode": 1,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "itemTexture": "",
+    "itemTexture": "reactor_controller_item",
     "particleTexture": "",
     "tintType": "No tint",
     "isItemTinted": false,
