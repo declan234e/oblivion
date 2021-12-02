@@ -76,7 +76,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
@@ -86,7 +86,7 @@
       "type": "block",
       "sortid": 17,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
       "path": "~/blocks/tiny_reactor/blockstates"
@@ -132,6 +132,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -161,6 +165,10 @@
       "registry_name": "check_for_ingot",
       "metadata": {
         "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
           {
             "name": "x",
             "type": "number"
@@ -964,36 +972,6 @@
       "path": "~/blocks/tiny_reactor/procedures/start"
     },
     {
-      "name": "RodBlockstate",
-      "type": "procedure",
-      "sortid": 54,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "rod_blockstate",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/blocks/tiny_reactor/procedures/rods/blockstateRods"
-    },
-    {
       "name": "Ores",
       "type": "tag",
       "sortid": 55,
@@ -1545,6 +1523,40 @@
       "ids": {},
       "registry_name": "urandia_ore_blast",
       "path": "~/recipes"
+    },
+    {
+      "name": "BLKTNBT",
+      "type": "procedure",
+      "sortid": 80,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "blktnbt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/rods/blockstateRods"
     }
   ],
   "variable_elements": [],
@@ -1712,7 +1724,7 @@
   "workspaceSettings": {
     "modid": "atlas_multi",
     "modName": "atlas multi superpack ",
-    "version": "0.0.72",
+    "version": "0.0.8A",
     "description": "just adds reactors",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",

@@ -4,7 +4,6 @@ package tas.atlas.gui;
 import tas.atlas.procedures.WDrainProcedure;
 import tas.atlas.procedures.TinyActivateButtonProcedure;
 import tas.atlas.item.UrandiaIngotItem;
-import tas.atlas.item.FilterItem;
 import tas.atlas.item.PurifiedWaterItem;
 import tas.atlas.AtlasMultiModElements;
 import tas.atlas.AtlasMultiMod;
@@ -12,7 +11,6 @@ import tas.atlas.AtlasMultiMod;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraft.item.Items;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
@@ -134,7 +132,7 @@ public class TinyReactorGuiGui extends AtlasMultiModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (FilterItem.block == stack.getItem() || Items.WATER_BUCKET == stack.getItem() || PurifiedWaterItem.block == stack.getItem() || Items.BUCKET == stack.getItem());
+					return (PurifiedWaterItem.block == stack.getItem());
 				}
 			}));
 			int si;

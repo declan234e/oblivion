@@ -79,6 +79,8 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import io.netty.buffer.Unpooled;
+import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.properties.BlockStateProperties;
 
 @AtlasMultiModElements.ModElement.Tag
 public class TinyReactorState1Block extends AtlasMultiModElements.ModElement {
@@ -110,6 +112,7 @@ public class TinyReactorState1Block extends AtlasMultiModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+		public static final IntegerProperty AGE = BlockStateProperties.AGE_0_5;
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0).notSolid()
 					.setOpaque((bs, br, bp) -> false));
@@ -129,7 +132,7 @@ public class TinyReactorState1Block extends AtlasMultiModElements.ModElement {
 
 		@Override
 		protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-			builder.add(FACING);
+			builder.add(FACING, AGE);
 		}
 
 		public BlockState rotate(BlockState state, Rotation rot) {
@@ -179,6 +182,7 @@ public class TinyReactorState1Block extends AtlasMultiModElements.ModElement {
 			int z = pos.getZ();
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("blockstate", blockstate);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);

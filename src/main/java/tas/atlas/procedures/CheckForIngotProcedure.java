@@ -6,10 +6,11 @@ import tas.atlas.AtlasMultiMod;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.state.Property;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.item.ItemStack;
 import net.minecraft.block.BlockState;
 
@@ -18,6 +19,11 @@ import java.util.Map;
 
 public class CheckForIngotProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("blockstate") == null) {
+			if (!dependencies.containsKey("blockstate"))
+				AtlasMultiMod.LOGGER.warn("Failed to load dependency blockstate for procedure CheckForIngot!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				AtlasMultiMod.LOGGER.warn("Failed to load dependency x for procedure CheckForIngot!");
@@ -38,6 +44,7 @@ public class CheckForIngotProcedure {
 				AtlasMultiMod.LOGGER.warn("Failed to load dependency world for procedure CheckForIngot!");
 			return;
 		}
+		BlockState blockstate = (BlockState) dependencies.get("blockstate");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
@@ -55,28 +62,23 @@ public class CheckForIngotProcedure {
 			}
 		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == UrandiaIngotItem.block)) {
 			if (((new Object() {
-				public double getValue(IWorld world, BlockPos pos, String tag) {
-					TileEntity tileEntity = world.getTileEntity(pos);
-					if (tileEntity != null)
-						return tileEntity.getTileData().getDouble(tag);
-					return -1;
+				public int get(BlockState _bs, String property) {
+					Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
+					return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) < 4)) {
-				if (!world.isRemote()) {
-					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-					TileEntity _tileEntity = world.getTileEntity(_bp);
-					BlockState _bs = world.getBlockState(_bp);
-					if (_tileEntity != null)
-						_tileEntity.getTileData().putDouble("numOfUrandia", ((new Object() {
-							public double getValue(IWorld world, BlockPos pos, String tag) {
-								TileEntity tileEntity = world.getTileEntity(pos);
-								if (tileEntity != null)
-									return tileEntity.getTileData().getDouble(tag);
-								return -1;
-							}
-						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) + 1));
-					if (world instanceof World)
-						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}.get(blockstate, "age")) < 4)) {
+				{
+					int _value = (int) ((new Object() {
+						public int get(BlockState _bs, String property) {
+							Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
+							return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
+						}
+					}.get(blockstate, "age")) + 1);
+					BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+					BlockState _bs = world.getBlockState(_pos);
+					Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
+					if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
+						world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
 				}
 				{
 					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));

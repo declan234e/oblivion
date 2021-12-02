@@ -68,7 +68,7 @@ public class TempSystemProcedure {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 1) == ((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 1) && ((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
@@ -99,7 +99,7 @@ public class TempSystemProcedure {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 2) == ((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 2) && ((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
@@ -130,7 +130,7 @@ public class TempSystemProcedure {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 3) == ((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 3) && ((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
@@ -161,14 +161,14 @@ public class TempSystemProcedure {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 4) == ((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia")) == 4) && ((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature")) < 1320))) {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature")) < 1410))) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -194,7 +194,7 @@ public class TempSystemProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature")) >= 1350) && ((new Object() {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature")) >= 1411) && ((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)

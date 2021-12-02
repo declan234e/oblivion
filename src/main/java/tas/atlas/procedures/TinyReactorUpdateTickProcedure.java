@@ -3,12 +3,18 @@ package tas.atlas.procedures;
 import tas.atlas.AtlasMultiMod;
 
 import net.minecraft.world.IWorld;
+import net.minecraft.block.BlockState;
 
 import java.util.Map;
 import java.util.HashMap;
 
 public class TinyReactorUpdateTickProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("blockstate") == null) {
+			if (!dependencies.containsKey("blockstate"))
+				AtlasMultiMod.LOGGER.warn("Failed to load dependency blockstate for procedure TinyReactorUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				AtlasMultiMod.LOGGER.warn("Failed to load dependency x for procedure TinyReactorUpdateTick!");
@@ -29,12 +35,14 @@ public class TinyReactorUpdateTickProcedure {
 				AtlasMultiMod.LOGGER.warn("Failed to load dependency world for procedure TinyReactorUpdateTick!");
 			return;
 		}
+		BlockState blockstate = (BlockState) dependencies.get("blockstate");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		{
 			Map<String, Object> $_dependencies = new HashMap<>();
+			$_dependencies.put("blockstate", blockstate);
 			$_dependencies.put("x", x);
 			$_dependencies.put("y", y);
 			$_dependencies.put("z", z);
@@ -48,14 +56,6 @@ public class TinyReactorUpdateTickProcedure {
 			$_dependencies.put("z", z);
 			$_dependencies.put("world", world);
 			CheckForFilterProcedure.executeProcedure($_dependencies);
-		}
-		{
-			Map<String, Object> $_dependencies = new HashMap<>();
-			$_dependencies.put("x", x);
-			$_dependencies.put("y", y);
-			$_dependencies.put("z", z);
-			$_dependencies.put("world", world);
-			RodBlockstateProcedure.executeProcedure($_dependencies);
 		}
 		{
 			Map<String, Object> $_dependencies = new HashMap<>();
@@ -88,6 +88,15 @@ public class TinyReactorUpdateTickProcedure {
 			$_dependencies.put("z", z);
 			$_dependencies.put("world", world);
 			WDReturn2Procedure.executeProcedure($_dependencies);
+		}
+		{
+			Map<String, Object> $_dependencies = new HashMap<>();
+			$_dependencies.put("blockstate", blockstate);
+			$_dependencies.put("x", x);
+			$_dependencies.put("y", y);
+			$_dependencies.put("z", z);
+			$_dependencies.put("world", world);
+			BLKTNBTProcedure.executeProcedure($_dependencies);
 		}
 	}
 }
