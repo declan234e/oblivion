@@ -226,7 +226,7 @@ public class TinyReactorGuiGuiWindow extends ContainerScreen<TinyReactorGuiGui.G
 				return _retval.get();
 			}
 		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", -104, -5, -13369600);
-		this.font.drawString(ms, "" + (entity.getPersistentData().getString("state")) + "", -106, -17, -52429);
+		this.font.drawString(ms, "" + (entity.getPersistentData().getString("isActive")) + "", -106, -17, -52429);
 		this.font.drawString(ms, "" + (new Object() {
 			public int getEnergyStored(BlockPos pos) {
 				AtomicInteger _retval = new AtomicInteger(0);

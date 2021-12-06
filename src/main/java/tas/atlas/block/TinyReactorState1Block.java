@@ -79,7 +79,7 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import io.netty.buffer.Unpooled;
-import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 
 @AtlasMultiModElements.ModElement.Tag

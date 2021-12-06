@@ -560,12 +560,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<ENBT:text:state>",
+          "text": "<ENBT:text:isActive>",
           "color": {
             "value": -52429,
             "falpha": 0.0
           },
-          "name": "<ENBT:text:state>",
+          "name": "<ENBT:text:isActive>",
           "x": 19,
           "y": 20
         }
