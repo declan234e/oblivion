@@ -1,0 +1,9 @@
+{
+  "parent": "oblivion:custom/solar_panel",
+  "textures": {
+    "all": "oblivion:blocks/solar_panel_full",
+    "particle": "oblivion:blocks/solar_panel_full",
+    "0": "oblivion:blocks/solar_panel_full",
+    "1": "oblivion:blocks/glass"
+  }
+}

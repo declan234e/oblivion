@@ -7,38 +7,6 @@
         "missing": "missing"
       },
       "name": "default"
-    },
-    "onerod": {
-      "map": {
-        "0": "tiny_reactor_texture_1_rods",
-        "1": "glass",
-        "missing": "missing"
-      },
-      "name": "onerod"
-    },
-    "tworods": {
-      "map": {
-        "0": "tiny_reactor_texture_2_rods",
-        "1": "glass",
-        "missing": "missing"
-      },
-      "name": "tworods"
-    },
-    "threerods": {
-      "map": {
-        "0": "tiny_reactor_texture_3_rods",
-        "1": "glass",
-        "missing": "missing"
-      },
-      "name": "threerods"
-    },
-    "fullrods": {
-      "map": {
-        "0": "full_tiny_reactor_texture",
-        "1": "glass",
-        "missing": "missing"
-      },
-      "name": "fullrods"
     }
   }
 }

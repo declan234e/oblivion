@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "oblivion:blocks/urandia_ore",
+    "up": "oblivion:blocks/urandia_ore",
+    "north": "oblivion:blocks/urandia_ore",
+    "east": "oblivion:blocks/urandia_ore",
+    "south": "oblivion:blocks/urandia_ore",
+    "west": "oblivion:blocks/urandia_ore",
+    "particle": "oblivion:blocks/urandia_ore"
+  }
+}

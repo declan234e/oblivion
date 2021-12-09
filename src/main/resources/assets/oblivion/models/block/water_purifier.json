@@ -1,0 +1,21 @@
+{
+  "parent": "oblivion:custom/reactor_controller",
+  "textures": {
+    "all": "oblivion:blocks/top_wall_1",
+    "particle": "oblivion:blocks/top_wall_1",
+    "11": "oblivion:blocks/top_wall_1",
+    "12": "oblivion:blocks/glass",
+    "13": "oblivion:blocks/power_charger_pole",
+    "14": "oblivion:blocks/wire_1",
+    "15": "oblivion:blocks/hammer_joint_coil_pole",
+    "0": "oblivion:blocks/servers",
+    "3": "oblivion:blocks/servers_top",
+    "5": "oblivion:blocks/controller_screen",
+    "6": "oblivion:blocks/wire_1",
+    "7": "oblivion:blocks/base",
+    "missing": "oblivion:blocks/missing",
+    "8": "oblivion:blocks/battery_cell_platform",
+    "9": "oblivion:blocks/top_detail_power_cell_1",
+    "10": "oblivion:blocks/power_wire_1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "oblivion:block/tr"
+    },
+    "facing=east": {
+      "model": "oblivion:block/tr",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "oblivion:block/tr",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "oblivion:block/tr",
+      "y": 270
+    }
+  }
+}

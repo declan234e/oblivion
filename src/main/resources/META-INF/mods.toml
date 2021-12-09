@@ -3,18 +3,18 @@ loaderVersion="[36,)"
 license="Creative Commons Attribution-NonCommercial 3.0"
 
 [[mods]]
-modId="atlas_multi"
-version="0.0.8B"
-displayName="atlas multi superpack "
+modId="oblivion"
+version="0.0.9B"
+displayName="oblivion"
 credits="model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
 authors="declan234e, ROLEMAYMOLY"
 description='''
-just adds reactors
+not alot
 '''
 
-[[dependencies.atlas_multi]]
+[[dependencies.oblivion]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5]"

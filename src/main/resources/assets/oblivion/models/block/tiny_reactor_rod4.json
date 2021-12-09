@@ -1,0 +1,10 @@
+{
+  "parent": "oblivion:custom/tiny_reactor",
+  "textures": {
+    "all": "oblivion:blocks/full_tiny_reactor_texture",
+    "particle": "oblivion:blocks/full_tiny_reactor_texture",
+    "0": "oblivion:blocks/full_tiny_reactor_texture",
+    "1": "oblivion:blocks/glass",
+    "missing": "oblivion:blocks/missing"
+  }
+}

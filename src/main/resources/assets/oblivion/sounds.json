@@ -1,0 +1,12 @@
+{
+  "reactor_meltdown": {
+    "category": "master",
+    "subtitle": "subtitles.reactor_meltdown",
+    "sounds": [
+      {
+        "name": "oblivion:reactor_alert",
+        "stream": false
+      }
+    ]
+  }
+}

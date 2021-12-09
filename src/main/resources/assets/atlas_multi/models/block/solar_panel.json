@@ -1,9 +1,0 @@
-{
-  "parent": "atlas_multi:custom/solar_panel",
-  "textures": {
-    "all": "atlas_multi:blocks/solar_panel_full",
-    "particle": "atlas_multi:blocks/solar_panel_full",
-    "0": "atlas_multi:blocks/solar_panel_full",
-    "1": "atlas_multi:blocks/glass"
-  }
-}
