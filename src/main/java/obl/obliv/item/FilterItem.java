@@ -15,6 +15,7 @@ import net.minecraft.block.BlockState;
 public class FilterItem extends OblivionModElements.ModElement {
 	@ObjectHolder("oblivion:filter")
 	public static final Item block = null;
+
 	public FilterItem(OblivionModElements instance) {
 		super(instance, 45);
 	}
@@ -23,6 +24,7 @@ public class FilterItem extends OblivionModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ReactorsItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

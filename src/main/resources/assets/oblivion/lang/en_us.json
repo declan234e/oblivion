@@ -5,7 +5,7 @@
   "item.atlas_multi.urandia_ingot": "Urandia Ingot",
   "item.oblivion.purified_water": "Purified Water",
   "item.atlas_multi.vicwin_spawn_egg": "Vicwin Spawn Egg",
-  "block.oblivion.tr": "Tr",
+  "block.oblivion.small_battery": "Small Battery",
   "itemGroup.tabreactors": "Reactors",
   "entity.oblivion.vicwin": "Vicwin",
   "item.oblivion.filter": "Water Filter",
@@ -18,6 +18,8 @@
   "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
   "item.atlas_multi.purified_water": "Purified Water",
   "item.atlas_multi.filter": "Water Filter",
+  "block.oblivion.large_battery_lower": "Large Battery",
+  "block.oblivion.large_battery_upper": "Large Batteryup",
   "item.oblivion.urandia_ingot": "Urandia Ingot",
   "block.oblivion.tiny_reactor_state_1": "Tiny Reactor "
 }

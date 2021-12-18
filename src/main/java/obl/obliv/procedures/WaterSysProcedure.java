@@ -15,7 +15,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 public class WaterSysProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterSys!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				OblivionMod.LOGGER.warn("Failed to load dependency x for procedure WaterSys!");
@@ -31,32 +37,27 @@ public class WaterSysProcedure {
 				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure WaterSys!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterSys!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive"))).equals("yes"))) {
-			if (((new Object() {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("yes")) {
+			if (new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature")) >= 1199)) {
-				if ((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") >= 1199) {
+				if (new Object() {
 					public int getFluidTankLevel(BlockPos pos, int tank) {
 						AtomicInteger _retval = new AtomicInteger(0);
 						TileEntity _ent = world.getTileEntity(pos);
@@ -65,14 +66,14 @@ public class WaterSysProcedure {
 									.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 						return _retval.get();
 					}
-				}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1)) >= 100) && ((new Object() {
+				}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1) >= 100 && new Object() {
 					public double getValue(IWorld world, BlockPos pos, String tag) {
 						TileEntity tileEntity = world.getTileEntity(pos);
 						if (tileEntity != null)
 							return tileEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType")) == 2))) {
+				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType") == 2) {
 					{
 						TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 						int _amount = (int) 1;
@@ -80,7 +81,7 @@ public class WaterSysProcedure {
 							_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
 									.ifPresent(capability -> capability.drain(_amount, IFluidHandler.FluidAction.EXECUTE));
 					}
-				} else if ((((new Object() {
+				} else if (new Object() {
 					public int getFluidTankLevel(BlockPos pos, int tank) {
 						AtomicInteger _retval = new AtomicInteger(0);
 						TileEntity _ent = world.getTileEntity(pos);
@@ -89,14 +90,14 @@ public class WaterSysProcedure {
 									.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 						return _retval.get();
 					}
-				}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1)) >= 100) && ((new Object() {
+				}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1) >= 100 && new Object() {
 					public double getValue(IWorld world, BlockPos pos, String tag) {
 						TileEntity tileEntity = world.getTileEntity(pos);
 						if (tileEntity != null)
 							return tileEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType")) == 1))) {
+				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType") == 1) {
 					{
 						TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 						int _amount = (int) 2;
@@ -106,7 +107,7 @@ public class WaterSysProcedure {
 					}
 				}
 			}
-		} else if (((new Object() {
+		} else if (new Object() {
 			public int getFluidTankLevel(BlockPos pos, int tank) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -115,7 +116,7 @@ public class WaterSysProcedure {
 							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 				return _retval.get();
 			}
-		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1)) == 0)) {
+		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1) == 0) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

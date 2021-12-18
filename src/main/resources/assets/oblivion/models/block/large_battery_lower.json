@@ -1,0 +1,8 @@
+{
+  "parent": "oblivion:custom/large_battery_lower",
+  "textures": {
+    "all": "oblivion:blocks/large_battery",
+    "particle": "oblivion:blocks/large_battery",
+    "0": "oblivion:blocks/large_battery"
+  }
+}

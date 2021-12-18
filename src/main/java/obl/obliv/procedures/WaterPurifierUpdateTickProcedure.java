@@ -27,10 +27,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 public class WaterPurifierUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				OblivionMod.LOGGER.warn("Failed to load dependency entity for procedure WaterPurifierUpdateTick!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterPurifierUpdateTick!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,17 +49,17 @@ public class WaterPurifierUpdateTickProcedure {
 				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure WaterPurifierUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterPurifierUpdateTick!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				OblivionMod.LOGGER.warn("Failed to load dependency entity for procedure WaterPurifierUpdateTick!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((((new Object() {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -72,7 +73,7 @@ public class WaterPurifierUpdateTickProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (0))).getItem() == Items.WATER_BUCKET) && ((new Object() {
+		}.getItemStack((int) (0))).getItem() == Items.WATER_BUCKET && new Object() {
 			public int getEnergyStored(IWorld world, BlockPos pos) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -80,14 +81,14 @@ public class WaterPurifierUpdateTickProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) >= 100)) && ((new Object() {
+		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= 100 && (new Object() {
 			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "purifying")) == (false)))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "purifying")) == false) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -120,6 +121,7 @@ public class WaterPurifierUpdateTickProcedure {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -141,7 +143,7 @@ public class WaterPurifierUpdateTickProcedure {
 						if (_ent != null) {
 							final int _sltid = (int) (1);
 							final ItemStack _setstack = new ItemStack(PurifiedWaterItem.block);
-							_setstack.setCount((int) ((new Object() {
+							_setstack.setCount((int) (new Object() {
 								public int getAmount(IWorld world, BlockPos pos, int sltid) {
 									AtomicInteger _retval = new AtomicInteger(0);
 									TileEntity _ent = world.getTileEntity(pos);
@@ -152,7 +154,7 @@ public class WaterPurifierUpdateTickProcedure {
 									}
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 1));
+							}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 1));
 							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);

@@ -12,7 +12,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 public class EnergyLessThan1kProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure EnergyLessThan1k!");
+			return false;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				OblivionMod.LOGGER.warn("Failed to load dependency x for procedure EnergyLessThan1k!");
@@ -28,16 +34,11 @@ public class EnergyLessThan1kProcedure {
 				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure EnergyLessThan1k!");
 			return false;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure EnergyLessThan1k!");
-			return false;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		return ((new Object() {
+		return new Object() {
 			public int getEnergyStored(IWorld world, BlockPos pos) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -45,6 +46,6 @@ public class EnergyLessThan1kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z))) <= 1000);
+		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= 1000;
 	}
 }

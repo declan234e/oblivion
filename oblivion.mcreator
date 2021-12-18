@@ -76,7 +76,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
@@ -86,7 +86,7 @@
       "type": "block",
       "sortid": 17,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
       "path": "~/blocks/tiny_reactor/blockstates"
@@ -1067,7 +1067,7 @@
       "type": "gui",
       "sortid": 62,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "water_purifier_ui",
       "path": "~/blocks/water_purifier/UI"
@@ -1569,14 +1569,64 @@
       "path": "~/entity/vicwin/entity"
     },
     {
-      "name": "Tr",
-      "type": "block",
+      "name": "TMeltdown",
+      "type": "procedure",
       "sortid": 82,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "tr",
-      "path": "~/blocks"
+      "registry_name": "t_meltdown",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/tiny_reactor/procedures/meltdown"
+    },
+    {
+      "name": "SmallBattery",
+      "type": "block",
+      "sortid": 83,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "small_battery",
+      "path": "~/blocks/batteries/Small/block"
+    },
+    {
+      "name": "LargeBatteryLower",
+      "type": "block",
+      "sortid": 84,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "large_battery_lower",
+      "path": "~/blocks/batteries/Large"
+    },
+    {
+      "name": "LargeBatteryUpper",
+      "type": "block",
+      "sortid": 85,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "large_battery_upper",
+      "path": "~/blocks/batteries/Large"
     }
   ],
   "variable_elements": [],
@@ -1598,7 +1648,7 @@
       "item.atlas_multi.urandia_ingot": "Urandia Ingot",
       "item.oblivion.purified_water": "Purified Water",
       "item.atlas_multi.vicwin_spawn_egg": "Vicwin Spawn Egg",
-      "block.oblivion.tr": "Tr",
+      "block.oblivion.small_battery": "Small Battery",
       "itemGroup.tabreactors": "Reactors",
       "entity.oblivion.vicwin": "Vicwin",
       "item.oblivion.filter": "Water Filter",
@@ -1611,6 +1661,8 @@
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
       "item.atlas_multi.purified_water": "Purified Water",
       "item.atlas_multi.filter": "Water Filter",
+      "block.oblivion.large_battery_lower": "Large Battery",
+      "block.oblivion.large_battery_upper": "Large Batteryup",
       "item.oblivion.urandia_ingot": "Urandia Ingot",
       "block.oblivion.tiny_reactor_state_1": "Tiny Reactor "
     }
@@ -1706,6 +1758,10 @@
                         "children": []
                       }
                     ]
+                  },
+                  {
+                    "name": "meltdown",
+                    "children": []
                   }
                 ]
               },
@@ -1742,6 +1798,24 @@
               {
                 "name": "int",
                 "children": []
+              }
+            ]
+          },
+          {
+            "name": "batteries",
+            "children": [
+              {
+                "name": "Large",
+                "children": []
+              },
+              {
+                "name": "Small",
+                "children": [
+                  {
+                    "name": "block",
+                    "children": []
+                  }
+                ]
               }
             ]
           }
@@ -1787,7 +1861,7 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.0.9B",
+    "version": "0.0.9D",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",
@@ -1804,5 +1878,5 @@
     "modElementsPackage": "obl.obliv",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100236710
+  "mcreatorVersion": 202100351610
 }

@@ -11,7 +11,13 @@ import net.minecraft.block.BlockState;
 import java.util.Map;
 
 public class WaterPurifierBlockAddedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterPurifierBlockAdded!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				OblivionMod.LOGGER.warn("Failed to load dependency x for procedure WaterPurifierBlockAdded!");
@@ -27,15 +33,10 @@ public class WaterPurifierBlockAddedProcedure {
 				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure WaterPurifierBlockAdded!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure WaterPurifierBlockAdded!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 			TileEntity _tileEntity = world.getTileEntity(_bp);

@@ -16,6 +16,7 @@ import net.minecraft.item.Food;
 public class PurifiedWaterItem extends OblivionModElements.ModElement {
 	@ObjectHolder("oblivion:purified_water")
 	public static final Item block = null;
+
 	public PurifiedWaterItem(OblivionModElements instance) {
 		super(instance, 66);
 	}
@@ -24,10 +25,13 @@ public class PurifiedWaterItem extends OblivionModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ReactorsItemGroup.tab).maxStackSize(16).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(0).saturation(0.3f).setAlwaysEdible().build()));
+					.food((new Food.Builder()).hunger(0).saturation(0.3f).setAlwaysEdible()
+
+							.build()));
 			setRegistryName("purified_water");
 		}
 

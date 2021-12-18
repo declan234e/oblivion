@@ -25,6 +25,7 @@ public class VicwinRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(VicwinEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelbob(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("oblivion:textures/bob.png");
@@ -39,6 +40,7 @@ public class VicwinRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelbob extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
+
 		public Modelbob() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -60,7 +62,9 @@ public class VicwinRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.bb_main.rotateAngleX = f3 / (180F / (float) Math.PI);
 		}
 	}
+
 }

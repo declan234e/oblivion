@@ -31,5 +31,6 @@ public class ReactorsItemGroup extends OblivionModElements.ModElement {
 			}
 		};
 	}
+
 	public static ItemGroup tab;
 }

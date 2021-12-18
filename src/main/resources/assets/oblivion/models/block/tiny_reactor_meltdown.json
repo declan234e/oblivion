@@ -4,7 +4,7 @@
     "all": "oblivion:blocks/full_tiny_reactor_texture",
     "particle": "oblivion:blocks/full_tiny_reactor_texture",
     "0": "oblivion:blocks/full_tiny_reactor_texture",
-    "1": "oblivion:blocks/screen_texture_tr_meltdown",
+    "1": "oblivion:blocks/glass",
     "missing": "oblivion:blocks/missing"
   }
 }

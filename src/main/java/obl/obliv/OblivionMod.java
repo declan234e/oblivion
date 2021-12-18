@@ -46,6 +46,7 @@ public class OblivionMod {
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation("oblivion", "oblivion"),
 			() -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	public OblivionModElements elements;
+
 	public OblivionMod() {
 		elements = new OblivionModElements();
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
@@ -86,8 +87,10 @@ public class OblivionMod {
 	public void registerSounds(RegistryEvent.Register<net.minecraft.util.SoundEvent> event) {
 		elements.registerSounds(event);
 	}
+
 	private static class OblivionModFMLBusEvents {
 		private final OblivionMod parent;
+
 		OblivionModFMLBusEvents(OblivionMod parent) {
 			this.parent = parent;
 		}

@@ -13,10 +13,11 @@ import net.minecraft.block.BlockState;
 import java.util.Map;
 
 public class BLKTNBTProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("blockstate") == null) {
-			if (!dependencies.containsKey("blockstate"))
-				OblivionMod.LOGGER.warn("Failed to load dependency blockstate for procedure BLKTNBT!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure BLKTNBT!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -34,22 +35,22 @@ public class BLKTNBTProcedure {
 				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure BLKTNBT!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure BLKTNBT!");
+		if (dependencies.get("blockstate") == null) {
+			if (!dependencies.containsKey("blockstate"))
+				OblivionMod.LOGGER.warn("Failed to load dependency blockstate for procedure BLKTNBT!");
 			return;
 		}
-		BlockState blockstate = (BlockState) dependencies.get("blockstate");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((new Object() {
+		BlockState blockstate = (BlockState) dependencies.get("blockstate");
+		if ((new Object() {
 			public int get(BlockState _bs, String property) {
 				Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
 				return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 			}
-		}.get(blockstate, "age")) == 1)) {
+		}.get(blockstate, "age")) == 1) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -59,12 +60,12 @@ public class BLKTNBTProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if (((new Object() {
+		} else if ((new Object() {
 			public int get(BlockState _bs, String property) {
 				Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
 				return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 			}
-		}.get(blockstate, "age")) == 2)) {
+		}.get(blockstate, "age")) == 2) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -74,12 +75,12 @@ public class BLKTNBTProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if (((new Object() {
+		} else if ((new Object() {
 			public int get(BlockState _bs, String property) {
 				Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
 				return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 			}
-		}.get(blockstate, "age")) == 3)) {
+		}.get(blockstate, "age")) == 3) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -89,12 +90,12 @@ public class BLKTNBTProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if (((new Object() {
+		} else if ((new Object() {
 			public int get(BlockState _bs, String property) {
 				Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
 				return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 			}
-		}.get(blockstate, "age")) == 4)) {
+		}.get(blockstate, "age")) == 4) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -104,12 +105,12 @@ public class BLKTNBTProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if (((new Object() {
+		} else if ((new Object() {
 			public int get(BlockState _bs, String property) {
 				Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
 				return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
 			}
-		}.get(blockstate, "age")) == 0)) {
+		}.get(blockstate, "age")) == 0) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

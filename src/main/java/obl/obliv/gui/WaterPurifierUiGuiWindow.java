@@ -31,6 +31,7 @@ public class WaterPurifierUiGuiWindow extends ContainerScreen<WaterPurifierUiGui
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = WaterPurifierUiGui.guistate;
+
 	public WaterPurifierUiGuiWindow(WaterPurifierUiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -41,7 +42,9 @@ public class WaterPurifierUiGuiWindow extends ContainerScreen<WaterPurifierUiGui
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/water_purifier_ui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
