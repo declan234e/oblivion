@@ -83,6 +83,9 @@ import java.util.Collections;
 import java.util.AbstractMap;
 
 import io.netty.buffer.Unpooled;
+import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.properties.BlockStateProperties;
 
 @OblivionModElements.ModElement.Tag
 public class TinyReactorState1Block extends OblivionModElements.ModElement {
@@ -118,6 +121,8 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+		public static final IntegerProperty AGE = BlockStateProperties.AGE_0_5;
+		public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
 
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0).harvestLevel(2)
@@ -145,7 +150,7 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 		@Override
 		protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-			builder.add(FACING);
+			builder.add(FACING, AGE, UNSTABLE);
 		}
 
 		public BlockState rotate(BlockState state, Rotation rot) {

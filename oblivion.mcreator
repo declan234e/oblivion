@@ -76,7 +76,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
@@ -86,7 +86,7 @@
       "type": "block",
       "sortid": 17,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "tiny_reactor_state_1",
       "path": "~/blocks/tiny_reactor/blockstates"
@@ -1067,7 +1067,7 @@
       "type": "gui",
       "sortid": 62,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "water_purifier_ui",
       "path": "~/blocks/water_purifier/UI"

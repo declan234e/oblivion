@@ -4,6 +4,7 @@ package obl.obliv.gui;
 import obl.obliv.procedures.WDrainProcedure;
 import obl.obliv.procedures.TinyActivateButtonProcedure;
 import obl.obliv.item.UrandiaIngotItem;
+import obl.obliv.item.FilterItem;
 import obl.obliv.item.PurifiedWaterItem;
 import obl.obliv.OblivionModElements;
 import obl.obliv.OblivionMod;
@@ -11,6 +12,7 @@ import obl.obliv.OblivionMod;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraft.item.Items;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
@@ -139,7 +141,7 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (PurifiedWaterItem.block == stack.getItem());
+					return (FilterItem.block == stack.getItem() || Items.WATER_BUCKET == stack.getItem() || PurifiedWaterItem.block == stack.getItem() || Items.BUCKET == stack.getItem());
 				}
 			}));
 			int si;

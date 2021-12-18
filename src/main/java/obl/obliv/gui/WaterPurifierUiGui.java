@@ -131,7 +131,7 @@ public class WaterPurifierUiGui extends OblivionModElements.ModElement {
 			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 26) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
-					return (Items.BUCKET == stack.getItem());
+					return (Items.WATER_BUCKET == stack.getItem() || Items.BUCKET == stack.getItem());
 				}
 			}));
 			int si;
