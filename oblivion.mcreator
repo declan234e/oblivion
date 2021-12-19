@@ -1627,6 +1627,36 @@
       "ids": {},
       "registry_name": "large_battery_upper",
       "path": "~/blocks/batteries/Large"
+    },
+    {
+      "name": "ModStart",
+      "type": "procedure",
+      "sortid": 86,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mod_start",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Misc"
     }
   ],
   "variable_elements": [],
@@ -1861,7 +1891,7 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.0.9D",
+    "version": "0.0.9F",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",
@@ -1875,7 +1905,7 @@
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
     "credits": "model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e",
-    "modElementsPackage": "obl.obliv",
+    "modElementsPackage": "ga.gamer234emp.obv",
     "lockBaseModFiles": false
   },
   "mcreatorVersion": 202100351610
