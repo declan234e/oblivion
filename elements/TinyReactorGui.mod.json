@@ -65,7 +65,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:PurifiedWater"
+            "value": "Items.BUCKET"
           },
           "id": 2,
           "disableStackInteraction": false,

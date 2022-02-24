@@ -1,48 +1,25 @@
 
 package ga.gamer234emp.obv.item;
 
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.food.FoodProperties;
 
-import net.minecraft.item.UseAction;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.Food;
+import ga.gamer234emp.obv.init.OblivionModTabs;
 
-import ga.gamer234emp.obv.itemgroup.ReactorsItemGroup;
-import ga.gamer234emp.obv.OblivionModElements;
+public class PurifiedWaterItem extends Item {
+	public PurifiedWaterItem() {
+		super(new Item.Properties().tab(OblivionModTabs.TAB_REACTORS).stacksTo(16).rarity(Rarity.COMMON)
+				.food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.3f).alwaysEat()
 
-@OblivionModElements.ModElement.Tag
-public class PurifiedWaterItem extends OblivionModElements.ModElement {
-	@ObjectHolder("oblivion:purified_water")
-	public static final Item block = null;
-
-	public PurifiedWaterItem(OblivionModElements instance) {
-		super(instance, 66);
+						.build()));
+		setRegistryName("purified_water");
 	}
 
 	@Override
-	public void initElements() {
-		elements.items.add(() -> new FoodItemCustom());
-	}
-
-	public static class FoodItemCustom extends Item {
-		public FoodItemCustom() {
-			super(new Item.Properties().group(ReactorsItemGroup.tab).maxStackSize(16).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(0).saturation(0.3f).setAlwaysEdible()
-
-							.build()));
-			setRegistryName("purified_water");
-		}
-
-		@Override
-		public UseAction getUseAction(ItemStack itemstack) {
-			return UseAction.DRINK;
-		}
-
-		@Override
-		public net.minecraft.util.SoundEvent getEatSound() {
-			return net.minecraft.util.SoundEvents.ENTITY_GENERIC_DRINK;
-		}
+	public UseAnim getUseAnimation(ItemStack itemstack) {
+		return UseAnim.DRINK;
 	}
 }

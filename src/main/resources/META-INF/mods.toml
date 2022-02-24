@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[37,)"
 license="Creative Commons Attribution-NonCommercial 3.0"
 
 [[mods]]
 modId="oblivion"
-version="0.0.9F"
+version="0.1.1B"
 displayName="oblivion"
 credits="model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e"
 displayURL="https://mcreator.net"
@@ -17,7 +17,7 @@ not alot
 [[dependencies.oblivion]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5]"
+    versionRange="[1.17.1]"
     ordering="NONE"
     side="BOTH"
 
