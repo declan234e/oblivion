@@ -8,5 +8,5 @@
 
 <h1>versions</h1>
 <p1>v1.16.5 supported</p1> <br>
-<p1>v1.17.1 once i update things</p1>
+<p1>v1.17.1 supported-ish</p1>
 
