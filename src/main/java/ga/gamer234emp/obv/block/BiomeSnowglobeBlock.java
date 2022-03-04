@@ -8,8 +8,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.energy.EnergyStorage;
@@ -20,7 +18,6 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
@@ -52,11 +49,9 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.Material;
@@ -67,36 +62,25 @@ import net.minecraft.block.Block;
 
 import javax.annotation.Nullable;
 
-import java.util.stream.Stream;
 import java.util.stream.IntStream;
-import java.util.Random;
-import java.util.Map;
 import java.util.List;
-import java.util.HashMap;
 import java.util.Collections;
-import java.util.AbstractMap;
 
 import io.netty.buffer.Unpooled;
 
-import ga.gamer234emp.obv.procedures.TinyReactorUpdateTickProcedure;
-import ga.gamer234emp.obv.procedures.TinyReactorState1BlockAddedProcedure;
 import ga.gamer234emp.obv.itemgroup.ReactorsItemGroup;
-import ga.gamer234emp.obv.gui.TinyReactorGuiGui;
+import ga.gamer234emp.obv.gui.SnowGlobeUiGui;
 import ga.gamer234emp.obv.OblivionModElements;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.BooleanProperty;
-import io.netty.util.internal.UnstableApi;
 
 @OblivionModElements.ModElement.Tag
-public class TinyReactorState1Block extends OblivionModElements.ModElement {
-	@ObjectHolder("oblivion:tiny_reactor_state_1")
+public class BiomeSnowglobeBlock extends OblivionModElements.ModElement {
+	@ObjectHolder("oblivion:biome_snowglobe")
 	public static final Block block = null;
-	@ObjectHolder("oblivion:tiny_reactor_state_1")
+	@ObjectHolder("oblivion:biome_snowglobe")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 
-	public TinyReactorState1Block(OblivionModElements instance) {
-		super(instance, 17);
+	public BiomeSnowglobeBlock(OblivionModElements instance) {
+		super(instance, 87);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
 	}
 
@@ -109,8 +93,7 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
 		public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
-			event.getRegistry()
-					.register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("tiny_reactor_state_1"));
+			event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("biome_snowglobe"));
 		}
 	}
 
@@ -122,26 +105,12 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-		public static final IntegerProperty AGE = BlockStateProperties.AGE_0_5;
-		public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
 
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0).harvestLevel(2)
-					.harvestTool(ToolType.PICKAXE).setRequiresTool().notSolid().setOpaque((bs, br, bp) -> false));
-			this.setDefaultState(
-				this.stateContainer.getBaseState()
-					.with(FACING, Direction.NORTH)
-					.with(AGE, 0)
-					.with(UNSTABLE, false)
-			);
-			setRegistryName("tiny_reactor_state_1");
-		}
-
-		@Override
-		@OnlyIn(Dist.CLIENT)
-		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
-			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("a small but unstable reactor"));
+			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(30f, 1000f).setLightLevel(s -> 0)
+					.harvestLevel(3).harvestTool(ToolType.PICKAXE).setRequiresTool().notSolid().setOpaque((bs, br, bp) -> false));
+			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+			setRegistryName("biome_snowglobe");
 		}
 
 		@Override
@@ -156,7 +125,7 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 		@Override
 		protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-			builder.add(FACING, AGE, UNSTABLE);
+			builder.add(FACING);
 		}
 
 		public BlockState rotate(BlockState state, Rotation rot) {
@@ -182,34 +151,6 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 		}
 
 		@Override
-		public void onBlockAdded(BlockState blockstate, World world, BlockPos pos, BlockState oldState, boolean moving) {
-			super.onBlockAdded(blockstate, world, pos, oldState, moving);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(pos, this, 5);
-
-			TinyReactorState1BlockAddedProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
-		public void tick(BlockState blockstate, ServerWorld world, BlockPos pos, Random random) {
-			super.tick(blockstate, world, pos, random);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-
-			TinyReactorUpdateTickProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("blockstate", blockstate))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			world.getPendingBlockTicks().scheduleTick(pos, this, 5);
-		}
-
-		@Override
 		public ActionResultType onBlockActivated(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, Hand hand,
 				BlockRayTraceResult hit) {
 			super.onBlockActivated(blockstate, world, pos, entity, hand, hit);
@@ -220,12 +161,12 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
 					public ITextComponent getDisplayName() {
-						return new StringTextComponent("Tiny Reactor ");
+						return new StringTextComponent("Biome Snowglobe");
 					}
 
 					@Override
 					public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-						return new TinyReactorGuiGui.GuiContainerMod(id, inventory,
+						return new SnowGlobeUiGui.GuiContainerMod(id, inventory,
 								new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
 					}
 				}, new BlockPos(x, y, z));
@@ -268,24 +209,10 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 				super.onReplaced(state, world, pos, newState, isMoving);
 			}
 		}
-
-		@Override
-		public boolean hasComparatorInputOverride(BlockState state) {
-			return true;
-		}
-
-		@Override
-		public int getComparatorInputOverride(BlockState blockState, World world, BlockPos pos) {
-			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof CustomTileEntity)
-				return Container.calcRedstoneFromInventory((CustomTileEntity) tileentity);
-			else
-				return 0;
-		}
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
-		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
+		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(9, ItemStack.EMPTY);
 
 		protected CustomTileEntity() {
 			super(tileEntityType);
@@ -300,8 +227,6 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 			ItemStackHelper.loadAllItems(compound, this.stacks);
 			if (compound.get("energyStorage") != null)
 				CapabilityEnergy.ENERGY.readNBT(energyStorage, null, compound.get("energyStorage"));
-			if (compound.get("fluidTank") != null)
-				CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.readNBT(fluidTank, null, compound.get("fluidTank"));
 		}
 
 		@Override
@@ -311,7 +236,6 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 				ItemStackHelper.saveAllItems(compound, this.stacks);
 			}
 			compound.put("energyStorage", CapabilityEnergy.ENERGY.writeNBT(energyStorage, null));
-			compound.put("fluidTank", CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.writeNBT(fluidTank, null));
 			return compound;
 		}
 
@@ -345,22 +269,22 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 		@Override
 		public ITextComponent getDefaultName() {
-			return new StringTextComponent("tiny_reactor_state_1");
+			return new StringTextComponent("biome_snowglobe");
 		}
 
 		@Override
 		public int getInventoryStackLimit() {
-			return 1;
+			return 64;
 		}
 
 		@Override
 		public Container createMenu(int id, PlayerInventory player) {
-			return new TinyReactorGuiGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
+			return new SnowGlobeUiGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
 		}
 
 		@Override
 		public ITextComponent getDisplayName() {
-			return new StringTextComponent("Tiny Reactor ");
+			return new StringTextComponent("Biome Snowglobe");
 		}
 
 		@Override
@@ -394,7 +318,7 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 		}
 
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
-		private final EnergyStorage energyStorage = new EnergyStorage(15000, 500, 4000, 0) {
+		private final EnergyStorage energyStorage = new EnergyStorage(50000, 200, 200, 0) {
 			@Override
 			public int receiveEnergy(int maxReceive, boolean simulate) {
 				int retval = super.receiveEnergy(maxReceive, simulate);
@@ -415,18 +339,6 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 				return retval;
 			}
 		};
-		private final FluidTank fluidTank = new FluidTank(1000, fs -> {
-			if (fs.getFluid() == Fluids.WATER)
-				return true;
-			return false;
-		}) {
-			@Override
-			protected void onContentsChanged() {
-				super.onContentsChanged();
-				markDirty();
-				world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 2);
-			}
-		};
 
 		@Override
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
@@ -434,8 +346,6 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 				return handlers[facing.ordinal()].cast();
 			if (!this.removed && capability == CapabilityEnergy.ENERGY)
 				return LazyOptional.of(() -> energyStorage).cast();
-			if (!this.removed && capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
-				return LazyOptional.of(() -> fluidTank).cast();
 			return super.getCapability(capability, facing);
 		}
 

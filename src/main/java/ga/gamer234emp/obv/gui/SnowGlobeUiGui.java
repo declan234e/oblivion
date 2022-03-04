@@ -4,7 +4,6 @@ package ga.gamer234emp.obv.gui;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraft.item.Items;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
@@ -29,27 +28,20 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.gui.ScreenManager;
 
-import java.util.stream.Stream;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.AbstractMap;
 
-import ga.gamer234emp.obv.procedures.WDrainProcedure;
-import ga.gamer234emp.obv.procedures.TinyActivateButtonProcedure;
-import ga.gamer234emp.obv.item.UrandiaIngotItem;
-import ga.gamer234emp.obv.item.PurifiedWaterItem;
 import ga.gamer234emp.obv.OblivionModElements;
 import ga.gamer234emp.obv.OblivionMod;
-import ga.gamer234emp.obv.item.FilterItem;
 
 @OblivionModElements.ModElement.Tag
-public class TinyReactorGuiGui extends OblivionModElements.ModElement {
+public class SnowGlobeUiGui extends OblivionModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
 
-	public TinyReactorGuiGui(OblivionModElements instance) {
-		super(instance, 16);
+	public SnowGlobeUiGui(OblivionModElements instance) {
+		super(instance, 88);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
 		elements.addNetworkMessage(GUISlotChangedMessage.class, GUISlotChangedMessage::buffer, GUISlotChangedMessage::new,
@@ -61,13 +53,13 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
 		public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-			event.getRegistry().register(containerType.setRegistryName("tiny_reactor_gui"));
+			event.getRegistry().register(containerType.setRegistryName("snow_globe_ui"));
 		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, TinyReactorGuiGuiWindow::new));
+		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, SnowGlobeUiGuiWindow::new));
 	}
 
 	public static class GuiContainerModFactory implements IContainerFactory {
@@ -88,7 +80,7 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 			super(containerType, id);
 			this.entity = inv.player;
 			this.world = inv.player.world;
-			this.internal = new ItemStackHandler(3);
+			this.internal = new ItemStackHandler(2);
 			BlockPos pos = null;
 			if (extraData != null) {
 				pos = extraData.readBlockPos();
@@ -126,23 +118,9 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 133, 44) {
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return (UrandiaIngotItem.block == stack.getItem());
-				}
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 10, 48) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 25, 44) {
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return (FilterItem.block == stack.getItem() || Items.WATER_BUCKET == stack.getItem() || PurifiedWaterItem.block == stack.getItem() || Items.BUCKET == stack.getItem());
-				}
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 80, 44) {
 			}));
 			int si;
 			int sj;
@@ -169,18 +147,18 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 			if (slot != null && slot.getHasStack()) {
 				ItemStack itemstack1 = slot.getStack();
 				itemstack = itemstack1.copy();
-				if (index < 3) {
-					if (!this.mergeItemStack(itemstack1, 3, this.inventorySlots.size(), true)) {
+				if (index < 2) {
+					if (!this.mergeItemStack(itemstack1, 2, this.inventorySlots.size(), true)) {
 						return ItemStack.EMPTY;
 					}
 					slot.onSlotChange(itemstack1, itemstack);
-				} else if (!this.mergeItemStack(itemstack1, 0, 3, false)) {
-					if (index < 3 + 27) {
-						if (!this.mergeItemStack(itemstack1, 3 + 27, this.inventorySlots.size(), true)) {
+				} else if (!this.mergeItemStack(itemstack1, 0, 2, false)) {
+					if (index < 2 + 27) {
+						if (!this.mergeItemStack(itemstack1, 2 + 27, this.inventorySlots.size(), true)) {
 							return ItemStack.EMPTY;
 						}
 					} else {
-						if (!this.mergeItemStack(itemstack1, 3, 3 + 27, false)) {
+						if (!this.mergeItemStack(itemstack1, 2, 2 + 27, false)) {
 							return ItemStack.EMPTY;
 						}
 					}
@@ -391,20 +369,6 @@ public class TinyReactorGuiGui extends OblivionModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
-		if (buttonID == 0) {
-
-			WDrainProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-		if (buttonID == 1) {
-
-			TinyActivateButtonProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

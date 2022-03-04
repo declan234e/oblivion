@@ -1,0 +1,11 @@
+{
+  "parent": "oblivion:custom/biome_snowglobe",
+  "textures": {
+    "all": "oblivion:blocks/biome_snowglobe_full",
+    "particle": "oblivion:blocks/biome_snowglobe_full",
+    "0": "oblivion:blocks/biome_snowglobe_full",
+    "1": "oblivion:blocks/red_stained_glass",
+    "2": "oblivion:blocks/purple_stained_glass",
+    "3": "oblivion:blocks/biomeglass"
+  }
+}

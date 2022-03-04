@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "oblivion:block/biome_snowglobe"
+    },
+    "facing=east": {
+      "model": "oblivion:block/biome_snowglobe",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "oblivion:block/biome_snowglobe",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "oblivion:block/biome_snowglobe",
+      "y": 270
+    }
+  }
+}

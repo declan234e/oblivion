@@ -4,6 +4,7 @@ package ga.gamer234emp.obv.gui;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraft.item.Items;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
@@ -38,6 +39,7 @@ import java.util.AbstractMap;
 import ga.gamer234emp.obv.procedures.WaterPurifierUpdateTickProcedure;
 import ga.gamer234emp.obv.OblivionModElements;
 import ga.gamer234emp.obv.OblivionMod;
+
 
 @OblivionModElements.ModElement.Tag
 public class WaterPurifierUiGui extends OblivionModElements.ModElement {
