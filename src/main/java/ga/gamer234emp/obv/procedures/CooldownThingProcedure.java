@@ -36,10 +36,10 @@ public class CooldownThingProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (itemstack.getOrCreateTag().getBoolean("cooldown") == true && itemstack.getOrCreateTag().getBoolean("otg") == false) {
-			itemstack.getOrCreateTag().putBoolean("otg", (true));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("cooldown start"), (false));
 			}
+			itemstack.getOrCreateTag().putBoolean("otg", (true));
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
@@ -68,7 +68,7 @@ public class CooldownThingProcedure {
 					itemstack.getOrCreateTag().putBoolean("cooldown", (false));
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
-			}.start(world, (int) 80);
+			}.start(world, (int) 600);
 		}
 	}
 }

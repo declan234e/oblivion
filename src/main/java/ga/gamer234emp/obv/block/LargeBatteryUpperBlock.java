@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.NonNullList;
@@ -42,7 +43,9 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.Material;
@@ -53,11 +56,15 @@ import net.minecraft.block.Block;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.stream.IntStream;
+import java.util.Map;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
-import ga.gamer234emp.obv.itemgroup.ReactorsItemGroup;
+import ga.gamer234emp.obv.procedures.LargeBatteryUpperDestroyedProcedure;
 import ga.gamer234emp.obv.OblivionModElements;
 
 @OblivionModElements.ModElement.Tag
@@ -75,7 +82,7 @@ public class LargeBatteryUpperBlock extends OblivionModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(ReactorsItemGroup.tab)).setRegistryName(block.getRegistryName()));
+		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
 
 	private static class TileEntityRegisterHandler {
@@ -132,11 +139,30 @@ public class LargeBatteryUpperBlock extends OblivionModElements.ModElement {
 		}
 
 		@Override
+		public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
+			return new ItemStack(LargeBatteryLowerBlock.block);
+		}
+
+		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(LargeBatteryLowerBlock.block));
+			return Collections.singletonList(new ItemStack(LargeBatteryLowerBlock.block, (int) (0)));
+		}
+
+		@Override
+		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
+			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+
+			LargeBatteryUpperDestroyedProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			return retval;
 		}
 
 		@Override

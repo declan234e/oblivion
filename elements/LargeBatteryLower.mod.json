@@ -63,7 +63,7 @@
     },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
-      "value": ""
+      "value": "CUSTOM:LargeBatteryLower"
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
@@ -116,11 +116,17 @@
     "hasEnergyStorage": true,
     "energyInitial": 0,
     "energyCapacity": 500000,
-    "energyMaxReceive": 200,
-    "energyMaxExtract": 200,
+    "energyMaxReceive": 2000,
+    "energyMaxExtract": 20000,
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockAdded": {
+      "name": "LargeBatteryPlaced"
+    },
+    "onDestroyedByPlayer": {
+      "name": "LargeBatteryDestroyed"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

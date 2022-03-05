@@ -39,13 +39,13 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "CUSTOM:Reactors"
+      "value": "No creative tab entry"
     },
     "destroyTool": "pickaxe",
     "customDrop": {
       "value": "CUSTOM:LargeBatteryLower"
     },
-    "dropAmount": 1,
+    "dropAmount": 0,
     "useLootTableForDrops": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
@@ -63,7 +63,7 @@
     },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
-      "value": ""
+      "value": "CUSTOM:LargeBatteryLower"
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
@@ -115,12 +115,15 @@
     "inventoryInSlotIDs": [],
     "hasEnergyStorage": false,
     "energyInitial": 0,
-    "energyCapacity": 500000,
+    "energyCapacity": 0,
     "energyMaxReceive": 200,
     "energyMaxExtract": 200,
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onDestroyedByPlayer": {
+      "name": "LargeBatteryUpperDestroyed"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

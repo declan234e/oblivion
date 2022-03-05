@@ -1666,6 +1666,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "itemstack",
             "type": "itemstack"
           },
@@ -1738,7 +1742,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "mining_dim_b",
-      "path": "~/dimensions"
+      "path": "~/biomes"
     },
     {
       "name": "IsInMine",
@@ -1872,6 +1876,97 @@
       "locked_code": true,
       "registry_name": "dm_teleporter_recipe",
       "path": "~/recipes"
+    },
+    {
+      "name": "LargeBatteryPlaced",
+      "type": "procedure",
+      "sortid": 103,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "large_battery_placed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Large/Procedures"
+    },
+    {
+      "name": "LargeBatteryDestroyed",
+      "type": "procedure",
+      "sortid": 104,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "large_battery_destroyed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Large/Procedures"
+    },
+    {
+      "name": "LargeBatteryUpperDestroyed",
+      "type": "procedure",
+      "sortid": 105,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "large_battery_upper_destroyed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Large/Procedures"
     }
   ],
   "variable_elements": [],
@@ -2065,7 +2160,12 @@
             "children": [
               {
                 "name": "Large",
-                "children": []
+                "children": [
+                  {
+                    "name": "Procedures",
+                    "children": []
+                  }
+                ]
               },
               {
                 "name": "Small",
@@ -2090,6 +2190,10 @@
                 "children": []
               }
             ]
+          },
+          {
+            "name": "cables",
+            "children": []
           }
         ]
       },
@@ -2131,13 +2235,17 @@
       {
         "name": "dimensions",
         "children": []
+      },
+      {
+        "name": "biomes",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.1.1A",
+    "version": "0.1.2B",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",

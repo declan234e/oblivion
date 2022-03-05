@@ -65,7 +65,7 @@ public class ModStartProcedure {
 			((World) world).getServer().getCommandManager().handleCommand(
 					new CommandSource(ICommandSource.DUMMY, new Vector3d(x, y, z), Vector2f.ZERO, (ServerWorld) world, 4, "",
 							new StringTextComponent(""), ((World) world).getServer(), null).withFeedbackDisabled(),
-					"/tellraw @p [\"\",{\"text\":\"Oblivion 0.1.1A\",\"color\":\"dark_blue\"},{\"text\":\"\"},{\"text\":\"created by declan234e\",\"color\":\"yellow\"}]");
+					"/tellraw @p [\"\",{\"text\":\"Oblivion 0.1.2B\",\"color\":\"dark_blue\"},{\"text\":\"\"},{\"text\":\"created by declan234e\",\"color\":\"yellow\"}]");
 		}
 	}
 }
