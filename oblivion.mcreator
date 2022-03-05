@@ -2137,11 +2137,11 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.1.0A",
+    "version": "0.1.1A",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://mcreator.net",
-    "license": "Creative Commons Attribution-NonCommercial 3.0",
+    "license": "GNU General Public License version 2 (GPLv2)",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "modPicture": "icon",
