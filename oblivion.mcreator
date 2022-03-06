@@ -2360,7 +2360,7 @@
     "license": "GNU General Public License version 2 (GPLv2)",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
-    "updateURL": "https://raw.githubusercontent.com/declan234e/gamer234emp.ga/master/oblivionUPDATE.json",
+    "updateURL": "https://raw.githubusercontent.com/declan234e/oblivion/master/oblivionUPDATE.json",
     "modPicture": "icon",
     "requiredMods": [],
     "dependencies": [],
