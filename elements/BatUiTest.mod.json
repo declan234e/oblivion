@@ -1,0 +1,48 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "<energy> FE",
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "name": "<energy> FE",
+          "x": 159,
+          "y": 67
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "TEST MENU",
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "name": "TEST MENU",
+          "x": 187,
+          "y": 43
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

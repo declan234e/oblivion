@@ -46,7 +46,7 @@ public class SolarPanelUpdateTickProcedure {
 						AtomicBoolean _retval = new AtomicBoolean(false);
 						TileEntity _ent = world.getTileEntity(pos);
 						if (_ent != null)
-							_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.canReceive()));
+							_ent.getCapability(CapabilityEnergy.ENERGY, Direction.UP).ifPresent(capability -> _retval.set(capability.canReceive()));
 						return _retval.get();
 					}
 				}.canReceiveEnergy(world, new BlockPos((int) x, (int) (y - 1), (int) z))) {

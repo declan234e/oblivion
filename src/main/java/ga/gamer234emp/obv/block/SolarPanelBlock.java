@@ -314,7 +314,7 @@ public class SolarPanelBlock extends OblivionModElements.ModElement {
 		}
 
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
-		private final EnergyStorage energyStorage = new EnergyStorage(5000, 200, 200, 0) {
+		private final EnergyStorage energyStorage = new EnergyStorage(5000, 0, 200, 0) {
 			@Override
 			public int receiveEnergy(int maxReceive, boolean simulate) {
 				int retval = super.receiveEnergy(maxReceive, simulate);

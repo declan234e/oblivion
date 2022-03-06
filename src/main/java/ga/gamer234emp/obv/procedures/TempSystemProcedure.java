@@ -6,8 +6,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.state.Property;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.block.BlockState;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -233,7 +231,7 @@ public class TempSystemProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") >= 1411 && new Object() {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") >= 1451 && new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -291,13 +289,6 @@ public class TempSystemProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-			{
-				BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
-				BlockState _bs = world.getBlockState(_pos);
-				Property<?> _property = _bs.getBlock().getStateContainer().getProperty("MELT");
-				if (_property instanceof BooleanProperty)
-					world.setBlockState(_pos, _bs.with((BooleanProperty) _property, (true)), 3);
-			}
 		} else if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -312,7 +303,7 @@ public class TempSystemProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") <= 1350) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") <= 1450) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

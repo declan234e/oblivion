@@ -1552,7 +1552,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "large_battery_lower",
-      "path": "~/blocks/batteries/Large"
+      "path": "~/blocks/batteries/Large/block"
     },
     {
       "name": "LargeBatteryUpper",
@@ -1561,7 +1561,7 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "large_battery_upper",
-      "path": "~/blocks/batteries/Large"
+      "path": "~/blocks/batteries/Large/block"
     },
     {
       "name": "ModStart",
@@ -1887,6 +1887,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -1967,6 +1971,102 @@
         ]
       },
       "path": "~/blocks/batteries/Large/Procedures"
+    },
+    {
+      "name": "BatUiTest",
+      "type": "gui",
+      "sortid": 106,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bat_ui_test",
+      "path": "~/blocks/batteries/Large"
+    },
+    {
+      "name": "LargeBatteryUpperRC",
+      "type": "procedure",
+      "sortid": 107,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "large_battery_upper_rc",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Large/Procedures"
+    },
+    {
+      "name": "LargeBatteryLUpdateTick",
+      "type": "procedure",
+      "sortid": 108,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "large_battery_l_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Large/Procedures"
+    },
+    {
+      "name": "SmallBatteryUpdateTick",
+      "type": "procedure",
+      "sortid": 109,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "small_battery_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/blocks/batteries/Small/procedures"
     }
   ],
   "variable_elements": [],
@@ -2164,6 +2264,10 @@
                   {
                     "name": "Procedures",
                     "children": []
+                  },
+                  {
+                    "name": "block",
+                    "children": []
                   }
                 ]
               },
@@ -2172,6 +2276,10 @@
                 "children": [
                   {
                     "name": "block",
+                    "children": []
+                  },
+                  {
+                    "name": "procedures",
                     "children": []
                   }
                 ]
@@ -2245,13 +2353,14 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.1.2B",
+    "version": "0.1.2G",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://gamer234emp.ga/oblivion",
     "license": "GNU General Public License version 2 (GPLv2)",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
+    "updateURL": "https://raw.githubusercontent.com/declan234e/gamer234emp.ga/master/oblivionUPDATE.json",
     "modPicture": "icon",
     "requiredMods": [],
     "dependencies": [],

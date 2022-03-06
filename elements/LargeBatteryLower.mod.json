@@ -105,8 +105,8 @@
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
     "hasInventory": true,
-    "guiBoundTo": "<NONE>",
-    "openGUIOnRightClick": false,
+    "guiBoundTo": "BatUiTest",
+    "openGUIOnRightClick": true,
     "inventorySize": 0,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": false,
@@ -116,13 +116,16 @@
     "hasEnergyStorage": true,
     "energyInitial": 0,
     "energyCapacity": 500000,
-    "energyMaxReceive": 2000,
+    "energyMaxReceive": 15000,
     "energyMaxExtract": 20000,
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onBlockAdded": {
       "name": "LargeBatteryPlaced"
+    },
+    "onTickUpdate": {
+      "name": "LargeBatteryLUpdateTick"
     },
     "onDestroyedByPlayer": {
       "name": "LargeBatteryDestroyed"

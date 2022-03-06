@@ -83,10 +83,10 @@ import ga.gamer234emp.obv.procedures.TinyReactorState1BlockAddedProcedure;
 import ga.gamer234emp.obv.itemgroup.ReactorsItemGroup;
 import ga.gamer234emp.obv.gui.TinyReactorGuiGui;
 import ga.gamer234emp.obv.OblivionModElements;
+
 import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.BooleanProperty;
-import io.netty.util.internal.UnstableApi;
+import net.minecraft.state.properties.BlockStateProperties;
 
 @OblivionModElements.ModElement.Tag
 public class TinyReactorState1Block extends OblivionModElements.ModElement {
@@ -122,18 +122,12 @@ public class TinyReactorState1Block extends OblivionModElements.ModElement {
 
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-		public static final IntegerProperty AGE = BlockStateProperties.AGE_0_5;
+		public static final IntegerProperty AGE = BlockStateProperties.AGE_0_5;
 		public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
-
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0).harvestLevel(2)
+			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(1f, 5f).setLightLevel(s -> 0).harvestLevel(2)
 					.harvestTool(ToolType.PICKAXE).setRequiresTool().notSolid().setOpaque((bs, br, bp) -> false));
-			this.setDefaultState(
-				this.stateContainer.getBaseState()
-					.with(FACING, Direction.NORTH)
-					.with(AGE, 0)
-					.with(UNSTABLE, false)
-			);
+			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 			setRegistryName("tiny_reactor_state_1");
 		}
 

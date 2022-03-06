@@ -42,13 +42,13 @@ public class GreenUiLightProcedure {
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("yes") && new Object() {
-			public double getValue(IWorld world, BlockPos pos, String tag) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("yes") && (new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
-					return tileEntity.getTileData().getDouble(tag);
-				return -1;
+					return tileEntity.getTileData().getString(tag);
+				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") < 1400;
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "state")).equals("norm");
 	}
 }

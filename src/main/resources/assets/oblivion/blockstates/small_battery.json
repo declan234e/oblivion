@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "oblivion:block/small_battery"
+    },
+    "facing=east": {
+      "model": "oblivion:block/small_battery",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "oblivion:block/small_battery",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "oblivion:block/small_battery",
+      "y": 270
     }
   }
 }
