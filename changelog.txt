@@ -1,1 +1,2 @@
-wow
+v1.1.2G
+large and small batteries now work
