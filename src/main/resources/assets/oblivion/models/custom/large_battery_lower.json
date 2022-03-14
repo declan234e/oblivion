@@ -1,5 +1,5 @@
 {
-  "credit": "Made with Blockbench",
+  "credit": "Made with Blockbench, by ROLEMAYMOLY",
   "elements": [
     {
       "name": "Large_battery_lower",
@@ -70,5 +70,19 @@
         }
       }
     }
-  ]
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.38,
+        0.38,
+        0.38
+      ]
+    }
+  }
 }

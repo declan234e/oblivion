@@ -1,8 +1,8 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made with Blockbench, by ROLEMAYMOLY",
 	"textures": {
-		"0": "large_battery",
-		"particle": "large_battery"
+		"0": "reactor mod:Model_Mods/Textures/large_battery/large_battery",
+		"particle": "reactor mod:Model_Mods/Textures/large_battery/large_battery"
 	},
 	"elements": [
 		{
@@ -18,5 +18,11 @@
 				"down": {"uv": [6.5, 6.5, 13.5, 13.5], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, 0],
+			"scale": [0.38, 0.38, 0.38]
+		}
+	}
 }

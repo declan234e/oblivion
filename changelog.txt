@@ -1,2 +1,7 @@
 v1.1.2G
 large and small batteries now work
+
+v1.1.2B
+added battery (currenty doesn't work)
+added dimension teleporter (and fixed the cooldown)
+and a few bug fixes
