@@ -7,6 +7,6 @@
 <p2>eventually will have lots of stuff including multiple reactors multiple dimension and more</p2> <br><br>
 
 <h1>versions</h1>
-<p1>v1.16.5 supported</p1> <br>
-<p1>v1.17.1 supported-ish</p1>
+<p1>v1.16.5 no longer supported</p1> <br>
+<p1>v1.17.1 supported</p1>
 
