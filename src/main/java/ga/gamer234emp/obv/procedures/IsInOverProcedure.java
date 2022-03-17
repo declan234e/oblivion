@@ -1,21 +1,12 @@
 package ga.gamer234emp.obv.procedures;
 
-import net.minecraft.world.World;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import ga.gamer234emp.obv.OblivionMod;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
 
 public class IsInOverProcedure {
-
-	public static boolean executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				OblivionMod.LOGGER.warn("Failed to load dependency entity for procedure IsInOver!");
+	public static boolean execute(Entity entity) {
+		if (entity == null)
 			return false;
-		}
-		Entity entity = (Entity) dependencies.get("entity");
-		return (entity.world.getDimensionKey()) == (World.OVERWORLD);
+		return (entity.level.dimension()) == (Level.OVERWORLD);
 	}
 }

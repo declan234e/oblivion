@@ -1,103 +1,58 @@
 package ga.gamer234emp.obv.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
+import net.minecraftforge.fmllegacy.server.ServerLifecycleHooks;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.Util;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.RegistryKey;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.stream.Stream;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.AbstractMap;
-
-import ga.gamer234emp.obv.OblivionMod;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.ChatType;
+import net.minecraft.core.Registry;
+import net.minecraft.Util;
 
 public class DimTeleportProcedure {
-
-	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure DimTeleport!");
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
+		if (entity == null)
 			return;
-		}
-		if (dependencies.get("x") == null) {
-			if (!dependencies.containsKey("x"))
-				OblivionMod.LOGGER.warn("Failed to load dependency x for procedure DimTeleport!");
-			return;
-		}
-		if (dependencies.get("y") == null) {
-			if (!dependencies.containsKey("y"))
-				OblivionMod.LOGGER.warn("Failed to load dependency y for procedure DimTeleport!");
-			return;
-		}
-		if (dependencies.get("z") == null) {
-			if (!dependencies.containsKey("z"))
-				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure DimTeleport!");
-			return;
-		}
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				OblivionMod.LOGGER.warn("Failed to load dependency entity for procedure DimTeleport!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				OblivionMod.LOGGER.warn("Failed to load dependency itemstack for procedure DimTeleport!");
-			return;
-		}
-		IWorld world = (IWorld) dependencies.get("world");
-		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
-		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
-		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if (entity.isSneaking() && (entity.world.getDimensionKey()) == (RegistryKey.getOrCreateKey(Registry.WORLD_KEY,
-				new ResourceLocation("oblivion:mining_dim")))) {
+		if (entity.isShiftKeyDown()
+				&& (entity.level.dimension()) == (ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("oblivion:mining_dim")))) {
 			itemstack.getOrCreateTag().putDouble("mineDimXPOS", x);
 			itemstack.getOrCreateTag().putDouble("mineDimYPOS", y);
 			itemstack.getOrCreateTag().putDouble("mineDimZPOS", z);
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("mining dimension tp cords set"), (false));
-			}
+			if (entity instanceof Player _player && !_player.level.isClientSide())
+				_player.displayClientMessage(new TextComponent("mining dimension tp cords set"), (false));
 			itemstack.getOrCreateTag().putBoolean("mineTpSET", (true));
 		}
-		if (entity.isSneaking() && (entity.world.getDimensionKey()) == (World.OVERWORLD)) {
+		if (entity.isShiftKeyDown() && (entity.level.dimension()) == (Level.OVERWORLD)) {
 			itemstack.getOrCreateTag().putDouble("overDimXPOS", x);
 			itemstack.getOrCreateTag().putDouble("overDimYPOS", y);
 			itemstack.getOrCreateTag().putDouble("overDimZPOS", z);
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("overworld tp cords set"), (false));
-			}
+			if (entity instanceof Player _player && !_player.level.isClientSide())
+				_player.displayClientMessage(new TextComponent("overworld tp cords set"), (false));
 			itemstack.getOrCreateTag().putBoolean("overTpSET", (true));
 		}
-		if (entity.isSneaking() == false) {
-			if ((entity.world.getDimensionKey()) == (World.OVERWORLD) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
-				if (!world.isRemote()) {
+		if (entity.isShiftKeyDown() == false) {
+			if ((entity.level.dimension()) == (Level.OVERWORLD) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
+				if (!world.isClientSide()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Player teleporting expect lag"), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
+						mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
-					private IWorld world;
+					private LevelAccessor world;
 
-					public void start(IWorld world, int waitTicks) {
+					public void start(LevelAccessor world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
 						this.world = world;
@@ -113,33 +68,28 @@ public class DimTeleportProcedure {
 					}
 
 					private void run() {
-
-						TpToMineProcedure.executeProcedure(
-								Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
-										.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+						TpToMineProcedure.execute(entity, itemstack);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
-				}.start(world, (int) 60);
-			} else if ((entity.world.getDimensionKey()) == (World.OVERWORLD) && itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
-				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("please wait before teleporting again"), (false));
-				}
+				}.start(world, 60);
+			} else if ((entity.level.dimension()) == (Level.OVERWORLD) && itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
+				if (entity instanceof Player _player && !_player.level.isClientSide())
+					_player.displayClientMessage(new TextComponent("please wait before teleporting again"), (false));
 			}
-			if ((entity.world.getDimensionKey()) == (RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation("oblivion:mining_dim")))
+			if ((entity.level.dimension()) == (ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("oblivion:mining_dim")))
 					&& itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
-				if (!world.isRemote()) {
+				if (!world.isClientSide()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Player teleporting expect lag"), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
+						mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
-					private IWorld world;
+					private LevelAccessor world;
 
-					public void start(IWorld world, int waitTicks) {
+					public void start(LevelAccessor world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
 						this.world = world;
@@ -155,34 +105,30 @@ public class DimTeleportProcedure {
 					}
 
 					private void run() {
-
-						TpToOverProcedure.executeProcedure(
-								Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
-										.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+						TpToOverProcedure.execute(entity, itemstack);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
-				}.start(world, (int) 60);
-			} else if ((entity.world.getDimensionKey()) == (RegistryKey.getOrCreateKey(Registry.WORLD_KEY,
-					new ResourceLocation("oblivion:mining_dim"))) && itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
-				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("please wait before teleporting again"), (false));
-				}
+				}.start(world, 60);
+			} else if ((entity.level.dimension()) == (ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("oblivion:mining_dim")))
+					&& itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
+				if (entity instanceof Player _player && !_player.level.isClientSide())
+					_player.displayClientMessage(new TextComponent("please wait before teleporting again"), (false));
 			}
-			if ((entity.world.getDimensionKey()) == (World.THE_NETHER) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
-				if (!world.isRemote()) {
+			if ((entity.level.dimension()) == (Level.NETHER) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
+				if (!world.isClientSide()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(
-								new StringTextComponent("player has just done something that will most likley kill expect lag"), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
+						mcserv.getPlayerList().broadcastMessage(
+								new TextComponent("player has just done something that will most likley kill expect lag"), ChatType.SYSTEM,
+								Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
-					private IWorld world;
+					private LevelAccessor world;
 
-					public void start(IWorld world, int waitTicks) {
+					public void start(LevelAccessor world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
 						this.world = world;
@@ -198,19 +144,13 @@ public class DimTeleportProcedure {
 					}
 
 					private void run() {
-
-						TpToMineNetherProcedure.executeProcedure(Stream
-								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
-										new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
-								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+						TpToMineNetherProcedure.execute(world, x, y, z, entity, itemstack);
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
-				}.start(world, (int) 60);
-			} else if ((entity.world.getDimensionKey()) == (World.THE_NETHER) && itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
-				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("please wait before teleporting again"), (false));
-				}
+				}.start(world, 60);
+			} else if ((entity.level.dimension()) == (Level.NETHER) && itemstack.getOrCreateTag().getBoolean("cooldown") == true) {
+				if (entity instanceof Player _player && !_player.level.isClientSide())
+					_player.displayClientMessage(new TextComponent("please wait before teleporting again"), (false));
 			}
 		}
 	}

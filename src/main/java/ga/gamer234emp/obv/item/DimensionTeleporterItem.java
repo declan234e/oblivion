@@ -1,102 +1,52 @@
 
 package ga.gamer234emp.obv.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.world.World;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ActionResult;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.BlockState;
-
-import java.util.stream.Stream;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.AbstractMap;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionHand;
 
 import ga.gamer234emp.obv.procedures.DimTpINVProcedure;
 import ga.gamer234emp.obv.procedures.DimTpCraftedProcedure;
 import ga.gamer234emp.obv.procedures.DimTeleportProcedure;
-import ga.gamer234emp.obv.itemgroup.MiningDimTabItemGroup;
-import ga.gamer234emp.obv.OblivionModElements;
+import ga.gamer234emp.obv.init.OblivionModTabs;
 
-@OblivionModElements.ModElement.Tag
-public class DimensionTeleporterItem extends OblivionModElements.ModElement {
-	@ObjectHolder("oblivion:dimension_teleporter")
-	public static final Item block = null;
-
-	public DimensionTeleporterItem(OblivionModElements instance) {
-		super(instance, 89);
+public class DimensionTeleporterItem extends Item {
+	public DimensionTeleporterItem() {
+		super(new Item.Properties().tab(OblivionModTabs.TAB_MINING_DIM_TAB).stacksTo(1).rarity(Rarity.RARE));
+		setRegistryName("dimension_teleporter");
 	}
 
 	@Override
-	public void initElements() {
-		elements.items.add(() -> new ItemCustom());
+	public int getUseDuration(ItemStack itemstack) {
+		return 0;
 	}
 
-	public static class ItemCustom extends Item {
-		public ItemCustom() {
-			super(new Item.Properties().group(MiningDimTabItemGroup.tab).maxStackSize(1).rarity(Rarity.RARE));
-			setRegistryName("dimension_teleporter");
-		}
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
+		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
+		ItemStack itemstack = ar.getObject();
+		double x = entity.getX();
+		double y = entity.getY();
+		double z = entity.getZ();
 
-		@Override
-		public int getItemEnchantability() {
-			return 0;
-		}
+		DimTeleportProcedure.execute(world, x, y, z, entity, itemstack);
+		return ar;
+	}
 
-		@Override
-		public int getUseDuration(ItemStack itemstack) {
-			return 0;
-		}
+	@Override
+	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
+		super.onCraftedBy(itemstack, world, entity);
+		DimTpCraftedProcedure.execute(itemstack);
+	}
 
-		@Override
-		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
-			return 1F;
-		}
-
-		@Override
-		public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity entity, Hand hand) {
-			ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
-			ItemStack itemstack = ar.getResult();
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			DimTeleportProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity),
-							new AbstractMap.SimpleEntry<>("itemstack", itemstack))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			return ar;
-		}
-
-		@Override
-		public void onCreated(ItemStack itemstack, World world, PlayerEntity entity) {
-			super.onCreated(itemstack, world, entity);
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			DimTpCraftedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("itemstack", itemstack)).collect(HashMap::new,
-					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
-		public void inventoryTick(ItemStack itemstack, World world, Entity entity, int slot, boolean selected) {
-			super.inventoryTick(itemstack, world, entity, slot, selected);
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-
-			DimTpINVProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
-							new AbstractMap.SimpleEntry<>("itemstack", itemstack))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
+	@Override
+	public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(itemstack, world, entity, slot, selected);
+		DimTpINVProcedure.execute(world, entity, itemstack);
 	}
 }

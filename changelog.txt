@@ -1,2 +1,9 @@
-v1.1.2G
+v0.1.4A
+updated to 1.17.1
+fixed rendering of large battery in hand and on the ground
+
+v0.1.3A
+last version for 1.16.5
+
+v0.1.2G
 large and small batteries now work

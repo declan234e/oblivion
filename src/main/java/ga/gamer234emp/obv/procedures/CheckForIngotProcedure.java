@@ -3,57 +3,24 @@ package ga.gamer234emp.obv.procedures;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.state.Property;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.item.ItemStack;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.BlockPos;
 
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.Map;
 
-import ga.gamer234emp.obv.item.UrandiaIngotItem;
-import ga.gamer234emp.obv.OblivionMod;
+import ga.gamer234emp.obv.init.OblivionModItems;
 
 public class CheckForIngotProcedure {
-
-	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure CheckForIngot!");
-			return;
-		}
-		if (dependencies.get("x") == null) {
-			if (!dependencies.containsKey("x"))
-				OblivionMod.LOGGER.warn("Failed to load dependency x for procedure CheckForIngot!");
-			return;
-		}
-		if (dependencies.get("y") == null) {
-			if (!dependencies.containsKey("y"))
-				OblivionMod.LOGGER.warn("Failed to load dependency y for procedure CheckForIngot!");
-			return;
-		}
-		if (dependencies.get("z") == null) {
-			if (!dependencies.containsKey("z"))
-				OblivionMod.LOGGER.warn("Failed to load dependency z for procedure CheckForIngot!");
-			return;
-		}
-		if (dependencies.get("blockstate") == null) {
-			if (!dependencies.containsKey("blockstate"))
-				OblivionMod.LOGGER.warn("Failed to load dependency blockstate for procedure CheckForIngot!");
-			return;
-		}
-		IWorld world = (IWorld) dependencies.get("world");
-		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
-		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
-		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		BlockState blockstate = (BlockState) dependencies.get("blockstate");
+	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
 		if ((new Object() {
-			public ItemStack getItemStack(BlockPos pos, int sltid) {
+			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-				TileEntity _ent = world.getTileEntity(pos);
+				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null) {
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						_retval.set(capability.getStackInSlot(sltid).copy());
@@ -61,31 +28,23 @@ public class CheckForIngotProcedure {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == UrandiaIngotItem.block) {
-			if ((new Object() {
-				public int get(BlockState _bs, String property) {
-					Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
-					return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
-				}
-			}.get(blockstate, "age")) < 4) {
+		}.getItemStack(world, new BlockPos((int) x, (int) y, (int) z), 0)).getItem() == OblivionModItems.URANDIA_INGOT) {
+			if ((blockstate.getBlock().getStateDefinition().getProperty("age")instanceof IntegerProperty _ip ? blockstate.getValue(_ip) : -1) < 4) {
 				{
-					int _value = (int) ((new Object() {
-						public int get(BlockState _bs, String property) {
-							Property<?> _prop = _bs.getBlock().getStateContainer().getProperty(property);
-							return _prop instanceof IntegerProperty ? _bs.get((IntegerProperty) _prop) : -1;
-						}
-					}.get(blockstate, "age")) + 1);
+					int _value = (int) ((blockstate.getBlock().getStateDefinition().getProperty("age")instanceof IntegerProperty _ip
+							? blockstate.getValue(_ip)
+							: -1) + 1);
 					BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
 					BlockState _bs = world.getBlockState(_pos);
-					Property<?> _property = _bs.getBlock().getStateContainer().getProperty("age");
-					if (_property instanceof IntegerProperty && _property.getAllowedValues().contains(_value))
-						world.setBlockState(_pos, _bs.with((IntegerProperty) _property, _value), 3);
+					Property<?> _property = _bs.getBlock().getStateDefinition().getProperty("age");
+					if (_property instanceof IntegerProperty _integerProp && _property.getPossibleValues().contains(_value))
+						world.setBlock(_pos, _bs.setValue(_integerProp, _value), 3);
 				}
 				{
-					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
 					if (_ent != null) {
-						final int _sltid = (int) (0);
-						final int _amount = (int) 1;
+						final int _sltid = 0;
+						final int _amount = 1;
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_sltid).copy();

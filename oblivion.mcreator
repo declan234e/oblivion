@@ -2353,7 +2353,7 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.1.2G",
+    "version": "0.1.4A",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://gamer234emp.ga/oblivion",
@@ -2366,7 +2366,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.16.5",
+    "currentGenerator": "forge-1.17.1",
     "credits": "model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e",
     "modElementsPackage": "ga.gamer234emp.obv",
     "lockBaseModFiles": false

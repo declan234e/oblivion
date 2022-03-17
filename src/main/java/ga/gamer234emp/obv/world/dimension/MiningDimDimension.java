@@ -4,77 +4,58 @@ package ga.gamer234emp.obv.world.dimension;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.client.world.DimensionRenderInfo;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Block;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
 
 import java.util.Set;
 import java.util.HashSet;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-
-import ga.gamer234emp.obv.OblivionModElements;
-
 import com.google.common.collect.ImmutableSet;
 
-@OblivionModElements.ModElement.Tag
-public class MiningDimDimension extends OblivionModElements.ModElement {
-	public MiningDimDimension(OblivionModElements instance) {
-		super(instance, 94);
-	}
+@Mod.EventBusSubscriber
+public class MiningDimDimension {
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class Fixers {
+		@SubscribeEvent
+		public static void registerFillerBlocks(FMLCommonSetupEvent event) {
+			Set<Block> replaceableBlocks = new HashSet<>();
+			replaceableBlocks.add(Blocks.STONE);
+			replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
+					.getSurfaceBuilder().get().config().getTopMaterial().getBlock());
+			replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
+					.getSurfaceBuilder().get().config().getUnderMaterial().getBlock());
+			event.enqueueWork(() -> {
+				WorldCarver.CAVE.replaceableBlocks = new ImmutableSet.Builder<Block>().addAll(WorldCarver.CAVE.replaceableBlocks)
+						.addAll(replaceableBlocks).build();
+				WorldCarver.CANYON.replaceableBlocks = new ImmutableSet.Builder<Block>().addAll(WorldCarver.CANYON.replaceableBlocks)
+						.addAll(replaceableBlocks).build();
+			});
+		}
 
-	@Override
-	public void init(FMLCommonSetupEvent event) {
-		Set<Block> replaceableBlocks = new HashSet<>();
-		replaceableBlocks.add(Blocks.STONE);
-		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
-				.getSurfaceBuilder().get().getConfig().getTop().getBlock());
-		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
-				.getSurfaceBuilder().get().getConfig().getUnder().getBlock());
-		DeferredWorkQueue.runLater(() -> {
-			try {
-				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CAVE, new ImmutableSet.Builder<Block>()
-						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CAVE, "field_222718_j"))
-						.addAll(replaceableBlocks).build(), "field_222718_j");
-				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CANYON, new ImmutableSet.Builder<Block>()
-						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CANYON, "field_222718_j"))
-						.addAll(replaceableBlocks).build(), "field_222718_j");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
+		@SubscribeEvent
+		@OnlyIn(Dist.CLIENT)
+		public static void registerDimensionSpecialEffects(FMLClientSetupEvent event) {
+			DimensionSpecialEffects customEffect = new DimensionSpecialEffects(128, true, DimensionSpecialEffects.SkyType.NORMAL, false, false) {
+				@Override
+				public Vec3 getBrightnessDependentFogColor(Vec3 color, float sunHeight) {
+					return color.multiply(sunHeight * 0.94 + 0.06, sunHeight * 0.94 + 0.06, sunHeight * 0.91 + 0.09);
+				}
 
-	@Override
-	@OnlyIn(Dist.CLIENT)
-	public void clientLoad(FMLClientSetupEvent event) {
-		DimensionRenderInfo customEffect = new DimensionRenderInfo(128, true, DimensionRenderInfo.FogType.NORMAL, false, false) {
-			@Override
-			public Vector3d func_230494_a_(Vector3d color, float sunHeight) {
-				return color.mul(sunHeight * 0.94 + 0.06, sunHeight * 0.94 + 0.06, sunHeight * 0.91 + 0.09);
-			}
-
-			@Override
-			public boolean func_230493_a_(int x, int y) {
-				return false;
-			}
-		};
-		DeferredWorkQueue.runLater(() -> {
-			try {
-				Object2ObjectMap<ResourceLocation, DimensionRenderInfo> effectsRegistry = (Object2ObjectMap<ResourceLocation, DimensionRenderInfo>) ObfuscationReflectionHelper
-						.getPrivateValue(DimensionRenderInfo.class, null, "field_239208_a_");
-				effectsRegistry.put(new ResourceLocation("oblivion:mining_dim"), customEffect);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
+				@Override
+				public boolean isFoggyAt(int x, int y) {
+					return false;
+				}
+			};
+			event.enqueueWork(() -> DimensionSpecialEffects.EFFECTS.put(new ResourceLocation("oblivion:mining_dim"), customEffect));
+		}
 	}
 }

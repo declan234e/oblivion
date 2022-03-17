@@ -4,48 +4,26 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import ga.gamer234emp.obv.OblivionMod;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.TextComponent;
 
 public class CooldownThingProcedure {
-
-	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				OblivionMod.LOGGER.warn("Failed to load dependency world for procedure CooldownThing!");
+	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
+		if (entity == null)
 			return;
-		}
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				OblivionMod.LOGGER.warn("Failed to load dependency entity for procedure CooldownThing!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				OblivionMod.LOGGER.warn("Failed to load dependency itemstack for procedure CooldownThing!");
-			return;
-		}
-		IWorld world = (IWorld) dependencies.get("world");
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (itemstack.getOrCreateTag().getBoolean("cooldown") == true && itemstack.getOrCreateTag().getBoolean("otg") == false) {
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("cooldown start"), (false));
-			}
+			if (entity instanceof Player _player && !_player.level.isClientSide())
+				_player.displayClientMessage(new TextComponent("cooldown start"), (false));
 			itemstack.getOrCreateTag().putBoolean("otg", (true));
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
-				private IWorld world;
+				private LevelAccessor world;
 
-				public void start(IWorld world, int waitTicks) {
+				public void start(LevelAccessor world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
 					this.world = world;
@@ -61,14 +39,13 @@ public class CooldownThingProcedure {
 				}
 
 				private void run() {
-					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("cooldown end"), (false));
-					}
+					if (entity instanceof Player _player && !_player.level.isClientSide())
+						_player.displayClientMessage(new TextComponent("cooldown end"), (false));
 					itemstack.getOrCreateTag().putBoolean("otg", (false));
 					itemstack.getOrCreateTag().putBoolean("cooldown", (false));
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
-			}.start(world, (int) 600);
+			}.start(world, 600);
 		}
 	}
 }
