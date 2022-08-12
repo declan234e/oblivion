@@ -22,7 +22,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.Connection;
+import net.minecraft.nbt.IntTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Direction;
@@ -42,7 +42,7 @@ public class WaterPurifierBlockEntity extends RandomizableContainerBlockEntity i
 	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
 
 	public WaterPurifierBlockEntity(BlockPos position, BlockState state) {
-		super(OblivionModBlockEntities.WATER_PURIFIER, position, state);
+		super(OblivionModBlockEntities.WATER_PURIFIER.get(), position, state);
 	}
 
 	@Override
@@ -51,36 +51,30 @@ public class WaterPurifierBlockEntity extends RandomizableContainerBlockEntity i
 		if (!this.tryLoadLootTable(compound))
 			this.stacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
 		ContainerHelper.loadAllItems(compound, this.stacks);
-		if (compound.get("energyStorage")instanceof CompoundTag compoundTag)
-			energyStorage.deserializeNBT(compoundTag);
-		if (compound.get("fluidTank")instanceof CompoundTag compoundTag)
+		if (compound.get("energyStorage") instanceof IntTag intTag)
+			energyStorage.deserializeNBT(intTag);
+		if (compound.get("fluidTank") instanceof CompoundTag compoundTag)
 			fluidTank.readFromNBT(compoundTag);
 	}
 
 	@Override
-	public CompoundTag save(CompoundTag compound) {
-		super.save(compound);
+	public void saveAdditional(CompoundTag compound) {
+		super.saveAdditional(compound);
 		if (!this.trySaveLootTable(compound)) {
 			ContainerHelper.saveAllItems(compound, this.stacks);
 		}
 		compound.put("energyStorage", energyStorage.serializeNBT());
 		compound.put("fluidTank", fluidTank.writeToNBT(new CompoundTag()));
-		return compound;
 	}
 
 	@Override
 	public ClientboundBlockEntityDataPacket getUpdatePacket() {
-		return new ClientboundBlockEntityDataPacket(this.worldPosition, 0, this.getUpdateTag());
+		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
 	@Override
 	public CompoundTag getUpdateTag() {
-		return this.save(new CompoundTag());
-	}
-
-	@Override
-	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-		this.load(pkt.getTag());
+		return this.saveWithFullMetadata();
 	}
 
 	@Override

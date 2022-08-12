@@ -16,10 +16,12 @@ package ga.gamer234emp.obv;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.minecraftforge.fmllegacy.network.simple.SimpleChannel;
-import net.minecraftforge.fmllegacy.network.NetworkRegistry;
-import net.minecraftforge.fmllegacy.network.NetworkEvent;
+import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
@@ -29,6 +31,12 @@ import java.util.function.Function;
 import java.util.function.BiConsumer;
 
 import ga.gamer234emp.obv.init.OblivionModTabs;
+import ga.gamer234emp.obv.init.OblivionModItems;
+import ga.gamer234emp.obv.init.OblivionModFeatures;
+import ga.gamer234emp.obv.init.OblivionModEntities;
+import ga.gamer234emp.obv.init.OblivionModBlocks;
+import ga.gamer234emp.obv.init.OblivionModBlockEntities;
+import ga.gamer234emp.obv.init.OblivionModBiomes;
 
 @Mod("oblivion")
 public class OblivionMod {
@@ -41,6 +49,15 @@ public class OblivionMod {
 
 	public OblivionMod() {
 		OblivionModTabs.load();
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		OblivionModBlocks.REGISTRY.register(bus);
+		OblivionModItems.REGISTRY.register(bus);
+		OblivionModEntities.REGISTRY.register(bus);
+		OblivionModBlockEntities.REGISTRY.register(bus);
+		OblivionModFeatures.REGISTRY.register(bus);
+
+		OblivionModBiomes.REGISTRY.register(bus);
+
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,

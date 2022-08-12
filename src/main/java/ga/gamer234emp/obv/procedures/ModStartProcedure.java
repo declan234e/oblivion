@@ -8,7 +8,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.commands.CommandSourceStack;
@@ -20,8 +19,7 @@ import javax.annotation.Nullable;
 public class ModStartProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		Entity entity = event.getPlayer();
-		execute(event, entity.level, entity.getX(), entity.getY(), entity.getZ());
+		execute(event, event.getPlayer().level, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ());
 	}
 
 	public static void execute(LevelAccessor world, double x, double y, double z) {
@@ -33,6 +31,6 @@ public class ModStartProcedure {
 			_level.getServer().getCommands().performCommand(
 					new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(),
 							null).withSuppressedOutput(),
-					"/tellraw @p [\"\",{\"text\":\"Oblivion 0.1.4A \",\"color\":\"dark_blue\"},{\"text\":\"\"},{\"text\":\"created by declan234e\",\"color\":\"yellow\"}]");
+					"/tellraw @p [\"\",{\"text\":\"Oblivion 0.1.4B \",\"color\":\"dark_blue\"},{\"text\":\"\"},{\"text\":\"created by declan234e\",\"color\":\"yellow\"}]");
 	}
 }

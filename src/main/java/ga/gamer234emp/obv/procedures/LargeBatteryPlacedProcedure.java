@@ -24,10 +24,10 @@ public class LargeBatteryPlacedProcedure {
 						: Direction.NORTH;
 			}
 		}.getDirection(blockstate);
-		world.setBlock(new BlockPos((int) x, (int) (y + 1), (int) z), OblivionModBlocks.LARGE_BATTERY_UPPER.defaultBlockState(), 3);
+		world.setBlock(new BlockPos(x, y + 1, z), OblivionModBlocks.LARGE_BATTERY_UPPER.get().defaultBlockState(), 3);
 		{
 			Direction _dir = blockDir;
-			BlockPos _pos = new BlockPos((int) x, (int) (y + 1), (int) z);
+			BlockPos _pos = new BlockPos(x, y + 1, z);
 			BlockState _bs = world.getBlockState(_pos);
 			Property<?> _property = _bs.getBlock().getStateDefinition().getProperty("facing");
 			if (_property instanceof DirectionProperty _dp && _dp.getPossibleValues().contains(_dir)) {

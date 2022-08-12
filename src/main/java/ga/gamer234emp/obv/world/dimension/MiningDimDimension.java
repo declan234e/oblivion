@@ -1,7 +1,6 @@
 
 package ga.gamer234emp.obv.world.dimension;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,10 +28,8 @@ public class MiningDimDimension {
 		public static void registerFillerBlocks(FMLCommonSetupEvent event) {
 			Set<Block> replaceableBlocks = new HashSet<>();
 			replaceableBlocks.add(Blocks.STONE);
-			replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
-					.getSurfaceBuilder().get().config().getTopMaterial().getBlock());
-			replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("oblivion:mining_dim_b")).getGenerationSettings()
-					.getSurfaceBuilder().get().config().getUnderMaterial().getBlock());
+			replaceableBlocks.add(Blocks.STONE);
+			replaceableBlocks.add(Blocks.STONE);
 			event.enqueueWork(() -> {
 				WorldCarver.CAVE.replaceableBlocks = new ImmutableSet.Builder<Block>().addAll(WorldCarver.CAVE.replaceableBlocks)
 						.addAll(replaceableBlocks).build();

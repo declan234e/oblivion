@@ -7,6 +7,21 @@
 <p2>eventually will have lots of stuff including multiple reactors multiple dimension and more</p2> <br><br>
 
 <h1>versions</h1>
-<p1>v1.16.5 no longer supported</p1> <br>
-<p1>v1.17.1 supported</p1>
+<p1>v1.16.5 unsupported</p1> <br>
+<p1>v1.17.1 unsupported</p1> <br>
+<pl>v1.18.2 supported</pl>
+
+<h1>Importing to mcreator</h1>
+<h3>mcreator v2022.1</h3>
+
+<p1>before importing the mcreator project make sure to have this mcreator plugin installed: https://mcreator.net/plugin/78808/blockstate-procedures</p1>
+ <br> <br>
+ 
+<p2>once you have added the plugin to mcreator download the source code and extract it to the folder of your choice</p2> <br>
+<p2>next part is pretty simple double click oblivion.mcreator</p2> <br> <br>
+
+<p1>now you should have oblivion in your mcreator</p1>
+
+
+
 

@@ -1,7 +1,7 @@
 
 package ga.gamer234emp.obv.block;
 
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -54,27 +54,27 @@ import ga.gamer234emp.obv.procedures.TinyReactorState1BlockAddedProcedure;
 import ga.gamer234emp.obv.init.OblivionModBlocks;
 import ga.gamer234emp.obv.block.entity.TinyReactorState1BlockEntity;
 
-//blockstate imports
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class TinyReactorState1Block extends Block
 		implements
 
 			EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-	// make an integer property set to the blockstate age
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
+	public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
+	public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
 
 	public TinyReactorState1Block() {
 		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.METAL).strength(1f, 5f).requiresCorrectToolForDrops().noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
-		this.registerDefaultState(this.stateDefinition.any()
-		.setValue(FACING, Direction.NORTH)
-		// set the value to 0
-		.setValue(AGE, 0)
-		);
-		setRegistryName("tiny_reactor_state_1");
+		this.registerDefaultState(
+			this.stateDefinition.any()
+			.setValue(FACING, Direction.NORTH)
+			.setValue(AGE, 0)
+			.setValue(UNSTABLE, false)
+			);
 	}
 
 	@Override
@@ -95,8 +95,7 @@ public class TinyReactorState1Block extends Block
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		// add it to block
-		builder.add(FACING, AGE);
+		builder.add(FACING, AGE, UNSTABLE);
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -115,7 +114,7 @@ public class TinyReactorState1Block extends Block
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 2;
 		return false;
 	}
@@ -131,7 +130,7 @@ public class TinyReactorState1Block extends Block
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.getBlockTicks().scheduleTick(pos, this, 5);
+		world.scheduleTick(pos, this, 5);
 		TinyReactorState1BlockAddedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
@@ -143,7 +142,7 @@ public class TinyReactorState1Block extends Block
 		int z = pos.getZ();
 
 		TinyReactorUpdateTickProcedure.execute(world, x, y, z, blockstate);
-		world.getBlockTicks().scheduleTick(pos, this, 5);
+		world.scheduleTick(pos, this, 5);
 	}
 
 	@Override
@@ -211,6 +210,6 @@ public class TinyReactorState1Block extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.TINY_REACTOR_STATE_1, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.TINY_REACTOR_STATE_1.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

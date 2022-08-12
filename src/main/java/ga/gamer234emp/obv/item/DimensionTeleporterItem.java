@@ -2,6 +2,7 @@
 package ga.gamer234emp.obv.item;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
@@ -18,7 +19,11 @@ import ga.gamer234emp.obv.init.OblivionModTabs;
 public class DimensionTeleporterItem extends Item {
 	public DimensionTeleporterItem() {
 		super(new Item.Properties().tab(OblivionModTabs.TAB_MINING_DIM_TAB).stacksTo(1).rarity(Rarity.RARE));
-		setRegistryName("dimension_teleporter");
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack itemstack) {
+		return UseAnim.EAT;
 	}
 
 	@Override
@@ -41,7 +46,7 @@ public class DimensionTeleporterItem extends Item {
 	@Override
 	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
 		super.onCraftedBy(itemstack, world, entity);
-		DimTpCraftedProcedure.execute(itemstack);
+		DimTpCraftedProcedure.execute(entity, itemstack);
 	}
 
 	@Override

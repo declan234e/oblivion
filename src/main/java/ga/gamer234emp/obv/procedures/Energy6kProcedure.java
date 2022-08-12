@@ -18,7 +18,7 @@ public class Energy6kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= 6000 && new Object() {
+		}.getEnergyStored(world, new BlockPos(x, y, z)) >= 6000 && new Object() {
 			public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = level.getBlockEntity(pos);
@@ -26,6 +26,6 @@ public class Energy6kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) < 7000;
+		}.getEnergyStored(world, new BlockPos(x, y, z)) < 7000;
 	}
 }

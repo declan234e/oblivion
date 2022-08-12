@@ -23,7 +23,7 @@ public class SmallBatteryUpdateTickProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.canReceive()));
 				return _retval.get();
 			}
-		}.canReceiveEnergy(world, new BlockPos((int) (x + 1), (int) y, (int) z))) {
+		}.canReceiveEnergy(world, new BlockPos(x + 1, y, z))) {
 			FE = new Object() {
 				public int receiveEnergySimulate(LevelAccessor level, BlockPos pos, int _amount) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -33,7 +33,7 @@ public class SmallBatteryUpdateTickProcedure {
 								.ifPresent(capability -> _retval.set(capability.receiveEnergy(_amount, true)));
 					return _retval.get();
 				}
-			}.receiveEnergySimulate(world, new BlockPos((int) (x + 1), (int) y, (int) z), 1000);
+			}.receiveEnergySimulate(world, new BlockPos(x + 1, y, z), 1000);
 			if (new Object() {
 				public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -42,15 +42,15 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= FE) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) >= FE) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) (x + 1), (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x + 1, y, z));
 					int _amount = (int) FE;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = (int) FE;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
@@ -63,9 +63,9 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= FE) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) <= FE) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) (x + 1), (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x + 1, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -74,12 +74,12 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -88,7 +88,7 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 				}
@@ -102,7 +102,7 @@ public class SmallBatteryUpdateTickProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.canReceive()));
 				return _retval.get();
 			}
-		}.canReceiveEnergy(world, new BlockPos((int) (x - 1), (int) y, (int) z))) {
+		}.canReceiveEnergy(world, new BlockPos(x - 1, y, z))) {
 			FEWest = new Object() {
 				public int receiveEnergySimulate(LevelAccessor level, BlockPos pos, int _amount) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -112,7 +112,7 @@ public class SmallBatteryUpdateTickProcedure {
 								.ifPresent(capability -> _retval.set(capability.receiveEnergy(_amount, true)));
 					return _retval.get();
 				}
-			}.receiveEnergySimulate(world, new BlockPos((int) (x - 1), (int) y, (int) z), 1000);
+			}.receiveEnergySimulate(world, new BlockPos(x - 1, y, z), 1000);
 			if (new Object() {
 				public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -121,15 +121,15 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= FEWest) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) >= FEWest) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) (x - 1), (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x - 1, y, z));
 					int _amount = (int) FEWest;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = (int) FEWest;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
@@ -142,9 +142,9 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= FEWest) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) <= FEWest) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) (x - 1), (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x - 1, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -153,12 +153,12 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -167,7 +167,7 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 				}
@@ -181,7 +181,7 @@ public class SmallBatteryUpdateTickProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.canReceive()));
 				return _retval.get();
 			}
-		}.canReceiveEnergy(world, new BlockPos((int) x, (int) y, (int) (z + 1)))) {
+		}.canReceiveEnergy(world, new BlockPos(x, y, z + 1))) {
 			FESouth = new Object() {
 				public int receiveEnergySimulate(LevelAccessor level, BlockPos pos, int _amount) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -191,7 +191,7 @@ public class SmallBatteryUpdateTickProcedure {
 								.ifPresent(capability -> _retval.set(capability.receiveEnergy(_amount, true)));
 					return _retval.get();
 				}
-			}.receiveEnergySimulate(world, new BlockPos((int) x, (int) y, (int) (z + 1)), 1000);
+			}.receiveEnergySimulate(world, new BlockPos(x, y, z + 1), 1000);
 			if (new Object() {
 				public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -200,15 +200,15 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= FESouth) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) >= FESouth) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) (z + 1)));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z + 1));
 					int _amount = (int) FESouth;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = (int) FESouth;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
@@ -221,9 +221,9 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= FESouth) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) <= FESouth) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) (z + 1)));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z + 1));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -232,12 +232,12 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -246,7 +246,7 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 				}
@@ -260,7 +260,7 @@ public class SmallBatteryUpdateTickProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.canReceive()));
 				return _retval.get();
 			}
-		}.canReceiveEnergy(world, new BlockPos((int) x, (int) y, (int) (z - 1)))) {
+		}.canReceiveEnergy(world, new BlockPos(x, y, z - 1))) {
 			FENorth = new Object() {
 				public int receiveEnergySimulate(LevelAccessor level, BlockPos pos, int _amount) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -270,7 +270,7 @@ public class SmallBatteryUpdateTickProcedure {
 								.ifPresent(capability -> _retval.set(capability.receiveEnergy(_amount, true)));
 					return _retval.get();
 				}
-			}.receiveEnergySimulate(world, new BlockPos((int) x, (int) y, (int) (z - 1)), 1000);
+			}.receiveEnergySimulate(world, new BlockPos(x, y, z - 1), 1000);
 			if (new Object() {
 				public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -279,15 +279,15 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= FENorth) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) >= FENorth) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) (z - 1)));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z - 1));
 					int _amount = (int) FENorth;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = (int) FENorth;
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
@@ -300,9 +300,9 @@ public class SmallBatteryUpdateTickProcedure {
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 					return _retval.get();
 				}
-			}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= FENorth) {
+			}.getEnergyStored(world, new BlockPos(x, y, z)) <= FENorth) {
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) (z - 1)));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z - 1));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -311,12 +311,12 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.receiveEnergy(_amount, false));
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 					int _amount = new Object() {
 						public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -325,7 +325,7 @@ public class SmallBatteryUpdateTickProcedure {
 								_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 							return _retval.get();
 						}
-					}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z));
+					}.getEnergyStored(world, new BlockPos(x, y, z));
 					if (_ent != null)
 						_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 				}

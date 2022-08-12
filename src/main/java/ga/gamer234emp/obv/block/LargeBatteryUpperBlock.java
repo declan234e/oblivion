@@ -48,7 +48,6 @@ public class LargeBatteryUpperBlock extends Block
 		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f).requiresCorrectToolForDrops().noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false).noDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		setRegistryName("large_battery_upper");
 	}
 
 	@Override
@@ -81,20 +80,20 @@ public class LargeBatteryUpperBlock extends Block
 	}
 
 	@Override
-	public ItemStack getPickBlock(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-		return new ItemStack(OblivionModBlocks.LARGE_BATTERY_LOWER);
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
+		return new ItemStack(OblivionModBlocks.LARGE_BATTERY_LOWER.get());
 	}
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 2;
 		return false;
 	}
 
 	@Override
-	public boolean removedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
 		LargeBatteryUpperDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 		return retval;
 	}
@@ -134,6 +133,6 @@ public class LargeBatteryUpperBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.LARGE_BATTERY_UPPER, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.LARGE_BATTERY_UPPER.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

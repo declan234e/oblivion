@@ -13,8 +13,6 @@ import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.core.BlockPos;
 
-import java.util.Collections;
-
 public class TpToOverProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -29,8 +27,8 @@ public class TpToOverProcedure {
 				_player.teleportTo(nextLevel, nextLevel.getSharedSpawnPos().getX(), nextLevel.getSharedSpawnPos().getY() + 1,
 						nextLevel.getSharedSpawnPos().getZ(), _player.getYRot(), _player.getXRot());
 				_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-				for (MobEffectInstance effectinstance : _player.getActiveEffects())
-					_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), effectinstance));
+				for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+					_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
 				_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 			}
 		}
@@ -39,11 +37,10 @@ public class TpToOverProcedure {
 				Entity _ent = entity;
 				_ent.teleportTo((itemstack.getOrCreateTag().getDouble("overDimXPOS")), (itemstack.getOrCreateTag().getDouble("overDimYPOS")),
 						(itemstack.getOrCreateTag().getDouble("overDimZPOS")));
-				if (_ent instanceof ServerPlayer _serverPlayer) {
+				if (_ent instanceof ServerPlayer _serverPlayer)
 					_serverPlayer.connection.teleport((itemstack.getOrCreateTag().getDouble("overDimXPOS")),
 							(itemstack.getOrCreateTag().getDouble("overDimYPOS")), (itemstack.getOrCreateTag().getDouble("overDimZPOS")),
-							_ent.getYRot(), _ent.getXRot(), Collections.emptySet());
-				}
+							_ent.getYRot(), _ent.getXRot());
 			}
 		}
 	}

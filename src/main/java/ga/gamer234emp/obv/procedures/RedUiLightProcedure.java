@@ -13,6 +13,6 @@ public class RedUiLightProcedure {
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("no");
+		}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("no");
 	}
 }

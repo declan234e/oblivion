@@ -19,6 +19,6 @@ public class ReturnW40Procedure {
 							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 				return _retval.get();
 			}
-		}.getFluidTankLevel(world, new BlockPos((int) x, (int) y, (int) z), 1) >= 400;
+		}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) >= 400;
 	}
 }

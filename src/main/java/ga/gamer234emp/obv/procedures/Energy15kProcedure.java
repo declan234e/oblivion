@@ -18,6 +18,6 @@ public class Energy15kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) == 15000;
+		}.getEnergyStored(world, new BlockPos(x, y, z)) == 15000;
 	}
 }

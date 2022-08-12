@@ -14,6 +14,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.Minecraft;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
 
 import ga.gamer234emp.obv.world.inventory.BatUiTestMenu;
 
@@ -21,6 +22,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 public class BatUiTestScreen extends AbstractContainerScreen<BatUiTestMenu> {
+	private final static HashMap<String, Object> guistate = BatUiTestMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;

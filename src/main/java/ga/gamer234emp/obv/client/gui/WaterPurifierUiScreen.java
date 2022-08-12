@@ -16,6 +16,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
 
 import ga.gamer234emp.obv.world.inventory.WaterPurifierUiMenu;
 import ga.gamer234emp.obv.network.WaterPurifierUiButtonMessage;
@@ -25,6 +26,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 public class WaterPurifierUiScreen extends AbstractContainerScreen<WaterPurifierUiMenu> {
+	private final static HashMap<String, Object> guistate = WaterPurifierUiMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;

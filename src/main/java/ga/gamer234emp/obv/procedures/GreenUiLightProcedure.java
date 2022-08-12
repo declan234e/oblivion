@@ -13,13 +13,13 @@ public class GreenUiLightProcedure {
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("yes") && (new Object() {
+		}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("yes") && (new Object() {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "state")).equals("norm");
+		}.getValue(world, new BlockPos(x, y, z), "state")).equals("norm");
 	}
 }

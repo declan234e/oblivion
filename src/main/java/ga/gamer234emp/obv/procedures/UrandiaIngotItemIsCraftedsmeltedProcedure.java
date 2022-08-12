@@ -14,15 +14,15 @@ public class UrandiaIngotItemIsCraftedsmeltedProcedure {
 		random_chance = Math.random();
 		if (random_chance <= 0.5) {
 			{
-				BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+				BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 				if (_ent != null) {
-					final int _sltid = 2;
+					final int _slotid = 2;
 					final int _amount = 1;
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable) {
-							ItemStack _stk = capability.getStackInSlot(_sltid).copy();
+							ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 							_stk.shrink(_amount);
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
+							((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _stk);
 						}
 					});
 				}

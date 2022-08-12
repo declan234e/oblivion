@@ -15,9 +15,9 @@ public class TinyReactorState1BlockAddedProcedure {
 					return blockEntity.getTileData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "PLC")) == false) {
+		}.getValue(world, new BlockPos(x, y, z), "PLC")) == false) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -26,7 +26,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -35,7 +35,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -44,7 +44,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -53,7 +53,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -62,7 +62,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -71,7 +71,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -80,7 +80,7 @@ public class TinyReactorState1BlockAddedProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)

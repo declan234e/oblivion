@@ -4,7 +4,7 @@
  */
 package ga.gamer234emp.obv.init;
 
-import net.minecraftforge.fmllegacy.network.IContainerFactory;
+import net.minecraftforge.network.IContainerFactory;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,6 +19,7 @@ import ga.gamer234emp.obv.world.inventory.WaterPurifierUiMenu;
 import ga.gamer234emp.obv.world.inventory.TinyReactorGuiMenu;
 import ga.gamer234emp.obv.world.inventory.SnowGlobeUiMenu;
 import ga.gamer234emp.obv.world.inventory.BatUiTestMenu;
+import ga.gamer234emp.obv.world.inventory.BFabUiMenu;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class OblivionModMenus {
@@ -30,6 +31,7 @@ public class OblivionModMenus {
 	public static final MenuType<SnowGlobeUiMenu> SNOW_GLOBE_UI = register("snow_globe_ui",
 			(id, inv, extraData) -> new SnowGlobeUiMenu(id, inv, extraData));
 	public static final MenuType<BatUiTestMenu> BAT_UI_TEST = register("bat_ui_test", (id, inv, extraData) -> new BatUiTestMenu(id, inv, extraData));
+	public static final MenuType<BFabUiMenu> B_FAB_UI = register("b_fab_ui", (id, inv, extraData) -> new BFabUiMenu(id, inv, extraData));
 
 	private static <T extends AbstractContainerMenu> MenuType<T> register(String registryname, IContainerFactory<T> containerFactory) {
 		MenuType<T> menuType = new MenuType<T>(containerFactory);

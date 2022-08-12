@@ -13,6 +13,6 @@ public class WDReturnProcedure {
 					return blockEntity.getTileData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WDr");
+		}.getValue(world, new BlockPos(x, y, z), "WDr");
 	}
 }

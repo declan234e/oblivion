@@ -3,7 +3,6 @@ package ga.gamer234emp.obv.procedures;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
@@ -26,12 +25,12 @@ public class LargeBatteryUpperDestroyedProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) {
-			world.setBlock(new BlockPos((int) x, (int) (y - 1), (int) z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 		} else {
-			if (world instanceof Level) {
-				Block.dropResources(world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)), (Level) world,
-						new BlockPos((int) x, (int) y, (int) z));
-				world.destroyBlock(new BlockPos((int) x, (int) (y - 1), (int) z), false);
+			{
+				BlockPos _pos = new BlockPos(x, y - 1, z);
+				Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
+				world.destroyBlock(_pos, false);
 			}
 		}
 	}

@@ -70,7 +70,7 @@
       "type": "gui",
       "sortid": 16,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "tiny_reactor_gui",
       "path": "~/blocks/tiny_reactor/UI"
     },
@@ -1025,7 +1025,7 @@
       "type": "gui",
       "sortid": 62,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "water_purifier_ui",
       "path": "~/blocks/water_purifier/UI"
     },
@@ -1090,15 +1090,6 @@
         ]
       },
       "path": "~/blocks/water_purifier/int"
-    },
-    {
-      "name": "PurifiedWater",
-      "type": "food",
-      "sortid": 66,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "purified_water",
-      "path": "~/items/purified water"
     },
     {
       "name": "OrangeUiLight",
@@ -1815,6 +1806,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "itemstack",
             "type": "itemstack"
           }
@@ -1867,15 +1862,6 @@
       "locked_code": false,
       "registry_name": "mining_dim_tab",
       "path": "~/Misc"
-    },
-    {
-      "name": "DmTeleporterRecipe",
-      "type": "recipe",
-      "sortid": 102,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "dm_teleporter_recipe",
-      "path": "~/recipes"
     },
     {
       "name": "LargeBatteryPlaced",
@@ -2067,6 +2053,60 @@
         ]
       },
       "path": "~/blocks/batteries/Small/procedures"
+    },
+    {
+      "name": "BiomeTest",
+      "type": "biome",
+      "sortid": 110,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "biome_test",
+      "path": "~/biomes"
+    },
+    {
+      "name": "MatterFab",
+      "type": "block",
+      "sortid": 111,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "matter_fab",
+      "path": "~/blocks/matter_fabricator_placeholder/block"
+    },
+    {
+      "name": "BFabUi",
+      "type": "gui",
+      "sortid": 112,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "b_fab_ui",
+      "path": "~/blocks/matter_fabricator_placeholder/UI"
+    },
+    {
+      "name": "ReinforcedCasing",
+      "type": "item",
+      "sortid": 113,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reinforced_casing",
+      "path": "~/items/reinforced case"
+    },
+    {
+      "name": "PurifiedWater",
+      "type": "item",
+      "sortid": 114,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_water",
+      "path": "~/items/purified water"
+    },
+    {
+      "name": "DimensionalMinDimTp",
+      "type": "achievement",
+      "sortid": 115,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dimensional_min_dim_tp",
+      "path": "~/Advancements"
     }
   ],
   "variable_elements": [],
@@ -2085,10 +2125,12 @@
       "block.atlas_multi.tiny_reactor_state_1": "Tiny Reactor ",
       "biome.oblivion.mining_dim_b": "Mining Dim Biome",
       "itemGroup.tabmining_dim_tab": "Mining Dimsion",
+      "advancements.dimensional_min_dim_tp.descr": "craft a dimension teleporter",
       "block.oblivion.water_purifier": "Water Purifier",
       "item.atlas_multi.vicwin_spawn_egg": "Vicwin Spawn Egg",
       "block.oblivion.small_battery": "Small Battery",
       "itemGroup.tabreactors": "Reactors",
+      "advancements.dimensional_min_dim_tp.title": "Dimensional",
       "item.oblivion.filter": "Water Filter",
       "item.oblivion.dimension_teleporter": "Dimension Teleporter",
       "block.atlas_multi.urandia_ore": "Urandia Ore",
@@ -2106,10 +2148,13 @@
       "item.oblivion.purified_water": "Purified Water",
       "entity.oblivion.vicwin": "Vicwin",
       "block.oblivion.solar_panel": "Solar Panel",
+      "item.oblivion.reinforced_casing": "Reinforced Casing",
       "block.atlas_multi.solar_panel": "Solar Panel",
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
       "item.oblivion.mining_dim": "Mining Dim Portal Igniter",
-      "block.oblivion.large_battery_lower": "Large Battery"
+      "block.oblivion.large_battery_lower": "Large Battery",
+      "biome.oblivion.biome_test": "Biome Test",
+      "block.oblivion.matter_fab": "Matter Fab"
     }
   },
   "foldersRoot": {
@@ -2180,6 +2225,10 @@
           },
           {
             "name": "filter",
+            "children": []
+          },
+          {
+            "name": "reinforced case",
             "children": []
           }
         ]
@@ -2341,11 +2390,28 @@
                 "children": []
               }
             ]
+          },
+          {
+            "name": "matter_fabricator_placeholder",
+            "children": [
+              {
+                "name": "block",
+                "children": []
+              },
+              {
+                "name": "UI",
+                "children": []
+              }
+            ]
           }
         ]
       },
       {
         "name": "recipes",
+        "children": []
+      },
+      {
+        "name": "Advancements",
         "children": []
       }
     ]
@@ -2353,7 +2419,7 @@
   "workspaceSettings": {
     "modid": "oblivion",
     "modName": "oblivion",
-    "version": "0.1.4A",
+    "version": "0.1.5a",
     "description": "not alot",
     "author": "declan234e, ROLEMAYMOLY",
     "websiteURL": "https://gamer234emp.ga/oblivion",
@@ -2366,10 +2432,10 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.17.1",
+    "currentGenerator": "forge-1.18.2",
     "credits": "model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e",
     "modElementsPackage": "ga.gamer234emp.obv",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100354000
+  "mcreatorVersion": 202200120510
 }

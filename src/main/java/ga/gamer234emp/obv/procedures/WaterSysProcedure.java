@@ -20,7 +20,7 @@ public class WaterSysProcedure {
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("yes")) {
+		}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("yes")) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -28,7 +28,7 @@ public class WaterSysProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "temperature") >= 1199) {
+			}.getValue(world, new BlockPos(x, y, z), "temperature") >= 1199) {
 				if (new Object() {
 					public int getFluidTankLevel(LevelAccessor level, BlockPos pos, int tank) {
 						AtomicInteger _retval = new AtomicInteger(0);
@@ -38,16 +38,16 @@ public class WaterSysProcedure {
 									.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 						return _retval.get();
 					}
-				}.getFluidTankLevel(world, new BlockPos((int) x, (int) y, (int) z), 1) >= 100 && new Object() {
+				}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) >= 100 && new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
 							return blockEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType") == 2) {
+				}.getValue(world, new BlockPos(x, y, z), "WaterType") == 2) {
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 						int _amount = 1;
 						if (_ent != null)
 							_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
@@ -62,16 +62,16 @@ public class WaterSysProcedure {
 									.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 						return _retval.get();
 					}
-				}.getFluidTankLevel(world, new BlockPos((int) x, (int) y, (int) z), 1) >= 100 && new Object() {
+				}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) >= 100 && new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
 							return blockEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "WaterType") == 1) {
+				}.getValue(world, new BlockPos(x, y, z), "WaterType") == 1) {
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 						int _amount = 2;
 						if (_ent != null)
 							_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
@@ -88,9 +88,9 @@ public class WaterSysProcedure {
 							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 				return _retval.get();
 			}
-		}.getFluidTankLevel(world, new BlockPos((int) x, (int) y, (int) z), 1) == 0) {
+		}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) == 0) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)

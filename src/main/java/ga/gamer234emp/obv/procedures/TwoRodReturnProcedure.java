@@ -13,6 +13,6 @@ public class TwoRodReturnProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia") >= 2;
+		}.getValue(world, new BlockPos(x, y, z), "numOfUrandia") >= 2;
 	}
 }

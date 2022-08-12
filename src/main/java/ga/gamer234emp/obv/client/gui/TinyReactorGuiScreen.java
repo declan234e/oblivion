@@ -17,6 +17,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
 
 import ga.gamer234emp.obv.world.inventory.TinyReactorGuiMenu;
 import ga.gamer234emp.obv.procedures.WDReturnProcedure;
@@ -56,6 +57,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGuiMenu> {
+	private final static HashMap<String, Object> guistate = TinyReactorGuiMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
@@ -213,7 +215,7 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 					return BlockEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\u00B0", 118, 30, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\uFFFD", 118, 30, -12829636);
 		this.font.draw(poseStack, "" + (new Object() {
 			public int getFluidTankLevel(BlockPos pos, int tank) {
 				AtomicInteger _retval = new AtomicInteger(0);

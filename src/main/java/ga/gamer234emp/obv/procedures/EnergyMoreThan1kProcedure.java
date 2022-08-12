@@ -18,7 +18,7 @@ public class EnergyMoreThan1kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= 1001 && new Object() {
+		}.getEnergyStored(world, new BlockPos(x, y, z)) >= 1001 && new Object() {
 			public int getEnergyStored(LevelAccessor level, BlockPos pos) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = level.getBlockEntity(pos);
@@ -26,6 +26,6 @@ public class EnergyMoreThan1kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) < 2000;
+		}.getEnergyStored(world, new BlockPos(x, y, z)) < 2000;
 	}
 }

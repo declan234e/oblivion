@@ -21,9 +21,9 @@ public class WDReturn2Procedure {
 							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 				return _retval.get();
 			}
-		}.getFluidTankLevel(world, new BlockPos((int) x, (int) y, (int) z), 1) == 0) {
+		}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) == 0) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)

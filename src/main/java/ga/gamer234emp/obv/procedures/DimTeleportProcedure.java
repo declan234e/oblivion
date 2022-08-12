@@ -1,6 +1,6 @@
 package ga.gamer234emp.obv.procedures;
 
-import net.minecraftforge.fmllegacy.server.ServerLifecycleHooks;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,9 +42,9 @@ public class DimTeleportProcedure {
 		if (entity.isShiftKeyDown() == false) {
 			if ((entity.level.dimension()) == (Level.OVERWORLD) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
 				if (!world.isClientSide()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
+					MinecraftServer _mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (_mcserv != null)
+						_mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {
@@ -79,9 +79,9 @@ public class DimTeleportProcedure {
 			if ((entity.level.dimension()) == (ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("oblivion:mining_dim")))
 					&& itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
 				if (!world.isClientSide()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
+					MinecraftServer _mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (_mcserv != null)
+						_mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {
@@ -116,9 +116,9 @@ public class DimTeleportProcedure {
 			}
 			if ((entity.level.dimension()) == (Level.NETHER) && itemstack.getOrCreateTag().getBoolean("cooldown") == false) {
 				if (!world.isClientSide()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().broadcastMessage(
+					MinecraftServer _mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (_mcserv != null)
+						_mcserv.getPlayerList().broadcastMessage(
 								new TextComponent("player has just done something that will most likley kill expect lag"), ChatType.SYSTEM,
 								Util.NIL_UUID);
 				}

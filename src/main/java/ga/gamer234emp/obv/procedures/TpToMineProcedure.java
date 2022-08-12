@@ -15,8 +15,6 @@ import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.core.Registry;
 import net.minecraft.core.BlockPos;
 
-import java.util.Collections;
-
 public class TpToMineProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -31,8 +29,8 @@ public class TpToMineProcedure {
 				_player.teleportTo(nextLevel, nextLevel.getSharedSpawnPos().getX(), nextLevel.getSharedSpawnPos().getY() + 1,
 						nextLevel.getSharedSpawnPos().getZ(), _player.getYRot(), _player.getXRot());
 				_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-				for (MobEffectInstance effectinstance : _player.getActiveEffects())
-					_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), effectinstance));
+				for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+					_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
 				_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 			}
 		}
@@ -41,11 +39,10 @@ public class TpToMineProcedure {
 				Entity _ent = entity;
 				_ent.teleportTo((itemstack.getOrCreateTag().getDouble("mineDimXPOS")), (itemstack.getOrCreateTag().getDouble("mineDimYPOS")),
 						(itemstack.getOrCreateTag().getDouble("mineDimZPOS")));
-				if (_ent instanceof ServerPlayer _serverPlayer) {
+				if (_ent instanceof ServerPlayer _serverPlayer)
 					_serverPlayer.connection.teleport((itemstack.getOrCreateTag().getDouble("mineDimXPOS")),
 							(itemstack.getOrCreateTag().getDouble("mineDimYPOS")), (itemstack.getOrCreateTag().getDouble("mineDimZPOS")),
-							_ent.getYRot(), _ent.getXRot(), Collections.emptySet());
-				}
+							_ent.getYRot(), _ent.getXRot());
 			}
 		}
 	}

@@ -18,6 +18,6 @@ public class EnergyLessThan1kProcedure {
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 				return _retval.get();
 			}
-		}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) <= 1000;
+		}.getEnergyStored(world, new BlockPos(x, y, z)) <= 1000;
 	}
 }

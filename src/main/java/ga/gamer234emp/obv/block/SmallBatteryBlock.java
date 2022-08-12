@@ -48,7 +48,6 @@ public class SmallBatteryBlock extends Block
 		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.METAL).strength(1f, 10f).requiresCorrectToolForDrops().noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		setRegistryName("small_battery");
 	}
 
 	@Override
@@ -82,7 +81,7 @@ public class SmallBatteryBlock extends Block
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 2;
 		return false;
 	}
@@ -98,7 +97,7 @@ public class SmallBatteryBlock extends Block
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.getBlockTicks().scheduleTick(pos, this, 10);
+		world.scheduleTick(pos, this, 10);
 	}
 
 	@Override
@@ -109,7 +108,7 @@ public class SmallBatteryBlock extends Block
 		int z = pos.getZ();
 
 		SmallBatteryUpdateTickProcedure.execute(world, x, y, z);
-		world.getBlockTicks().scheduleTick(pos, this, 10);
+		world.scheduleTick(pos, this, 10);
 	}
 
 	@Override
@@ -132,6 +131,6 @@ public class SmallBatteryBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.SMALL_BATTERY, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.SMALL_BATTERY.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

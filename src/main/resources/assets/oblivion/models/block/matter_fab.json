@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "oblivion:blocks/missing",
+    "up": "oblivion:blocks/missing",
+    "north": "oblivion:blocks/missing",
+    "east": "oblivion:blocks/missing",
+    "south": "oblivion:blocks/missing",
+    "west": "oblivion:blocks/missing",
+    "particle": "oblivion:blocks/missing"
+  }
+}

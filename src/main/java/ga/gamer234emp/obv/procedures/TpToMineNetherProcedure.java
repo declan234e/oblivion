@@ -27,8 +27,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
 
-import java.util.Collections;
-
 public class TpToMineNetherProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -98,18 +96,17 @@ public class TpToMineNetherProcedure {
 									_player.teleportTo(nextLevel, nextLevel.getSharedSpawnPos().getX(), nextLevel.getSharedSpawnPos().getY() + 1,
 											nextLevel.getSharedSpawnPos().getZ(), _player.getYRot(), _player.getXRot());
 									_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-									for (MobEffectInstance effectinstance : _player.getActiveEffects())
-										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), effectinstance));
+									for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
 									_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 								}
 							}
 							{
 								Entity _ent = entity;
 								_ent.teleportTo((Math.random() * 1000), 2, (Math.random() * 1000));
-								if (_ent instanceof ServerPlayer _serverPlayer) {
+								if (_ent instanceof ServerPlayer _serverPlayer)
 									_serverPlayer.connection.teleport((Math.random() * 1000), 2, (Math.random() * 1000), _ent.getYRot(),
-											_ent.getXRot(), Collections.emptySet());
-								}
+											_ent.getXRot());
 							}
 							if (world instanceof ServerLevel _level)
 								_level.getServer().getCommands().performCommand(
@@ -130,8 +127,8 @@ public class TpToMineNetherProcedure {
 									_player.teleportTo(nextLevel, nextLevel.getSharedSpawnPos().getX(), nextLevel.getSharedSpawnPos().getY() + 1,
 											nextLevel.getSharedSpawnPos().getZ(), _player.getYRot(), _player.getXRot());
 									_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-									for (MobEffectInstance effectinstance : _player.getActiveEffects())
-										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), effectinstance));
+									for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
 									_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 								}
 							}
@@ -141,12 +138,10 @@ public class TpToMineNetherProcedure {
 									_ent.teleportTo((itemstack.getOrCreateTag().getDouble("mineDimXPOS")),
 											(itemstack.getOrCreateTag().getDouble("mineDimYPOS")),
 											(itemstack.getOrCreateTag().getDouble("mineDimZPOS")));
-									if (_ent instanceof ServerPlayer _serverPlayer) {
+									if (_ent instanceof ServerPlayer _serverPlayer)
 										_serverPlayer.connection.teleport((itemstack.getOrCreateTag().getDouble("mineDimXPOS")),
 												(itemstack.getOrCreateTag().getDouble("mineDimYPOS")),
-												(itemstack.getOrCreateTag().getDouble("mineDimZPOS")), _ent.getYRot(), _ent.getXRot(),
-												Collections.emptySet());
-									}
+												(itemstack.getOrCreateTag().getDouble("mineDimZPOS")), _ent.getYRot(), _ent.getXRot());
 								}
 								if (world instanceof ServerLevel _level)
 									_level.getServer().getCommands().performCommand(

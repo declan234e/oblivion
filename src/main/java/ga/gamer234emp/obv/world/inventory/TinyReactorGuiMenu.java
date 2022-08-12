@@ -9,7 +9,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +24,6 @@ import java.util.HashMap;
 
 import ga.gamer234emp.obv.init.OblivionModMenus;
 import ga.gamer234emp.obv.init.OblivionModItems;
-
 
 public class TinyReactorGuiMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
@@ -81,7 +79,7 @@ public class TinyReactorGuiMenu extends AbstractContainerMenu implements Supplie
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 133, 44) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return (OblivionModItems.URANDIA_INGOT == stack.getItem());
+				return (OblivionModItems.URANDIA_INGOT.get() == stack.getItem());
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 25, 44) {
@@ -93,7 +91,7 @@ public class TinyReactorGuiMenu extends AbstractContainerMenu implements Supplie
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return (OblivionModItems.FILTER == stack.getItem() || Items.WATER_BUCKET == stack.getItem() || OblivionModItems.PURIFIED_WATER == stack.getItem() || Items.BUCKET == stack.getItem());
+				return (OblivionModItems.PURIFIED_WATER.get() == stack.getItem());
 			}
 		}));
 		for (int si = 0; si < 3; ++si)

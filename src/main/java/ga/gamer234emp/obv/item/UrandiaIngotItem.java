@@ -2,6 +2,7 @@
 package ga.gamer234emp.obv.item;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
@@ -13,7 +14,11 @@ import ga.gamer234emp.obv.init.OblivionModTabs;
 public class UrandiaIngotItem extends Item {
 	public UrandiaIngotItem() {
 		super(new Item.Properties().tab(OblivionModTabs.TAB_REACTORS).stacksTo(64).rarity(Rarity.COMMON));
-		setRegistryName("urandia_ingot");
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack itemstack) {
+		return UseAnim.EAT;
 	}
 
 	@Override

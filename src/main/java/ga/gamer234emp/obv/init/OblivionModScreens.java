@@ -15,6 +15,7 @@ import ga.gamer234emp.obv.client.gui.WaterPurifierUiScreen;
 import ga.gamer234emp.obv.client.gui.TinyReactorGuiScreen;
 import ga.gamer234emp.obv.client.gui.SnowGlobeUiScreen;
 import ga.gamer234emp.obv.client.gui.BatUiTestScreen;
+import ga.gamer234emp.obv.client.gui.BFabUiScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class OblivionModScreens {
@@ -25,6 +26,7 @@ public class OblivionModScreens {
 			MenuScreens.register(OblivionModMenus.WATER_PURIFIER_UI, WaterPurifierUiScreen::new);
 			MenuScreens.register(OblivionModMenus.SNOW_GLOBE_UI, SnowGlobeUiScreen::new);
 			MenuScreens.register(OblivionModMenus.BAT_UI_TEST, BatUiTestScreen::new);
+			MenuScreens.register(OblivionModMenus.B_FAB_UI, BFabUiScreen::new);
 		});
 	}
 }

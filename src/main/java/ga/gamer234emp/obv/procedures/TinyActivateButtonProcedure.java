@@ -15,16 +15,16 @@ public class TinyActivateButtonProcedure {
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "isActive")).equals("no") && new Object() {
+		}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("no") && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia") >= 1) {
+		}.getValue(world, new BlockPos(x, y, z), "numOfUrandia") >= 1) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)

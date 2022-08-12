@@ -1,5 +1,5 @@
 {
-  "_fv": 24,
+  "_fv": 28,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -370,12 +370,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<BNBT:number:temperature>°",
+          "text": "<BNBT:number:temperature>ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "<BNBT:number:temperature>°",
+          "name": "<BNBT:number:temperature>ï¿½",
           "x": 244,
           "y": 67
         }

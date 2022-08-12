@@ -21,18 +21,13 @@ import java.util.Collections;
 
 public class UrandiaOreBlock extends Block {
 	public UrandiaOreBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f, 10f).requiresCorrectToolForDrops());
-		setRegistryName("urandia_ore");
+		super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.GRASS).sound(SoundType.STONE).strength(5f, 10f)
+				.requiresCorrectToolForDrops());
 	}
 
 	@Override
 	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
 		return 15;
-	}
-
-	@Override
-	public MaterialColor defaultMaterialColor() {
-		return MaterialColor.GRASS;
 	}
 
 	@Override
@@ -42,7 +37,7 @@ public class UrandiaOreBlock extends Block {
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 10;
 		return false;
 	}

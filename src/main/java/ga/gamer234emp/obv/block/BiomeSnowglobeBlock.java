@@ -1,7 +1,7 @@
 
 package ga.gamer234emp.obv.block;
 
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -59,7 +59,6 @@ public class BiomeSnowglobeBlock extends Block
 		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(30f, 1000f).requiresCorrectToolForDrops().noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		setRegistryName("biome_snowglobe");
 	}
 
 	@Override
@@ -93,7 +92,7 @@ public class BiomeSnowglobeBlock extends Block
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 3;
 		return false;
 	}
@@ -157,6 +156,6 @@ public class BiomeSnowglobeBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.BIOME_SNOWGLOBE, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.BIOME_SNOWGLOBE.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

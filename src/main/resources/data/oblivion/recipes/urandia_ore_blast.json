@@ -6,7 +6,5 @@
   "ingredient": {
     "item": "oblivion:urandia_ore"
   },
-  "result": {
-    "item": "oblivion:urandia_ingot"
-  }
+  "result": "oblivion:urandia_ingot"
 }

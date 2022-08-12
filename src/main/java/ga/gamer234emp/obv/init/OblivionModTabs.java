@@ -19,7 +19,7 @@ public class OblivionModTabs {
 		TAB_REACTORS = new CreativeModeTab("tabreactors") {
 			@Override
 			public ItemStack makeIcon() {
-				return new ItemStack(OblivionModBlocks.URANDIA_ORE);
+				return new ItemStack(OblivionModBlocks.URANDIA_ORE.get());
 			}
 
 			@OnlyIn(Dist.CLIENT)

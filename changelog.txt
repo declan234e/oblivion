@@ -1,3 +1,7 @@
+v.0.1.5A
+added [inset final name here]
+added dimensional core
+
 v0.1.4A
 updated to 1.17.1
 fixed rendering of large battery in hand and on the ground

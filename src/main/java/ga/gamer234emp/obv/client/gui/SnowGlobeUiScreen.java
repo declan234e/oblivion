@@ -11,6 +11,8 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
+import java.util.HashMap;
+
 import ga.gamer234emp.obv.world.inventory.SnowGlobeUiMenu;
 import ga.gamer234emp.obv.procedures.StartThingProcedure;
 
@@ -18,6 +20,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 public class SnowGlobeUiScreen extends AbstractContainerScreen<SnowGlobeUiMenu> {
+	private final static HashMap<String, Object> guistate = SnowGlobeUiMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;

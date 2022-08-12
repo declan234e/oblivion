@@ -41,7 +41,6 @@ public class SolarPanelBlock extends Block
 	public SolarPanelBlock() {
 		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.GLASS).strength(1.4000000000000001f, 10f).noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
-		setRegistryName("solar_panel");
 	}
 
 	@Override
@@ -71,7 +70,7 @@ public class SolarPanelBlock extends Block
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.getBlockTicks().scheduleTick(pos, this, 10);
+		world.scheduleTick(pos, this, 10);
 	}
 
 	@Override
@@ -82,7 +81,7 @@ public class SolarPanelBlock extends Block
 		int z = pos.getZ();
 
 		SolarPanelUpdateTickProcedure.execute(world, x, y, z);
-		world.getBlockTicks().scheduleTick(pos, this, 10);
+		world.scheduleTick(pos, this, 10);
 	}
 
 	@Override
@@ -131,6 +130,6 @@ public class SolarPanelBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.SOLAR_PANEL, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.SOLAR_PANEL.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

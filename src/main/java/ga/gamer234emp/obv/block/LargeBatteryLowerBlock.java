@@ -1,7 +1,7 @@
 
 package ga.gamer234emp.obv.block;
 
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -65,7 +65,6 @@ public class LargeBatteryLowerBlock extends Block
 		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f).requiresCorrectToolForDrops().noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		setRegistryName("large_battery_lower");
 	}
 
 	@Override
@@ -98,13 +97,13 @@ public class LargeBatteryLowerBlock extends Block
 	}
 
 	@Override
-	public ItemStack getPickBlock(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-		return new ItemStack(OblivionModBlocks.LARGE_BATTERY_LOWER);
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
+		return new ItemStack(OblivionModBlocks.LARGE_BATTERY_LOWER.get());
 	}
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem()instanceof TieredItem tieredItem)
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
 			return tieredItem.getTier().getLevel() >= 2;
 		return false;
 	}
@@ -120,7 +119,7 @@ public class LargeBatteryLowerBlock extends Block
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.getBlockTicks().scheduleTick(pos, this, 5);
+		world.scheduleTick(pos, this, 5);
 		LargeBatteryPlacedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
@@ -132,12 +131,12 @@ public class LargeBatteryLowerBlock extends Block
 		int z = pos.getZ();
 
 		LargeBatteryLUpdateTickProcedure.execute(world, x, y, z);
-		world.getBlockTicks().scheduleTick(pos, this, 5);
+		world.scheduleTick(pos, this, 5);
 	}
 
 	@Override
-	public boolean removedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
 		LargeBatteryDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		return retval;
 	}
@@ -181,6 +180,6 @@ public class LargeBatteryLowerBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.LARGE_BATTERY_LOWER, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.LARGE_BATTERY_LOWER.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

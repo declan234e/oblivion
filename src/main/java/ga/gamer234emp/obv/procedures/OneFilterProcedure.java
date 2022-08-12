@@ -13,6 +13,6 @@ public class OneFilterProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "filters") == 1;
+		}.getValue(world, new BlockPos(x, y, z), "filters") == 1;
 	}
 }

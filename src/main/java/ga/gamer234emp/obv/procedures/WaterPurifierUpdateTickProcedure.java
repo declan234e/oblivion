@@ -28,7 +28,7 @@ public class WaterPurifierUpdateTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get()instanceof Map _slt
+		if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt
 				? ((Slot) _slt.get(0)).getItem()
 				: ItemStack.EMPTY).getItem() == Items.WATER_BUCKET && new Object() {
 					public int getEnergyStored(LevelAccessor level, BlockPos pos) {
@@ -38,16 +38,16 @@ public class WaterPurifierUpdateTickProcedure {
 							_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> _retval.set(capability.getEnergyStored()));
 						return _retval.get();
 					}
-				}.getEnergyStored(world, new BlockPos((int) x, (int) y, (int) z)) >= 100 && (new Object() {
+				}.getEnergyStored(world, new BlockPos(x, y, z)) >= 100 && (new Object() {
 					public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
 							return blockEntity.getTileData().getBoolean(tag);
 						return false;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "purifying")) == false) {
+				}.getValue(world, new BlockPos(x, y, z), "purifying")) == false) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
@@ -56,21 +56,20 @@ public class WaterPurifierUpdateTickProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			{
-				BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+				BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 				int _amount = 100;
 				if (_ent != null)
 					_ent.getCapability(CapabilityEnergy.ENERGY, null).ifPresent(capability -> capability.extractEnergy(_amount, false));
 			}
 			{
-				BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+				BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 				if (_ent != null) {
-					final int _sltid = 0;
+					final int _slotid = 0;
 					final ItemStack _setstack = new ItemStack(Items.BUCKET);
 					_setstack.setCount(1);
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
-						}
+						if (capability instanceof IItemHandlerModifiable)
+							((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 					});
 				}
 			}
@@ -96,31 +95,28 @@ public class WaterPurifierUpdateTickProcedure {
 
 				private void run() {
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos((int) x, (int) y, (int) z));
+						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 						if (_ent != null) {
-							final int _sltid = 1;
-							final ItemStack _setstack = new ItemStack(OblivionModItems.PURIFIED_WATER);
+							final int _slotid = 1;
+							final ItemStack _setstack = new ItemStack(OblivionModItems.PURIFIED_WATER.get());
 							_setstack.setCount((int) (new Object() {
-								public int getAmount(LevelAccessor world, BlockPos pos, int sltid) {
+								public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
-									if (_ent != null) {
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-											_retval.set(capability.getStackInSlot(sltid).getCount());
-										});
-									}
+									if (_ent != null)
+										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)
+												.ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), 1) + 1));
+							}.getAmount(world, new BlockPos(x, y, z), 1) + 1));
 							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-								if (capability instanceof IItemHandlerModifiable) {
-									((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
-								}
+								if (capability instanceof IItemHandlerModifiable)
+									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
 						}
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+						BlockPos _bp = new BlockPos(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)

@@ -13,6 +13,6 @@ public class FourRodReturnProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "numOfUrandia") == 4;
+		}.getValue(world, new BlockPos(x, y, z), "numOfUrandia") == 4;
 	}
 }

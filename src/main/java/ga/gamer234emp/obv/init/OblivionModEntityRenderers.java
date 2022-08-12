@@ -15,6 +15,6 @@ import ga.gamer234emp.obv.client.renderer.VicwinRenderer;
 public class OblivionModEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(OblivionModEntities.VICWIN, VicwinRenderer::new);
+		event.registerEntityRenderer(OblivionModEntities.VICWIN.get(), VicwinRenderer::new);
 	}
 }

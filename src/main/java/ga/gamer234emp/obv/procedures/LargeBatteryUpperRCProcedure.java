@@ -13,7 +13,7 @@ public class LargeBatteryUpperRCProcedure {
 		if (entity == null)
 			return;
 		if (entity instanceof Player _player) {
-			BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+			BlockPos _bp = new BlockPos(x, y - 1, z);
 			_player.level.getBlockState(_bp).use(_player.level, _player, InteractionHand.MAIN_HAND,
 					BlockHitResult.miss(new Vec3(_bp.getX(), _bp.getY(), _bp.getZ()), Direction.UP, _bp));
 		}

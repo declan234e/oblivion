@@ -1,7 +1,7 @@
 
 package ga.gamer234emp.obv.block;
 
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -59,7 +59,6 @@ public class WaterPurifierBlock extends Block
 		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		setRegistryName("water_purifier");
 	}
 
 	@Override
@@ -170,6 +169,6 @@ public class WaterPurifierBlock extends Block
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.WATER_PURIFIER, renderType -> renderType == RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(OblivionModBlocks.WATER_PURIFIER.get(), renderType -> renderType == RenderType.cutout());
 	}
 }
