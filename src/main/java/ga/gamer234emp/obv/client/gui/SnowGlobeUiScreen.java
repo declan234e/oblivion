@@ -36,7 +36,7 @@ public class SnowGlobeUiScreen extends AbstractContainerScreen<SnowGlobeUiMenu> 
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/snow_globe_ui.png");
+	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/screens/snow_globe_ui.png");
 
 	@Override
 	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {
@@ -53,10 +53,10 @@ public class SnowGlobeUiScreen extends AbstractContainerScreen<SnowGlobeUiMenu> 
 		RenderSystem.setShaderTexture(0, texture);
 		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/battery_8.png"));
+		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/battery_8.png"));
 		this.blit(ms, this.leftPos + 7, this.topPos + 9, 0, 0, 16, 16, 16, 16);
 
-		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/snow_globe_ui.png"));
+		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/snow_globe_ui.png"));
 		this.blit(ms, this.leftPos + 0, this.topPos + 0, 0, 0, 176, 166, 176, 166);
 
 		RenderSystem.disableBlend();

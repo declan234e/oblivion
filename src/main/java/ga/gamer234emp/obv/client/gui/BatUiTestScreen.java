@@ -38,7 +38,7 @@ public class BatUiTestScreen extends AbstractContainerScreen<BatUiTestMenu> {
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/bat_ui_test.png");
+	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/screens/bat_ui_test.png");
 
 	@Override
 	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {

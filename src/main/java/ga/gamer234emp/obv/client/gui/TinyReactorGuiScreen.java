@@ -73,7 +73,7 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/tiny_reactor_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/screens/tiny_reactor_gui.png");
 
 	@Override
 	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {
@@ -90,63 +90,63 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 		RenderSystem.setShaderTexture(0, texture);
 		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tiny_reactor_gui.png"));
+		RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tiny_reactor_gui.png"));
 		this.blit(ms, this.leftPos + 0, this.topPos + 0, 0, 0, 176, 166, 176, 166);
 
 		if (OneRodReturnProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tiny_reactor_fuelrod.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.leftPos + 64, this.topPos + 46, 0, 0, 46, 2, 46, 2);
 		}
 		if (TwoRodReturnProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tiny_reactor_fuelrod.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.leftPos + 64, this.topPos + 51, 0, 0, 46, 2, 46, 2);
 		}
 		if (ThreeRodReturnProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tiny_reactor_fuelrod.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tiny_reactor_fuelrod.png"));
 			this.blit(ms, this.leftPos + 64, this.topPos + 56, 0, 0, 46, 2, 46, 2);
 		}
 		if (OneFilterProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/filtergui.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/filtergui.png"));
 			this.blit(ms, this.leftPos + 119, this.topPos + 21, 0, 0, 14, 3, 14, 3);
 		}
 		if (RedUiLightProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/red_light.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/red_light.png"));
 			this.blit(ms, this.leftPos + 75, this.topPos + 3, 0, 0, 5, 5, 5, 5);
 		}
 		if (OrangeUiLightProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/orange_light.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/orange_light.png"));
 			this.blit(ms, this.leftPos + 65, this.topPos + 3, 0, 0, 5, 5, 5, 5);
 		}
 		if (GreenUiLightProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/green_light.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/green_light.png"));
 			this.blit(ms, this.leftPos + 55, this.topPos + 3, 0, 0, 5, 5, 5, 5);
 		}
 		if (OneFilterProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/filtergui.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/filtergui.png"));
 			this.blit(ms, this.leftPos + 119, this.topPos + 10, 0, 0, 14, 3, 14, 3);
 		}
 		if (ReturnW20Procedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_20.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_20.png"));
 			this.blit(ms, this.leftPos + 147, this.topPos + 8, 0, 0, 19, 32, 19, 32);
 		}
 		if (ReturnW40Procedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_40.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_40.png"));
 			this.blit(ms, this.leftPos + 147, this.topPos + 8, 0, 0, 19, 32, 19, 32);
 		}
 		if (ReturnW60Procedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_60.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_60.png"));
 			this.blit(ms, this.leftPos + 147, this.topPos + 8, 0, 0, 19, 32, 19, 32);
 		}
 		if (ReturnW80Procedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_80.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_80.png"));
 			this.blit(ms, this.leftPos + 147, this.topPos + 8, 0, 0, 19, 32, 19, 32);
 		}
 		if (ReturnW100Procedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_full.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_full.png"));
 			this.blit(ms, this.leftPos + 147, this.topPos + 8, 0, 0, 19, 32, 19, 32);
 		}
 		if (WDReturnProcedure.execute(world, x, y, z)) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/tank_button_empty.png"));
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_button_empty.png"));
 			this.blit(ms, this.leftPos + 155, this.topPos + 43, 0, 0, 18, 18, 18, 18);
 		}
 		RenderSystem.disableBlend();

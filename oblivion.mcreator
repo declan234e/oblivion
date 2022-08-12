@@ -2107,6 +2107,18 @@
       "locked_code": false,
       "registry_name": "dimensional_min_dim_tp",
       "path": "~/Advancements"
+    },
+    {
+      "name": "EnergySystem",
+      "type": "procedure",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energy_system",
+      "metadata": {
+        "dependencies": []
+      },
+      "path": "~/blocks/tiny_reactor/procedures/energy"
     }
   ],
   "variable_elements": [],
@@ -2437,5 +2449,5 @@
     "modElementsPackage": "ga.gamer234emp.obv",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202200120510
+  "mcreatorVersion": 202200233511
 }

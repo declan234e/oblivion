@@ -16,7 +16,7 @@ public class TMeltdownProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 2500) {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 1600) {
 			world.setBlock(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			if (world instanceof Level _level && !_level.isClientSide())
 				_level.explode(null, x, y, z, 15, Explosion.BlockInteraction.DESTROY);

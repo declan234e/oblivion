@@ -42,7 +42,7 @@ public class WaterPurifierUiScreen extends AbstractContainerScreen<WaterPurifier
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/water_purifier_ui.png");
+	private static final ResourceLocation texture = new ResourceLocation("oblivion:textures/screens/water_purifier_ui.png");
 
 	@Override
 	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {

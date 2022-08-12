@@ -3,7 +3,6 @@ package ga.gamer234emp.obv.procedures;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -27,15 +26,17 @@ public class CheckForIngotProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == OblivionModItems.URANDIA_INGOT.get()) {
-			if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip ? blockstate.getValue(_ip) : -1) < 4) {
+			if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip3
+					? blockstate.getValue(_getip3)
+					: -1) < 4) {
 				{
-					int _value = (int) ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip
-							? blockstate.getValue(_ip)
+					int _value = (int) ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip5
+							? blockstate.getValue(_getip5)
 							: -1) + 1);
-					BlockPos _pos = new BlockPos((int) x, (int) y, (int) z);
+					BlockPos _pos = new BlockPos(x, y, z);
 					BlockState _bs = world.getBlockState(_pos);
-					Property<?> _property = _bs.getBlock().getStateDefinition().getProperty("age");
-					if (_property instanceof IntegerProperty _integerProp && _property.getPossibleValues().contains(_value))
+					if (_bs.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _integerProp
+							&& _integerProp.getPossibleValues().contains(_value))
 						world.setBlock(_pos, _bs.setValue(_integerProp, _value), 3);
 				}
 				{

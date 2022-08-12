@@ -19,6 +19,6 @@ public class VicwinRenderer extends HumanoidMobRenderer<VicwinEntity, HumanoidMo
 
 	@Override
 	public ResourceLocation getTextureLocation(VicwinEntity entity) {
-		return new ResourceLocation("oblivion:textures/bob.png");
+		return new ResourceLocation("oblivion:textures/entities/bob.png");
 	}
 }

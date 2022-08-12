@@ -118,9 +118,7 @@ public class DimTeleportProcedure {
 				if (!world.isClientSide()) {
 					MinecraftServer _mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (_mcserv != null)
-						_mcserv.getPlayerList().broadcastMessage(
-								new TextComponent("player has just done something that will most likley kill expect lag"), ChatType.SYSTEM,
-								Util.NIL_UUID);
+						_mcserv.getPlayerList().broadcastMessage(new TextComponent("Player teleporting expect lag"), ChatType.SYSTEM, Util.NIL_UUID);
 				}
 				itemstack.getOrCreateTag().putBoolean("cooldown", (true));
 				new Object() {

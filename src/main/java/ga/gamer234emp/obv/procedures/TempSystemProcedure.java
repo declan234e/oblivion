@@ -51,7 +51,7 @@ public class TempSystemProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "temperature") < 500) {
+			}.getValue(world, new BlockPos(x, y, z), "temperature") < 200) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -82,7 +82,7 @@ public class TempSystemProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "temperature") < 750) {
+			}.getValue(world, new BlockPos(x, y, z), "temperature") < 250) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -113,7 +113,7 @@ public class TempSystemProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "temperature") < 1050) {
+			}.getValue(world, new BlockPos(x, y, z), "temperature") < 350) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -144,7 +144,7 @@ public class TempSystemProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "temperature") < 1410) {
+			}.getValue(world, new BlockPos(x, y, z), "temperature") < 500) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -203,14 +203,14 @@ public class TempSystemProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 1451 && new Object() {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 701 && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 1500) {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 850) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -227,14 +227,14 @@ public class TempSystemProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 1500 && new Object() {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 851 && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 2000) {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 1000) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -251,7 +251,7 @@ public class TempSystemProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 2000) {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") >= 1200) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -275,7 +275,7 @@ public class TempSystemProcedure {
 					return blockEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 1450) {
+		}.getValue(world, new BlockPos(x, y, z), "temperature") <= 700) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -284,6 +284,75 @@ public class TempSystemProcedure {
 					_blockEntity.getTileData().putString("state", "norm");
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+			}
+		}
+		if (new Object() {
+			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+				BlockEntity blockEntity = world.getBlockEntity(pos);
+				if (blockEntity != null)
+					return blockEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos(x, y, z), "temperature") > 0) {
+			if ((new Object() {
+				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
+					BlockEntity blockEntity = world.getBlockEntity(pos);
+					if (blockEntity != null)
+						return blockEntity.getTileData().getString(tag);
+					return "";
+				}
+			}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("no")) {
+				if (new Object() {
+					public int getFluidTankLevel(LevelAccessor level, BlockPos pos, int tank) {
+						AtomicInteger _retval = new AtomicInteger(0);
+						BlockEntity _ent = level.getBlockEntity(pos);
+						if (_ent != null)
+							_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+									.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
+						return _retval.get();
+					}
+				}.getFluidTankLevel(world, new BlockPos(x, y, z), 1) >= 8 && new Object() {
+					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+						BlockEntity blockEntity = world.getBlockEntity(pos);
+						if (blockEntity != null)
+							return blockEntity.getTileData().getDouble(tag);
+						return -1;
+					}
+				}.getValue(world, new BlockPos(x, y, z), "temperature") >= 150) {
+					if (!world.isClientSide()) {
+						BlockPos _bp = new BlockPos(x, y, z);
+						BlockEntity _blockEntity = world.getBlockEntity(_bp);
+						BlockState _bs = world.getBlockState(_bp);
+						if (_blockEntity != null)
+							_blockEntity.getTileData().putDouble("temperature", ((new Object() {
+								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+									BlockEntity blockEntity = world.getBlockEntity(pos);
+									if (blockEntity != null)
+										return blockEntity.getTileData().getDouble(tag);
+									return -1;
+								}
+							}.getValue(world, new BlockPos(x, y, z), "temperature")) - 50));
+						if (world instanceof Level _level)
+							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+					}
+				} else {
+					if (!world.isClientSide()) {
+						BlockPos _bp = new BlockPos(x, y, z);
+						BlockEntity _blockEntity = world.getBlockEntity(_bp);
+						BlockState _bs = world.getBlockState(_bp);
+						if (_blockEntity != null)
+							_blockEntity.getTileData().putDouble("temperature", ((new Object() {
+								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+									BlockEntity blockEntity = world.getBlockEntity(pos);
+									if (blockEntity != null)
+										return blockEntity.getTileData().getDouble(tag);
+									return -1;
+								}
+							}.getValue(world, new BlockPos(x, y, z), "temperature")) - 5));
+						if (world instanceof Level _level)
+							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+					}
+				}
 			}
 		}
 	}

@@ -9,7 +9,9 @@ import net.minecraft.core.BlockPos;
 
 public class BLKTNBTProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
-		if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip ? blockstate.getValue(_ip) : -1) == 1) {
+		if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip1
+				? blockstate.getValue(_getip1)
+				: -1) == 1) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -19,8 +21,8 @@ public class BLKTNBTProcedure {
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip
-				? blockstate.getValue(_ip)
+		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip4
+				? blockstate.getValue(_getip4)
 				: -1) == 2) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
@@ -31,8 +33,8 @@ public class BLKTNBTProcedure {
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip
-				? blockstate.getValue(_ip)
+		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip7
+				? blockstate.getValue(_getip7)
 				: -1) == 3) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
@@ -43,8 +45,8 @@ public class BLKTNBTProcedure {
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip
-				? blockstate.getValue(_ip)
+		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip10
+				? blockstate.getValue(_getip10)
 				: -1) == 4) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
@@ -55,8 +57,8 @@ public class BLKTNBTProcedure {
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _ip
-				? blockstate.getValue(_ip)
+		} else if ((blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip13
+				? blockstate.getValue(_getip13)
 				: -1) == 0) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);

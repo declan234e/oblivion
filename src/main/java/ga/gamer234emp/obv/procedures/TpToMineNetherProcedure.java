@@ -103,9 +103,9 @@ public class TpToMineNetherProcedure {
 							}
 							{
 								Entity _ent = entity;
-								_ent.teleportTo((Math.random() * 1000), 2, (Math.random() * 1000));
+								_ent.teleportTo((Math.random() * 1000), (-60), (Math.random() * 1000));
 								if (_ent instanceof ServerPlayer _serverPlayer)
-									_serverPlayer.connection.teleport((Math.random() * 1000), 2, (Math.random() * 1000), _ent.getYRot(),
+									_serverPlayer.connection.teleport((Math.random() * 1000), (-60), (Math.random() * 1000), _ent.getYRot(),
 											_ent.getXRot());
 							}
 							if (world instanceof ServerLevel _level)
