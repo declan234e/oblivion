@@ -3,10 +3,4 @@
 <p1>models and textures- ROLEMAYMOLY</p1> <br>
 <p1>developer- declan234e</p1> <br>
 
-<p2>oblivion is a mcreator mod with only a few things in it but</p2> <br>
-<p2>eventually will have lots of stuff including multiple reactors multiple dimension and more</p2> <br><br>
-
-<h1>versions</h1>
-<p1>v1.16.5 no longer supported</p1> <br>
-<p1>v1.17.1 supported</p1>
-
+<h31.16.5 is no-longer supported switch to master branch for up to date version</h3>
