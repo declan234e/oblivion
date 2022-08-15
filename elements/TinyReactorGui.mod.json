@@ -370,12 +370,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<BNBT:number:temperature>�",
+          "text": "<BNBT:number:temperature>",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "<BNBT:number:temperature>�",
+          "name": "<BNBT:number:temperature>",
           "x": 244,
           "y": 67
         }
@@ -407,11 +407,11 @@
           "displayCondition": {
             "name": "StartThing"
           },
-          "width": 51,
+          "width": 45,
           "height": 20,
           "name": "start",
           "x": 190,
-          "y": 99
+          "y": 96
         }
       },
       {
@@ -581,6 +581,19 @@
           "name": "<energy>",
           "x": 23,
           "y": 44
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "on_switch.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "TrOnSwitch"
+          },
+          "name": "on_switch.png",
+          "x": 192,
+          "y": 99
         }
       }
     ],

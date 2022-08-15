@@ -83,7 +83,7 @@ public class UrandiaOreFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE, Blocks.DIRT, Blocks.STONE, Blocks.ANDESITE);
+				base_blocks = List.of(Blocks.STONE, Blocks.DIRT, Blocks.STONE, Blocks.ANDESITE, Blocks.DEEPSLATE);
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

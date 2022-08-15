@@ -12,12 +12,10 @@
 <pl>v1.18.2 supported</pl>
 
 <h1>Importing to mcreator</h1>
-<h3>mcreator v2022.1</h3>
+<h3>mcreator v2022.2</h3>
 
-<p1>before importing the mcreator project make sure to have this mcreator plugin installed: https://mcreator.net/plugin/78808/blockstate-procedures</p1>
- <br> <br>
- 
-<p2>once you have added the plugin to mcreator download the source code and extract it to the folder of your choice</p2> <br>
+
+<p2>download the source code and extract it to the folder of your choice</p2> <br>
 <p2>next part is pretty simple double click oblivion.mcreator</p2> <br> <br>
 
 <p1>now you should have oblivion in your mcreator</p1>

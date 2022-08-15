@@ -9,9 +9,10 @@ public class TinyReactorUpdateTickProcedure {
 		CheckForFilterProcedure.execute(world, x, y, z);
 		TempSystemProcedure.execute(world, x, y, z);
 		CheckForWaterProcedure.execute(world, x, y, z);
-		WaterSysProcedure.execute(world, x, y, z);
 		WDReturn2Procedure.execute(world, x, y, z);
 		BLKTNBTProcedure.execute(world, x, y, z, blockstate);
 		TMeltdownProcedure.execute(world, x, y, z);
+		EnergySystemProcedure.execute(world, x, y, z);
+		WaterSysProcedure.execute(world, x, y, z);
 	}
 }

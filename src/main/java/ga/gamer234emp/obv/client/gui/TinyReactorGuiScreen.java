@@ -22,6 +22,7 @@ import java.util.HashMap;
 import ga.gamer234emp.obv.world.inventory.TinyReactorGuiMenu;
 import ga.gamer234emp.obv.procedures.WDReturnProcedure;
 import ga.gamer234emp.obv.procedures.TwoRodReturnProcedure;
+import ga.gamer234emp.obv.procedures.TrOnSwitchProcedure;
 import ga.gamer234emp.obv.procedures.ThreeRodReturnProcedure;
 import ga.gamer234emp.obv.procedures.StartThingProcedure;
 import ga.gamer234emp.obv.procedures.ReturnW80Procedure;
@@ -149,6 +150,10 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/tank_button_empty.png"));
 			this.blit(ms, this.leftPos + 155, this.topPos + 43, 0, 0, 18, 18, 18, 18);
 		}
+		if (TrOnSwitchProcedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("oblivion:textures/screens/on_switch.png"));
+			this.blit(ms, this.leftPos + 66, this.topPos + 62, 0, 0, 44, 11, 44, 11);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -215,7 +220,7 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 					return BlockEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "\uFFFD", 118, 30, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "temperature")) + "", 118, 30, -12829636);
 		this.font.draw(poseStack, "" + (new Object() {
 			public int getFluidTankLevel(BlockPos pos, int tank) {
 				AtomicInteger _retval = new AtomicInteger(0);
@@ -260,7 +265,7 @@ public class TinyReactorGuiScreen extends AbstractContainerScreen<TinyReactorGui
 					super.render(ms, gx, gy, ticks);
 			}
 		});
-		this.addRenderableWidget(new Button(this.leftPos + 64, this.topPos + 62, 51, 20, new TextComponent("start"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 64, this.topPos + 59, 45, 20, new TextComponent("start"), e -> {
 			if (StartThingProcedure.execute(world, x, y, z)) {
 				OblivionMod.PACKET_HANDLER.sendToServer(new TinyReactorGuiButtonMessage(1, x, y, z));
 				TinyReactorGuiButtonMessage.handleButtonAction(entity, 1, x, y, z);
