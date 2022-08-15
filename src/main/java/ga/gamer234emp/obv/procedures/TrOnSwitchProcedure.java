@@ -13,6 +13,6 @@ public class TrOnSwitchProcedure {
 					return blockEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos(x, y, z), "IsActive")).equals("yes");
+		}.getValue(world, new BlockPos(x, y, z), "isActive")).equals("yes");
 	}
 }

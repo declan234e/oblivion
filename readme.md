@@ -12,7 +12,7 @@
 <pl>v1.18.2 supported</pl>
 
 <h1>Importing to mcreator</h1>
-<h3>mcreator v2022.2</h3>
+<h3>mcreator v2022.2 (I am using a modifed version of mcreator to make it so I can put a letter at the end of mod version number)</h3>
 
 
 <p2>download the source code and extract it to the folder of your choice</p2> <br>

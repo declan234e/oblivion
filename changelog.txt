@@ -1,7 +1,14 @@
-v.0.1.5
+v.0.1.5A
 updated to 1.18.2
 temperature on tiny reactor now works 
 energy generation works on tiny reactor
+changed how water works in the tiny reactor
+on off switch on tiny reactor
+updated to mcreator 2022.2 (my version)
+added placeholder matter fabricator (UI is broken)
+fixed tiny reactor UI
+fixed water purifiyer UI
+removed Vicwin 
 
 v0.1.4A
 updated to 1.17.1

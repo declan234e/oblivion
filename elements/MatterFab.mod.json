@@ -109,7 +109,7 @@
     "hasInventory": true,
     "guiBoundTo": "BFabUi",
     "openGUIOnRightClick": true,
-    "inventorySize": 0,
+    "inventorySize": 4,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,

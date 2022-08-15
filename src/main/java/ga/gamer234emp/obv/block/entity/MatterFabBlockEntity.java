@@ -32,7 +32,7 @@ import ga.gamer234emp.obv.world.inventory.BFabUiMenu;
 import ga.gamer234emp.obv.init.OblivionModBlockEntities;
 
 public class MatterFabBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(0, ItemStack.EMPTY);
+	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
 	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
 
 	public MatterFabBlockEntity(BlockPos position, BlockState state) {

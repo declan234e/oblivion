@@ -33,7 +33,6 @@ import java.util.function.BiConsumer;
 import ga.gamer234emp.obv.init.OblivionModTabs;
 import ga.gamer234emp.obv.init.OblivionModItems;
 import ga.gamer234emp.obv.init.OblivionModFeatures;
-import ga.gamer234emp.obv.init.OblivionModEntities;
 import ga.gamer234emp.obv.init.OblivionModBlocks;
 import ga.gamer234emp.obv.init.OblivionModBlockEntities;
 import ga.gamer234emp.obv.init.OblivionModBiomes;
@@ -52,7 +51,7 @@ public class OblivionMod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		OblivionModBlocks.REGISTRY.register(bus);
 		OblivionModItems.REGISTRY.register(bus);
-		OblivionModEntities.REGISTRY.register(bus);
+
 		OblivionModBlockEntities.REGISTRY.register(bus);
 		OblivionModFeatures.REGISTRY.register(bus);
 

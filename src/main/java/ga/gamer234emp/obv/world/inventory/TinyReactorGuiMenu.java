@@ -9,6 +9,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -91,7 +92,7 @@ public class TinyReactorGuiMenu extends AbstractContainerMenu implements Supplie
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 118, 9) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return (OblivionModItems.PURIFIED_WATER.get() == stack.getItem());
+				return (OblivionModItems.PURIFIED_WATER.get() == stack.getItem() || Items.WATER_BUCKET == stack.getItem() || Items.BUCKET == stack.getItem() || OblivionModItems.FILTER.get() == stack.getItem());
 			}
 		}));
 		for (int si = 0; si < 3; ++si)

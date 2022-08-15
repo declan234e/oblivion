@@ -85,7 +85,7 @@ public class WaterPurifierUiMenu extends AbstractContainerMenu implements Suppli
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 26) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return (Items.BUCKET == stack.getItem());
+				return (Items.BUCKET == stack.getItem() || Items.WATER_BUCKET == stack.getItem());
 			}
 		}));
 		for (int si = 0; si < 3; ++si)

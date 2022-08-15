@@ -7,7 +7,6 @@ package ga.gamer234emp.obv.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
@@ -29,8 +28,6 @@ public class OblivionModItems {
 	public static final RegistryObject<Item> FILTER = REGISTRY.register("filter", () -> new FilterItem());
 	public static final RegistryObject<Item> SOLAR_PANEL = block(OblivionModBlocks.SOLAR_PANEL, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> WATER_PURIFIER = block(OblivionModBlocks.WATER_PURIFIER, OblivionModTabs.TAB_REACTORS);
-	public static final RegistryObject<Item> VICWIN = REGISTRY.register("vicwin_spawn_egg",
-			() -> new ForgeSpawnEggItem(OblivionModEntities.VICWIN, -1, -1, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 	public static final RegistryObject<Item> SMALL_BATTERY = block(OblivionModBlocks.SMALL_BATTERY, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> LARGE_BATTERY_LOWER = block(OblivionModBlocks.LARGE_BATTERY_LOWER, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> LARGE_BATTERY_UPPER = block(OblivionModBlocks.LARGE_BATTERY_UPPER, null);
