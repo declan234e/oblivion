@@ -19,7 +19,7 @@ import ga.gamer234emp.obv.OblivionMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class OblivionModBiomes {
-	public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, OblivionMod.MODID);
+	public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, OblivionMod.MOD_ID);
 	public static final RegistryObject<Biome> MINING_DIM_B = REGISTRY.register("mining_dim_b", () -> MiningDimBBiome.createBiome());
 	public static final RegistryObject<Biome> BIOME_TEST = REGISTRY.register("biome_test", () -> BiomeTestBiome.createBiome());
 

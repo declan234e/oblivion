@@ -12,7 +12,7 @@
   "item.oblivion.dimension_teleporter": "Dimension Teleporter",
   "block.atlas_multi.urandia_ore": "Urandia Ore",
   "block.oblivion.biome_snowglobe": "Biome Snowglobe",
-  "entity.atlas_multi.vicwin": "Vicwin",
+  "block.oblivion.matter_fab": "Matter Fabricator",
   "block.oblivion.urandia_ore": "Urandia Ore",
   "item.atlas_multi.purified_water": "Purified Water",
   "item.atlas_multi.filter": "Water Filter",
@@ -28,6 +28,5 @@
   "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
   "item.oblivion.mining_dim": "Mining Dim Portal Igniter",
   "block.oblivion.large_battery_lower": "Large Battery",
-  "biome.oblivion.biome_test": "Biome Test",
-  "block.oblivion.matter_fab": "Matter Fab"
+  "biome.oblivion.biome_test": "Biome Test"
 }

@@ -27,7 +27,7 @@ import ga.gamer234emp.obv.OblivionMod;
 
 @Mod.EventBusSubscriber
 public class OblivionModFeatures {
-	public static final DeferredRegister<Feature<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.FEATURES, OblivionMod.MODID);
+	public static final DeferredRegister<Feature<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.FEATURES, OblivionMod.MOD_ID);
 	private static final List<FeatureRegistration> FEATURE_REGISTRATIONS = new ArrayList<>();
 	public static final RegistryObject<Feature<?>> URANDIA_ORE = register("urandia_ore", UrandiaOreFeature::feature,
 			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, UrandiaOreFeature.GENERATE_BIOMES, UrandiaOreFeature::placedFeature));

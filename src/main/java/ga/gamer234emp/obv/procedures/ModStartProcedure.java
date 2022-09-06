@@ -5,13 +5,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.Vec2;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
+
+import ga.gamer234emp.obv.OblivionMod;
 
 import javax.annotation.Nullable;
 
@@ -19,18 +17,19 @@ import javax.annotation.Nullable;
 public class ModStartProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		execute(event, event.getPlayer().level, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ());
+		execute(event, event.getPlayer());
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z) {
-		execute(null, world, x, y, z);
+	public static void execute(Entity entity) {
+		execute(null, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z) {
-		if (world instanceof ServerLevel _level)
-			_level.getServer().getCommands().performCommand(
-					new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(),
-							null).withSuppressedOutput(),
-					"/tellraw @p [\"\",{\"text\":\"Oblivion 0.1.4B \",\"color\":\"dark_blue\"},{\"text\":\"\"},{\"text\":\"created by declan234e\",\"color\":\"yellow\"}]");
+	private static void execute(@Nullable Event event, Entity entity) {
+		if (entity == null)
+			return;
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("§6Oblivion: " + OblivionMod.getVersion()), (false));
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("§3Created by declan234e"), (false));
 	}
 }

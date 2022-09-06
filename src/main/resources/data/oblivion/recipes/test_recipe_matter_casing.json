@@ -1,0 +1,17 @@
+{
+  "type": "oblivion:matter_fab",
+  "ingredients": [
+    {
+      "item": "minecraft:glass"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "oblivion:reinforced_casing"
+  }
+}

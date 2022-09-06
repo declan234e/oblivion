@@ -21,7 +21,7 @@ import ga.gamer234emp.obv.item.DimensionTeleporterItem;
 import ga.gamer234emp.obv.OblivionMod;
 
 public class OblivionModItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, OblivionMod.MODID);
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, OblivionMod.MOD_ID);
 	public static final RegistryObject<Item> URANDIA_ORE = block(OblivionModBlocks.URANDIA_ORE, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> URANDIA_INGOT = REGISTRY.register("urandia_ingot", () -> new UrandiaIngotItem());
 	public static final RegistryObject<Item> TINY_REACTOR_STATE_1 = block(OblivionModBlocks.TINY_REACTOR_STATE_1, OblivionModTabs.TAB_REACTORS);
@@ -33,7 +33,6 @@ public class OblivionModItems {
 	public static final RegistryObject<Item> LARGE_BATTERY_UPPER = block(OblivionModBlocks.LARGE_BATTERY_UPPER, null);
 	public static final RegistryObject<Item> BIOME_SNOWGLOBE = block(OblivionModBlocks.BIOME_SNOWGLOBE, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> DIMENSION_TELEPORTER = REGISTRY.register("dimension_teleporter", () -> new DimensionTeleporterItem());
-	public static final RegistryObject<Item> MATTER_FAB = block(OblivionModBlocks.MATTER_FAB, OblivionModTabs.TAB_REACTORS);
 	public static final RegistryObject<Item> REINFORCED_CASING = REGISTRY.register("reinforced_casing", () -> new ReinforcedCasingItem());
 	public static final RegistryObject<Item> PURIFIED_WATER = REGISTRY.register("purified_water", () -> new PurifiedWaterItem());
 

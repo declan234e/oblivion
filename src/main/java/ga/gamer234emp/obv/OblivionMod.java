@@ -13,6 +13,14 @@
  */
 package ga.gamer234emp.obv;
 
+import ga.gamer234emp.obv.init.newinit.ModBlockEntities;
+import ga.gamer234emp.obv.init.newinit.ModBlocks;
+import ga.gamer234emp.obv.init.newinit.ModItems;
+import ga.gamer234emp.obv.recipe.ModRecipes;
+import ga.gamer234emp.obv.screens.MatterFabScreen;
+import ga.gamer234emp.obv.screens.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -36,32 +44,41 @@ import ga.gamer234emp.obv.init.OblivionModFeatures;
 import ga.gamer234emp.obv.init.OblivionModBlocks;
 import ga.gamer234emp.obv.init.OblivionModBlockEntities;
 import ga.gamer234emp.obv.init.OblivionModBiomes;
+import net.minecraftforge.fml.ModList;
 
-@Mod("oblivion")
+@Mod(OblivionMod.MOD_ID)
 public class OblivionMod {
+	public static final String MOD_ID = "oblivion";
 	public static final Logger LOGGER = LogManager.getLogger(OblivionMod.class);
-	public static final String MODID = "oblivion";
 	private static final String PROTOCOL_VERSION = "1";
-	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
+	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	private static int messageID = 0;
 
 	public OblivionMod() {
 		OblivionModTabs.load();
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		OblivionModBlocks.REGISTRY.register(bus);
-		OblivionModItems.REGISTRY.register(bus);
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		OblivionModBlocks.REGISTRY.register(eventBus);
+		OblivionModItems.REGISTRY.register(eventBus);
 
-		OblivionModBlockEntities.REGISTRY.register(bus);
-		OblivionModFeatures.REGISTRY.register(bus);
+		ModBlockEntities.register(eventBus);
+		ModBlocks.register(eventBus);
+		ModRecipes.register(eventBus);
+		ModItems.register(eventBus);
+		ModMenuTypes.register(eventBus);
 
-		OblivionModBiomes.REGISTRY.register(bus);
+		OblivionModBlockEntities.REGISTRY.register(eventBus);
+		OblivionModFeatures.REGISTRY.register(eventBus);
+
+		OblivionModBiomes.REGISTRY.register(eventBus);
 
 	}
-
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
 			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
 		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
 		messageID++;
+	}
+	public static String getVersion() {
+		return "v" + ModList.get().getModContainerById(MOD_ID).get().getModInfo().getVersion().toString();
 	}
 }

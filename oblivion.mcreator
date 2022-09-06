@@ -1550,25 +1550,13 @@
       "type": "procedure",
       "sortid": 86,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "mod_start",
       "metadata": {
         "dependencies": [
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -2055,24 +2043,6 @@
       "path": "~/biomes"
     },
     {
-      "name": "MatterFab",
-      "type": "block",
-      "sortid": 111,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "matter_fab",
-      "path": "~/blocks/matter_fabricator_placeholder/block"
-    },
-    {
-      "name": "BFabUi",
-      "type": "gui",
-      "sortid": 112,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "b_fab_ui",
-      "path": "~/blocks/matter_fabricator_placeholder/UI"
-    },
-    {
       "name": "ReinforcedCasing",
       "type": "item",
       "sortid": 113,
@@ -2201,8 +2171,7 @@
       "subtitles.reactor_meltdown": "ALERT REACTOR MELTDOWN",
       "item.oblivion.mining_dim": "Mining Dim Portal Igniter",
       "block.oblivion.large_battery_lower": "Large Battery",
-      "biome.oblivion.biome_test": "Biome Test",
-      "block.oblivion.matter_fab": "Matter Fab"
+      "biome.oblivion.biome_test": "Biome Test"
     }
   },
   "foldersRoot": {
@@ -2438,19 +2407,6 @@
                 "children": []
               }
             ]
-          },
-          {
-            "name": "matter_fabricator_placeholder",
-            "children": [
-              {
-                "name": "block",
-                "children": []
-              },
-              {
-                "name": "UI",
-                "children": []
-              }
-            ]
           }
         ]
       },
@@ -2480,10 +2436,10 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.18.2",
+    "currentGenerator": "forge-parchment-1.18.2",
     "credits": "model designer, textures - ROLEMAYMOLY, model animator and developer - declan234e",
     "modElementsPackage": "ga.gamer234emp.obv",
-    "lockBaseModFiles": false
+    "lockBaseModFiles": true
   },
   "mcreatorVersion": 202200233522
 }

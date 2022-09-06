@@ -1,4 +1,12 @@
-v.0.1.5A
+v0.1.5B
+created new custom recipe type "matter_fab"
+added working test gui to matter fabricator
+started using intellij to write code manually
+started using parchment mappings
+added JEI integration for matter fabricator
+
+
+v0.1.5A
 updated to 1.18.2
 temperature on tiny reactor now works 
 energy generation works on tiny reactor
