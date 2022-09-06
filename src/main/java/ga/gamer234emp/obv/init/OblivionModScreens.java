@@ -28,6 +28,5 @@ public class OblivionModScreens {
 			MenuScreens.register(OblivionModMenus.SNOW_GLOBE_UI, SnowGlobeUiScreen::new);
 			MenuScreens.register(OblivionModMenus.BAT_UI_TEST, BatUiTestScreen::new);
 		});
-		MenuScreens.register(ModMenuTypes.MATTER_FAB_MENU.get(), MatterFabScreen::new);
 	}
 }
