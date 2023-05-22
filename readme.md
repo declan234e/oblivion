@@ -1,4 +1,6 @@
-<h1>Oblivion</h1>
+<h1>Oblivion</h1> <br>
+<h1>this mod is currently being rewritten the next update will probably not be for quite a while</h1>
+
 <p align="center"><img src="https://user-images.githubusercontent.com/44881262/146404748-ccb9c5b8-7522-4ee1-9ab3-0c042e2e95ec.png" alt="Logo" width="64"></p> <br>
 models and textures- ROLEMAYMOLY <br>
 developer- declan234e <br>
