@@ -1,5 +1,8 @@
 <h1>Oblivion</h1> <br>
-<h1>this mod is currently being rewritten the next update will probably not be for quite a while</h1>
+<h1>this mod is currently being rewritten see master branch</h1>
+
+> [!WARNING]
+> Mcreator is now unsupported see [master branch](../master) for up to date version
 
 <p align="center"><img src="https://user-images.githubusercontent.com/44881262/146404748-ccb9c5b8-7522-4ee1-9ab3-0c042e2e95ec.png" alt="Logo" width="64"></p> <br>
 models and textures- ROLEMAYMOLY <br>
@@ -13,7 +16,7 @@ special thanks to Kaupenjoe for his tutorials. Find his YouTube <a href="https:/
 <h1>versions</h1>
 v1.16.5 unsupported<br>
 v1.17.1 unsupported <br>
-v1.18.2 supported
+v1.18.2 unsupported <br>
 
 <h1>Importing to Mcreator</h1>
 
