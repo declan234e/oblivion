@@ -2,7 +2,7 @@
 <h1>this mod is currently being rewritten see master branch</h1>
 
 > [!WARNING]
-> Mcreator is now unsupported see [master branch](master) for up to date version
+> Mcreator is now unsupported see [master branch](./master) for up to date version
 
 <p align="center"><img src="https://user-images.githubusercontent.com/44881262/146404748-ccb9c5b8-7522-4ee1-9ab3-0c042e2e95ec.png" alt="Logo" width="64"></p> <br>
 models and textures- ROLEMAYMOLY <br>
