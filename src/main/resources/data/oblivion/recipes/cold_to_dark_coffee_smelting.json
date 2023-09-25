@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "oblivion:cold_coffee"
+  },
+  "result": "oblivion:dark_coffee",
+  "experience": 0.1,
+  "cookingtime": 200,
+  "group": "coffee"
+}

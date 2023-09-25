@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "oblivion:items/reinforced_case"
+    "layer0": "oblivion:item/reinforced_case"
   }
 }

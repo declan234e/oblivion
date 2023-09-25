@@ -14,12 +14,17 @@
     "0.1.5A": "https://raw.githubusercontent.com/declan234e/oblivion/master/changelog.txt",
     "0.1.5B": "https://raw.githubusercontent.com/declan234e/oblivion/master/changelog.txt"
   },
+  "1.19.2": {
+    "0.0.1-1.19.2": "stuff"
+  },
   "promos": {
     "1.16.5-latest": "0.1.3A",
     "1.16.5-recommended": "0.1.3A",
     "1.17.1-latest": "0.1.4A",
     "1.17.1-recommended": "0.1.4A",
     "1.18.2-latest": "0.1.5B",
-    "1.18.2-recommended": "0.1.5B"
+    "1.18.2-recommended": "0.1.5B",
+    "1.19.2-latest": "0.0.1-1.19.2",
+    "1.19.2-recommended": "0.0.1-1.19.2"
   }
 }

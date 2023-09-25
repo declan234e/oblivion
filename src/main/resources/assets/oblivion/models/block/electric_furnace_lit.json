@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "oblivion:block/electric_furnace_lit"
+  }
+}

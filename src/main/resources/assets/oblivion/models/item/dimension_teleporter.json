@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "oblivion:items/dimention_teleporter_tex"
+    "layer0": "oblivion:item/dimension_teleporter_tex"
   }
 }

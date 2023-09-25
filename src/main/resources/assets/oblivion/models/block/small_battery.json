@@ -1,8 +1,0 @@
-{
-  "parent": "oblivion:custom/small_battery",
-  "textures": {
-    "all": "oblivion:blocks/small_battery",
-    "particle": "oblivion:blocks/small_battery",
-    "0": "oblivion:blocks/small_battery"
-  }
-}

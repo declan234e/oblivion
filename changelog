@@ -1,0 +1,17 @@
+v0.0.1-1.19.2
+
+added everything from forge rewrite
+added custom Matter Fabricator Recipe
+added Matter Fabricator UI
+added Water Purifier UI
+added Coffee (textures are from IC2. its just a placeholder)
+added Coffee recipe
+added Electric Furnace
+added Electric Furnace UI
+added Electric Furnace EnergyStorage
+added Electric Furnace BlockStates
+Electric Furnace uses smelting recipe
+added Lead Ore and Deepslate variant
+added ore generation
+added Solar Panel model
+added Solar Panel block

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "oblivion:custom/tiny_reactor"
+    },
+    "facing=east": {
+      "model": "oblivion:custom/tiny_reactor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "oblivion:custom/tiny_reactor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "oblivion:custom/tiny_reactor",
+      "y": 270
+    }
+  }
+}

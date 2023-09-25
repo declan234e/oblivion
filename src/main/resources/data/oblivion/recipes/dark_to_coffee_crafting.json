@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "oblivion:dark_coffee"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        }
+    ],
+    "result": {
+        "item": "oblivion:coffee",
+        "count": 1
+    },
+    "group": "coffee"
+}

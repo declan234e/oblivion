@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "oblivion:items/purified_water_text"
+    "layer0": "oblivion:item/purified_water"
   }
 }

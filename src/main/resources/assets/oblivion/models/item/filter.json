@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "oblivion:items/filter"
+    "layer0": "oblivion:item/filter"
   }
 }
