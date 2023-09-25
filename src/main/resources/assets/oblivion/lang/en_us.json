@@ -23,5 +23,6 @@
   "block.oblivion.biome_snowglobe": "Biome Snowglobe",
   "block.oblivion.tiny_reactor": "Tiny Reactor",
   "block.oblivion.electric_furnace": "Electric Furnace",
-  "block.oblivion.basic_solar_panel": "Basic Solar Panel"
+  "block.oblivion.basic_solar_panel": "Basic Solar Panel",
+  "block.oblivion.advanced_solar_panel": "Advanced Solar Panel"
 }

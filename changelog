@@ -16,4 +16,5 @@ Electric Furnace uses smelting recipe
 added Lead Ore and Deepslate variant
 added ore generation
 added Solar Panel model
-added Solar Panel block
+added Basic/Advanced Solar Panel block
+change cull-faces on tiny reactor and reactor controller models

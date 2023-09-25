@@ -1,7 +1,5 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/44881262/146404748-ccb9c5b8-7522-4ee1-9ab3-0c042e2e95ec.png" alt="Oblvion Logo" width="128"></p> 
-<h1 align=center>Oblivion <br> <br>
-    <a href="https://fabricmc.net/"><img src="https://cdn.discordapp.com/attachments/705864145169416313/969720133998239794/fabric_supported.png" alt="Supported on Fabric" width="200"></a></h1>
-
+<p align="center"><img src="https://declan234e.dev/images/icon.png" alt="Oblivion Logo" width="512"></p>
+    <a href="https://fabricmc.net/"><img src="https://cdn.discordapp.com/attachments/705864145169416313/969720133998239794/fabric_supported.png" alt="Supported on Fabric" width="200"></a>
 
 > [!NOTE]
 > Not everything from Mcreator has been ported yet.
@@ -21,4 +19,4 @@ v1.18.2 unsupported <br>
 v1.19.2 supported
 
 <h3>Mcreator</h3>
-<p>this mod is no longer written in mcreator</p>
+<p>this mod is no longer written in Mcreator</p>

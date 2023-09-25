@@ -1,28 +1,39 @@
 package dev.declan234e.oblivion.block;
 
-
-import dev.declan234e.oblivion.block.Entity.WaterPurifierBlockEntity;
-import dev.declan234e.oblivion.init.ModBlockEntities;
+import dev.declan234e.oblivion.block.Entity.SolarPanelBlockEntityBase;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class WaterPurifierBlock extends BlockWithEntity implements BlockEntityProvider {
+public abstract class SolarPanelBlockBase extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public WaterPurifierBlock(Settings settings) {
+
+    public SolarPanelBlockBase(FabricBlockSettings settings) {
         super(settings);
+    }
+
+    private static VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 2.1, 16);
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
     }
 
     @Nullable
@@ -46,8 +57,7 @@ public class WaterPurifierBlock extends BlockWithEntity implements BlockEntityPr
         builder.add(FACING);
     }
 
-    /* BLOCK ENTITY */
-
+    //block entity
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
@@ -57,8 +67,7 @@ public class WaterPurifierBlock extends BlockWithEntity implements BlockEntityPr
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof WaterPurifierBlockEntity) {
-                ItemScatterer.spawn(world, pos, (WaterPurifierBlockEntity)blockEntity);
+            if (blockEntity instanceof SolarPanelBlockEntityBase) {
                 world.updateComparators(pos,this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -67,25 +76,15 @@ public class WaterPurifierBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
-            }
+        if (world.isClient) {
+            MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(Text.literal("test"));
         }
         return ActionResult.SUCCESS;
     }
 
-    @Nullable
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new WaterPurifierBlockEntity(pos, state);
-    }
 
     @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.WATER_PURIFIER, WaterPurifierBlockEntity::tick);
+    protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends SolarPanelBlockEntityBase> expectedType) {
+        return world.isClient ? null : checkType(givenType, expectedType, SolarPanelBlockEntityBase::tick);
     }
 }

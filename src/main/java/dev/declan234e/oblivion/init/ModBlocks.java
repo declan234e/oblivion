@@ -25,6 +25,7 @@ public class ModBlocks {
     public static final Block TINY_REACTOR = registerBlock("tiny_reactor", new TinyReactorBlock(FabricBlockSettings.of(Material.METAL).strength(4F).requiresTool().nonOpaque()), ModItemGroup.OBLIVION);
     public static final Block ELECTRIC_FURNACE = registerBlock("electric_furnace", new ElectricFurnaceBlock(FabricBlockSettings.of(Material.METAL).strength(4F).requiresTool()), ModItemGroup.OBLIVION);
     public static final Block BASIC_SOLAR_PANEL = registerBlock("basic_solar_panel", new BasicSolarPanelBlock(FabricBlockSettings.of(Material.METAL).strength(3F).requiresTool().nonOpaque()), ModItemGroup.OBLIVION);
+    public static final Block ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", new AdvancedSolarPanelBlock(FabricBlockSettings.of(Material.METAL).strength(3F).requiresTool().nonOpaque()), ModItemGroup.OBLIVION);
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);

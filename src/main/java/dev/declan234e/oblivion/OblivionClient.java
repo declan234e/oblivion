@@ -23,6 +23,7 @@ public class OblivionClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BASIC_SOLAR_PANEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WATER_PURIFIER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TINY_REACTOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ADVANCED_SOLAR_PANEL, RenderLayer.getCutout());
 
         HandledScreens.register(ModScreensHandler.MATTER_FAB_SCREEN_HANDLER, MatterFabScreen::new);
         HandledScreens.register(ModScreensHandler.WATER_PURIFIER_SCREEN_HANDLER, WaterPurifierScreen::new);
