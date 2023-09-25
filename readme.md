@@ -4,8 +4,8 @@
 
 
 > [!NOTE]
-> Not everything from Mcreator has been ported yet. 
-> also contains the coffee textures from IC2 as a placeholder
+> Not everything from Mcreator has been ported yet. <br>
+> Also contains the coffee textures from IC2 as a placeholder
 
 models and textures- ROLEMAYMOLY <br>
 developer- declan234e <br>
