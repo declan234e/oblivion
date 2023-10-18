@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "oblivion:lead_ore",
+    "oblivion:deepslate_lead_ore",
+    "oblivion:basic_solar_panel"
+  ]
+}

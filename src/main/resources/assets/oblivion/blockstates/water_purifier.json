@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "oblivion:custom/reactor_controller"
+      "model": "oblivion:custom/water_purifier"
     },
     "facing=east": {
-      "model": "oblivion:custom/reactor_controller",
+      "model": "oblivion:custom/water_purifier",
       "y": 90
     },
     "facing=south": {
-      "model": "oblivion:custom/reactor_controller",
+      "model": "oblivion:custom/water_purifier",
       "y": 180
     },
     "facing=west": {
-      "model": "oblivion:custom/reactor_controller",
+      "model": "oblivion:custom/water_purifier",
       "y": 270
     }
   }

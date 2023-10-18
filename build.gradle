@@ -23,6 +23,19 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+	maven { url "https://maven.shedaniel.me" }
+	maven {
+		// location of the maven that hosts JEI files since January 2023
+		name = "Jared's maven"
+		url = "https://maven.blamejared.com/"
+	}
+	maven {
+		// location of a maven mirror for JEI files, as a fallback
+		name = "ModMaven"
+		url = "https://modmaven.dev"
+	}
+	mavenLocal()
+
 }
 
 loom {
@@ -50,12 +63,19 @@ sourceSets {
 		}
 	}
 }
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	//local modified yarn mappings
+	//mappings "dev.declan234e:yarn:${project.local_yarn_mappings}:v2"
+
+
+
+
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
@@ -63,8 +83,14 @@ dependencies {
 		transitive = false
 	}
 
+
 	modImplementation ("curse.maven:reborncore-237903:4102771")
 	modImplementation ("curse.maven:reborncore-233564:4102770")
+	// compile against the JEI API but do not include it at runtime
+	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
+	// at runtime, use the full JEI jar for Fabric
+	modRuntimeOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}")
 	
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.

@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class BasicSolarPanelBlock extends SolarPanelBlockBase {
 
-    public BasicSolarPanelBlock(FabricBlockSettings settings) {
+    public BasicSolarPanelBlock(Settings settings) {
         super(settings);
     }
 

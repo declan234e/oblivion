@@ -8,14 +8,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-
 
 
 public class ElectricFurnaceScreenHandler extends ScreenHandler {
@@ -48,12 +46,24 @@ public class ElectricFurnaceScreenHandler extends ScreenHandler {
         return propertyDelegate.get(0) > 0;
     }
 
+    public boolean isBurning() {
+        return propertyDelegate.get(2) > 0;
+    }
+
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);
         int progressArrowSize = 24;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledProgressFire() {
+        int burn = this.propertyDelegate.get(2);
+        int maxBurn = this.propertyDelegate.get(3);
+        int progressFireSize = 15;
+
+        return maxBurn != 0 && burn != 0 ? burn * progressFireSize / maxBurn : 0;
     }
 
     @Override

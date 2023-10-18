@@ -18,3 +18,8 @@ added ore generation
 added Solar Panel model
 added Basic/Advanced Solar Panel block
 change cull-faces on tiny reactor and reactor controller models
+added tool requirements for blocks and added block drops
+added Tiny Reactor
+added Tiny Reactor ui
+added Water Purifier Model
+added JEI Support then removed it cause it requires modifying the yarn mappings

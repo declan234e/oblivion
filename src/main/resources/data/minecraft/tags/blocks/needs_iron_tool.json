@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "oblivion:electric_furnace",
+    "oblivion:water_purifier",
+    "oblivion:advanced_solar_panel",
+    "oblivion:biome_snowglobe",
+    "oblivion:tiny_reactor",
+    "oblivion:matter_fab",
+    "oblivion:urandia_ore"
+  ]
+}
+

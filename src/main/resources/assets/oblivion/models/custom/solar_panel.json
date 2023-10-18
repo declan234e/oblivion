@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench, by ROLEMAYMOLY",
 	"textures": {
-		"0": "oblivion:block/solar_panel_full",
+		"0": "oblivion:block/solar_panels/solar_panel_full",
 		"1": "block/glass",
-		"particle": "oblivion:block/solar_panel_full"
+		"particle": "oblivion:block/solar_panels/solar_panel_full"
 	},
 	"elements": [
 		{

@@ -2,7 +2,6 @@ package dev.declan234e.oblivion.block.Entity;
 
 import dev.declan234e.oblivion.init.ModBlockEntities;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 
 public class AdvancedSolarPanelBlockEntity extends SolarPanelBlockEntityBase{

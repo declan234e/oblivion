@@ -3,7 +3,6 @@ package dev.declan234e.oblivion;
 import dev.declan234e.oblivion.init.*;
 import dev.declan234e.oblivion.world.feature.ModConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

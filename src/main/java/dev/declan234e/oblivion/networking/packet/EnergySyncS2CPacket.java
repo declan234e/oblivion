@@ -1,8 +1,8 @@
 package dev.declan234e.oblivion.networking.packet;
 
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import dev.declan234e.oblivion.block.Entity.ElectricFurnaceBlockEntity;
 import dev.declan234e.oblivion.screen.ElectricFurnaceScreenHandler;
+import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;

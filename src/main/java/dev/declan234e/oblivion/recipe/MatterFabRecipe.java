@@ -39,6 +39,11 @@ public class MatterFabRecipe  implements Recipe<SimpleInventory> {
     }
 
     @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
+    @Override
     public boolean fits(int width, int height) {
         return true;
     }

@@ -147,7 +147,6 @@ public class ElectricFurnaceBlockEntity extends BlockEntity implements ExtendedS
     }
 
     public static void tick(World world, BlockPos blockPos, BlockState state, ElectricFurnaceBlockEntity entity) {
-        boolean bl2 = false;
         if(world.isClient()) {
             return;
         }
@@ -162,20 +161,10 @@ public class ElectricFurnaceBlockEntity extends BlockEntity implements ExtendedS
             extractEnergy(entity);
         }
         if(state.get(Properties.LIT) != entity.isBurning()) {
-            bl2 = true;
             world.setBlockState(blockPos, state.with(Properties.LIT, entity.isBurning()), Block.NOTIFY_ALL);
-        }
-
-        if (bl2) {
             ElectricFurnaceBlockEntity.markDirty(world, blockPos, state);
         }
 
-        if(hasEnergyItem(entity)) {
-            try(Transaction transaction = Transaction.openOuter()) {
-                entity.energyStorage.insert(16, transaction);
-                transaction.commit();
-            }
-        }
 
         if(hasRecipe(entity) && entity.isBurning()) {
             entity.progress++;
@@ -190,24 +179,16 @@ public class ElectricFurnaceBlockEntity extends BlockEntity implements ExtendedS
 
     }
 
-    private static void resetBurn() {
-
-    }
-
-
     private static void extractEnergy(ElectricFurnaceBlockEntity entity) {
         try(Transaction transaction = Transaction.openOuter()) {
-            entity.energyStorage.extract(32, transaction);
+            entity.energyStorage.extract(128, transaction);
             transaction.commit();
         }
     }
 
+
     private static boolean hasEnoughEnergy(ElectricFurnaceBlockEntity entity) {
         return entity.energyStorage.amount >= 32;
-    }
-
-    private static boolean hasEnergyItem(ElectricFurnaceBlockEntity entity) {
-        return entity.getStack(0).getItem() == ModItems.URANDIA_INGOT;
     }
 
     private static void craftItem(ElectricFurnaceBlockEntity entity) {

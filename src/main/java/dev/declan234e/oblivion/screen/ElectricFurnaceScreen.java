@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+
 import java.util.Optional;
 
 public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHandler> {
@@ -51,6 +52,7 @@ public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHa
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         renderProgressArrow(matrices, x, y);
+        renderProgressFire(matrices, x, y);
         energyInfoArea.draw(matrices);
 
     }
@@ -65,6 +67,12 @@ public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHa
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {
         if(handler.isCrafting()) {
             drawTexture(matrices, x + 79, y + 35, 176, 14, handler.getScaledProgress(), 17);
+        }
+    }
+
+    private void renderProgressFire(MatrixStack matrices, int x, int y) {
+        if (handler.isBurning()) {
+            drawTexture(matrices, x + 56, y + 36, 176, 0, 14, handler.getScaledProgressFire());
         }
     }
 
