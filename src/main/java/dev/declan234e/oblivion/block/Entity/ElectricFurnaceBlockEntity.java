@@ -1,7 +1,6 @@
 package dev.declan234e.oblivion.block.Entity;
 
 import dev.declan234e.oblivion.init.ModBlockEntities;
-import dev.declan234e.oblivion.init.ModItems;
 import dev.declan234e.oblivion.init.ModMessages;
 import dev.declan234e.oblivion.screen.ElectricFurnaceScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
