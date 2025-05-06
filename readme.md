@@ -1,6 +1,6 @@
 <p align="center"><img src="https://declan234e.dev/images/icon.png" alt="Oblivion Logo" width="512"></p>
 <h1 align="center">Oblivion  <br>
-    <a href="https://fabricmc.net/"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_64h.png" alt="Supported on Fabric" width="200"></a></h1>
+    <a href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html"><img src="" alt="Supported on Forge" width="200"></a></h1>
 
 > [!NOTE]
 > Not everything from Mcreator has been ported.
@@ -22,9 +22,6 @@ v1.20.1 FORGE development started
 
 ## dependencies
 
-### 1.19.2
-[Fabric loader](https://fabricmc.net/) >= 0.14.22 <br>
-[Fabric API](https://modrinth.com/mod/fabric-api)
+### 1.20.1
+[Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html) >= 47.4.0 <br>
 
-### Mcreator
-this mod is no longer created in MCreator
