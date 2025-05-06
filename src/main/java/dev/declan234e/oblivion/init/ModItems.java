@@ -1,31 +1,25 @@
-package dev.declan234e.oblivion.init;
+package dev.declan234e.oblivion.Init;
 
 import dev.declan234e.oblivion.Oblivion;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Oblivion.MOD_ID);
 
-    public static final Item URANDIA_INGOT = registerItem("urandia_ingot", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item LEAD_INGOT = registerItem("lead_ingot", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item PURIFIED_WATER = registerItem("purified_water", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item FILTER = registerItem("filter", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item REINFORCED_CASING = registerItem("reinforced_casing", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item DIMENSION_TELEPORTER = registerItem("dimension_teleporter", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION_DIMENSIONS)));
-    public static final Item EMPTY_MUG = registerItem("empty_mug", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item COFFEE = registerItem("coffee", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item COLD_COFFEE = registerItem("cold_coffee", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item DARK_COFFEE = registerItem("dark_coffee", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item COFFEE_BEANS = registerItem("coffee_beans", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
-    public static final Item COFFEE_POWDER = registerItem("coffee_powder", new Item(new FabricItemSettings().group(ModItemGroup.OBLIVION)));
 
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registry.ITEM, new Identifier(Oblivion.MOD_ID, name), item);
+    // Items to add
+    public static final RegistryObject<Item> COFFEE_POWDER = ITEMS.register("coffee_powder", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> COFFEE_BEANS = ITEMS.register("coffee_beans", () -> new Item(new Item.Properties()));
+
+
+
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
     }
 
-    public static void registerModItems() {
-        Oblivion.LOGGER.debug("Register Mod Items for " + Oblivion.MOD_ID);
-    }
 }
