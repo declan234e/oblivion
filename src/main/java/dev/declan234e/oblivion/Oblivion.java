@@ -1,33 +1,77 @@
 package dev.declan234e.oblivion;
 
-import dev.declan234e.oblivion.init.*;
-import dev.declan234e.oblivion.world.feature.ModConfiguredFeatures;
-import net.fabricmc.api.ModInitializer;
+import com.mojang.logging.LogUtils;
+import dev.declan234e.oblivion.Init.ModCreativeTabs;
+import dev.declan234e.oblivion.Init.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class Oblivion implements ModInitializer {
-	public static final String MOD_ID = "oblivion";
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+// The value here should match an entry in the META-INF/mods.toml file
+@Mod(Oblivion.MOD_ID)
+public class Oblivion
+{
+    // Define mod id in a common place for everything to reference
+    public static final String MOD_ID = "oblivion";
+    // Directly reference a slf4j logger
+    private static final Logger LOGGER = LogUtils.getLogger();
+    public Oblivion(FMLJavaModLoadingContext context)
+    {
+        IEventBus modEventBus = context.getModEventBus();
 
-	@Override
-	public void onInitialize() {
-		ModConfiguredFeatures.RegisterConfiguredFeatures();
+        ModCreativeTabs.register(modEventBus);
 
-		ModItems.registerModItems();
-		ModBlocks.registerModBlocks();
+        // Register the commonSetup method for modloading
+        modEventBus.addListener(this::commonSetup);
 
-		ModBlockEntities.registerBlockEntities();
-		ModScreensHandler.registerAllScreenHandlers();
+        ModItems.register(modEventBus);
 
-		ModRecipes.registerRecipes();
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
 
-		ModMessages.registerS2CPackets();
-		ModMessages.registerC2SPackets();
+        // Register the item to a creative tab
+        modEventBus.addListener(this::addCreative);
 
-		LOGGER.info(MOD_ID + " Initializd");
-	}
+
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
+
+    }
+
+    // Add the example block item to the building blocks tab
+    private void addCreative(BuildCreativeModeTabContentsEvent event)
+    {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.COFFEE_POWDER);
+        }
+    }
+
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event)
+    {
+
+    }
+
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents
+    {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event)
+        {
+
+        }
+    }
 }
