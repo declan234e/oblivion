@@ -1,4 +1,11 @@
+9/3/24
 
+v0.0.2-1.19.2
+added custom properties
+fixed Electric Furnace ScaledProgressFire
+change icon to be compatible with Mod Menu
+add ability to add rods to Tiny Reactor
+add test start button on tiny reactor
 
 v0.0.1-1.19.2
 
@@ -23,3 +30,4 @@ added Tiny Reactor
 added Tiny Reactor ui
 added Water Purifier Model
 added JEI Support then removed it cause it requires modifying the yarn mappings
+added Tiny Reactor EnergyStorage

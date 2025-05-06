@@ -13,12 +13,12 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 
 public class MatterFabricatorRecipeCatagory implements IRecipeCategory<MatterFabRecipe> {
-    public final static ResourceLocation UID = new ResourceLocation(Oblivion.MOD_ID, "matter_fabrication");
-    private final static ResourceLocation TEXTURE = new ResourceLocation(Oblivion.MOD_ID, "textures/gui/ui/b_fab_ui.png");
-    private final static ResourceLocation ICON = new ResourceLocation(Oblivion.MOD_ID, "textures/block/matter_fab.png");
+    public final static Identifier UID = new Identifier(Oblivion.MOD_ID, "matter_fabrication");
+    private final static Identifier TEXTURE = new Identifier(Oblivion.MOD_ID, "textures/gui/ui/b_fab_ui.png");
+    private final static Identifier ICON = new Identifier(Oblivion.MOD_ID, "textures/block/matter_fab.png");
 
     private final IDrawable background;
     private final IDrawable icon;

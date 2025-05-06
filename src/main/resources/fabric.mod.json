@@ -3,13 +3,15 @@
 	"id": "oblivion",
 	"version": "${version}",
 	"name": "Oblivion",
-	"description": "mod",
+	"description": "fabric port and rewrite of Oblivion",
 	"authors": [
-		"declan234e"
+		"declan234e",
+		"rolemaymoly"
 	],
 	"contact": {
 		"homepage": "https://declan234e.dev",
-		"sources": "https://github.com/declan234e/oblivion"
+		"sources": "https://github.com/declan234e/oblivion",
+		"issues": "https://github.com/declan234e/oblivion/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/oblivion/icon.png",

@@ -2,7 +2,9 @@ package dev.declan234e.oblivion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.declan234e.oblivion.Oblivion;
+import dev.declan234e.oblivion.block.Entity.TinyReactorBlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,6 +21,12 @@ public class TinyReactorScreen extends HandledScreen<TinyReactorScreenHandler> {
     }
 
     @Override
+    protected void init() {
+        super.init();
+        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
+    }
+
+    @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -26,10 +34,16 @@ public class TinyReactorScreen extends HandledScreen<TinyReactorScreenHandler> {
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        activeLight(matrices, x, y);
 
 
     }
 
+    private void activeLight(MatrixStack matrices, int x, int y) {
+        if(handler.isActive()) {
+            drawTexture(matrices, x + 55, y + 3, 230, 0, 5, 5);
+        }
+    }
 
 
     @Override
@@ -37,5 +51,9 @@ public class TinyReactorScreen extends HandledScreen<TinyReactorScreenHandler> {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
+        addDrawableChild(new ButtonWidget(x + 66, y + 62, 44, 11, Text.literal("start"), button -> {
+            handler.makeActive();
+
+        }));
     }
 }

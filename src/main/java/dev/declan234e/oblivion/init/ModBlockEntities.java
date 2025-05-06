@@ -26,6 +26,6 @@ public class ModBlockEntities {
 
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, ELECTRIC_FURNACE);
 
-        Oblivion.LOGGER.debug("Reg Mod Block Entities for " + Oblivion.MOD_ID);
+        Oblivion.LOGGER.debug("Register Mod Block Entities for " + Oblivion.MOD_ID);
     }
 }

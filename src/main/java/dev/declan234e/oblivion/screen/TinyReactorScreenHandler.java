@@ -1,15 +1,19 @@
 package dev.declan234e.oblivion.screen;
 
+import dev.declan234e.oblivion.block.Entity.ElectricFurnaceBlockEntity;
+import dev.declan234e.oblivion.block.Entity.TinyReactorBlockEntity;
 import dev.declan234e.oblivion.init.ModScreensHandler;
 import dev.declan234e.oblivion.screen.slot.CraftSlot;
 import dev.declan234e.oblivion.screen.slot.RWaterSlot;
 import dev.declan234e.oblivion.screen.slot.UradiaSlot;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -18,17 +22,19 @@ import net.minecraft.screen.slot.Slot;
 public class TinyReactorScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
+    public final TinyReactorBlockEntity blockEntity;
 
-    public TinyReactorScreenHandler(int syncId, PlayerInventory inventory) {
-        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
+    public TinyReactorScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(4));
     }
 
-    public TinyReactorScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
+    public TinyReactorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity, PropertyDelegate delegate) {
         super(ModScreensHandler.TINY_REACTOR_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 3);
-        this.inventory = inventory;
+        checkSize(((Inventory) entity), 2);
+        this.inventory = (Inventory)entity;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
+        this.blockEntity = (TinyReactorBlockEntity) entity;
 
         this.addSlot(new UradiaSlot(inventory, 0, 133, 44));
         this.addSlot(new RWaterSlot(inventory, 1, 118, 9));
@@ -69,6 +75,14 @@ public class TinyReactorScreenHandler extends ScreenHandler {
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
+    }
+    public boolean isActive() {
+        return propertyDelegate.get(0) > 60;
+    }
+
+    public void makeActive() {
+        TinyReactorBlockEntity.makeActive(blockEntity);
+
     }
 
     private void addPlayerInventory(PlayerInventory playerInventory) {

@@ -16,6 +16,7 @@ import java.util.Optional;
 
 public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(Oblivion.MOD_ID, "textures/gui/ui/electric_furnace_gui.png");
+    private static final Identifier TEST = new Identifier(Oblivion.MOD_ID, "textures/gui/misc/green_light.png");
     private EnergyInfoArea energyInfoArea;
 
     public ElectricFurnaceScreen(ElectricFurnaceScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -53,7 +54,7 @@ public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHa
 
         renderProgressArrow(matrices, x, y);
         renderProgressFire(matrices, x, y);
-        energyInfoArea.draw(matrices);
+
 
     }
 
@@ -71,8 +72,9 @@ public class ElectricFurnaceScreen extends HandledScreen<ElectricFurnaceScreenHa
     }
 
     private void renderProgressFire(MatrixStack matrices, int x, int y) {
+        int b = handler.getScaledProgressFire();
         if (handler.isBurning()) {
-            drawTexture(matrices, x + 56, y + 36, 176, 0, 14, handler.getScaledProgressFire());
+            drawTexture(matrices, x + 56, y + 36 + 14 - b, 176, 14 - b, 14, b);
         }
     }
 

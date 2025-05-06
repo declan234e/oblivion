@@ -38,6 +38,6 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks() {
-        Oblivion.LOGGER.debug("Reg Mod Blocks for " + Oblivion.MOD_ID);
+        Oblivion.LOGGER.debug("Register Mod Blocks for " + Oblivion.MOD_ID);
     }
 }

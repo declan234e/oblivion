@@ -26,6 +26,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        Oblivion.LOGGER.debug("Reg Mod Items for " + Oblivion.MOD_ID);
+        Oblivion.LOGGER.debug("Register Mod Items for " + Oblivion.MOD_ID);
     }
 }

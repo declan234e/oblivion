@@ -61,7 +61,7 @@ public class ElectricFurnaceScreenHandler extends ScreenHandler {
     public int getScaledProgressFire() {
         int burn = this.propertyDelegate.get(2);
         int maxBurn = this.propertyDelegate.get(3);
-        int progressFireSize = 15;
+        int progressFireSize = 14;
 
         return maxBurn != 0 && burn != 0 ? burn * progressFireSize / maxBurn : 0;
     }

@@ -1,6 +1,6 @@
 package dev.declan234e.oblivion.compat.jei;
-
 /*
+
 import dev.declan234e.oblivion.Oblivion;
 import dev.declan234e.oblivion.recipe.MatterFabRecipe;
 import mezz.jei.api.IModPlugin;
@@ -10,7 +10,7 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.recipe.RecipeManager;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.Objects;
@@ -18,8 +18,8 @@ import java.util.Objects;
 public class OblivionPlugin implements IModPlugin {
     public static RecipeType<MatterFabRecipe> MATTER_FAB_TYPE = new RecipeType<>(MatterFabricatorRecipeCatagory.UID, MatterFabRecipe.class);
     @Override
-    public ResourceLocation getPluginUid() {
-        return new ResourceLocation(Oblivion.MOD_ID, "jei_plugin");
+    public Identifier getPluginUid() {
+        return new Identifier(Oblivion.MOD_ID, "jei_plugin");
     }
 
     @Override

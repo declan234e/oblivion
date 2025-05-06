@@ -10,6 +10,6 @@ public class ModRecipes {
         Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Oblivion.MOD_ID, MatterFabRecipe.Serializer.ID), MatterFabRecipe.Serializer.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, new Identifier(Oblivion.MOD_ID, MatterFabRecipe.Type.ID), MatterFabRecipe.Type.INSTANCE);
 
-        Oblivion.LOGGER.debug("Reg Mod Recipes for " + Oblivion.MOD_ID);
+        Oblivion.LOGGER.debug("Register Mod Recipes for " + Oblivion.MOD_ID);
     }
 }
