@@ -1,6 +1,7 @@
 package dev.declan234e.oblivion;
 
 import com.mojang.logging.LogUtils;
+import dev.declan234e.oblivion.Init.ModBlocks;
 import dev.declan234e.oblivion.Init.ModCreativeTabs;
 import dev.declan234e.oblivion.Init.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -34,6 +35,8 @@ public class Oblivion
         modEventBus.addListener(this::commonSetup);
 
         ModItems.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

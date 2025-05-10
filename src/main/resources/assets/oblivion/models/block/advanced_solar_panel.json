@@ -1,8 +1,0 @@
-{
-  "parent": "oblivion:custom/solar_panel",
-  "textures": {
-    "all": "oblivion:block/solar_panels/ad_solar_panel_full",
-    "0": "oblivion:block/solar_panels/ad_solar_panel_full",
-    "1": "block/glass"
-  }
-}

@@ -4,13 +4,16 @@
 
 > [!NOTE]
 > Not everything from Mcreator has been ported.
+ 
+> [!IMPORTANT]
+> This build is the bare minimum. It has nearly zero functionality. The MCreator branch has the most functionality but also is not complete
 
 models and textures - ROLEMAYMOLY <br>
 developer - declan234e <br>
 
 thanks to Kaupenjoe for his tutorials. Find his YouTube [here](https://www.youtube.com/@ModdingByKaupenjoe)
 
-oblivion is a mod with only a few things in it due to me getting burned out and not finishing this verson. the version with the most features is the mcreator version for 1.18.2
+oblivion is a mod with only a few things in it due to me getting burned out. The version with the most features is the mcreator version for 1.18.2
 
 
 # versions
@@ -24,4 +27,5 @@ v1.20.1 FORGE development started
 
 ### 1.20.1
 [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html) >= 47.4.0 <br>
+[Mekanism](https://modrinth.com/mod/mekanism) >= 1.20.1-10.4.15.75
 
