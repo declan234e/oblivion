@@ -1,28 +1,26 @@
 {
-  "itemGroup.oblivion.oblivion_dimensions": "Oblivion Dimensions",
-  "itemGroup.oblivion.oblivion": "Oblivion",
+  "itemGroup.oblivion.oblivion": "Declan's Additions",
 
-  "item.oblivion.urandia_ingot": "Urandia Ingot",
-  "item.oblivion.lead_ingot": "Lead Ingot",
-  "item.oblivion.reinforced_casing": "Reinforced Casing",
-  "item.oblivion.filter": "Filter",
-  "item.oblivion.purified_water": "Purified Water",
-  "item.oblivion.dimension_teleporter": "Dimension Teleporter",
-  "item.oblivion.coffee": "Coffee",
-  "item.oblivion.cold_coffee": "Cold Coffee",
-  "item.oblivion.empty_mug": "Empty Mug",
+  "item.oblivion.regular_coffee": "Regular Coffee",
   "item.oblivion.dark_coffee": "Dark Coffee",
+  "item.oblivion.magma_coffee": "Magma Coffee",
+
+  "item.oblivion.cold_regular_coffee": "Cold Regular Coffee",
+  "item.oblivion.cold_dark_coffee": "Cold Dark Coffee",
+  "item.oblivion.cold_magma_coffee": "Cold Magma Coffee",
+
+  "item.oblivion.empty_mug": "Empty Mug",
+  "item.oblivion.filter": "Filter",
   "item.oblivion.coffee_beans": "Coffee Beans",
   "item.oblivion.coffee_powder": "Coffee Powder",
+  "item.oblivion.guide": "Oblivion Guide",
 
-  "block.oblivion.urandia_ore": "Urandia Ore",
-  "block.oblivion.lead_ore": "Lead Ore",
-  "block.oblivion.deepslate_lead_ore": "Deepslate Lead Ore",
-  "block.oblivion.matter_fab": "Matter Fabricator",
-  "block.oblivion.water_purifier": "Water Purifier",
-  "block.oblivion.biome_snowglobe": "Biome Snowglobe",
-  "block.oblivion.tiny_reactor": "Tiny Reactor",
-  "block.oblivion.electric_furnace": "Electric Furnace",
-  "block.oblivion.basic_solar_panel": "Basic Solar Panel",
-  "block.oblivion.advanced_solar_panel": "Advanced Solar Panel"
+  "block.oblivion.drink_station": "Drink Station (NON FUNCTIONAL)",
+  "block.oblivion.coffee_grinder": "Coffee Grinder",
+  "block.oblivion.dimensional_teleporter": "Dimensional Teleporter (NON FUNCTIONAL)",
+
+  "guide.oblivion.name": "Oblivion Guide",
+
+  "jade.oblivion.coffee": "Progress: %d"
+
 }

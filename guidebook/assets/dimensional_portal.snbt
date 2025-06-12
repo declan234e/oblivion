@@ -1,0 +1,24 @@
+{
+    DataVersion: 3465,
+    size: [1, 5, 5],
+    data: [
+        {pos: [0, 0, 1], state: "minecraft:bricks"},
+        {pos: [0, 0, 2], state: "oblivion:dimensional_teleporter{facing:east}"},
+        {pos: [0, 0, 3], state: "minecraft:bricks"},
+        {pos: [0, 1, 0], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 1, 4], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 2, 0], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 2, 4], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 3, 0], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 3, 4], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 4, 1], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 4, 2], state: "mekanism:block_refined_obsidian"},
+        {pos: [0, 4, 3], state: "mekanism:block_refined_obsidian"}
+    ],
+    entities: [],
+    palette: [
+        "minecraft:bricks",
+        "oblivion:dimensional_teleporter{facing:east}",
+        "mekanism:block_refined_obsidian"
+    ]
+}

@@ -1,9 +1,16 @@
+/*
+ * MIT License
+ * Copyright (c) 2025. Declan
+ */
+
 package dev.declan234e.oblivion;
 
 import com.mojang.logging.LogUtils;
-import dev.declan234e.oblivion.Init.ModBlocks;
-import dev.declan234e.oblivion.Init.ModCreativeTabs;
-import dev.declan234e.oblivion.Init.ModItems;
+import dev.declan234e.oblivion.Init.*;
+import dev.declan234e.oblivion.Screen.CoffeeGrinderScreen;
+import dev.declan234e.oblivion.Screen.DrinkStationScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,8 +32,14 @@ public class Oblivion
     public static final String MOD_ID = "oblivion";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+
+
     public Oblivion(FMLJavaModLoadingContext context)
     {
+
+
+
+        testf(ResourceLocation.parse("oblivion:guide"));
         IEventBus modEventBus = context.getModEventBus();
 
         ModCreativeTabs.register(modEventBus);
@@ -34,9 +47,13 @@ public class Oblivion
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        ModItems.register(modEventBus);
+        ModItems.register(modEventBus); // items
 
-        ModBlocks.register(modEventBus);
+        ModBlocks.register(modEventBus); // blocks
+
+        ModBlockEntities.register(modEventBus); // block entities
+
+        ModMenuTypes.register(modEventBus); // menus
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -45,7 +62,14 @@ public class Oblivion
         modEventBus.addListener(this::addCreative);
 
 
+
+
     }
+
+    private void testf(ResourceLocation id) {
+        LOGGER.info("logging details: " + " guides/" + id.getNamespace() + "/" + id.getPath());
+    }
+
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
@@ -75,6 +99,8 @@ public class Oblivion
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+            MenuScreens.register(ModMenuTypes.COFFEE_GRINDER_MENU.get(), CoffeeGrinderScreen :: new);
+            MenuScreens.register(ModMenuTypes.DRINK_STATION_MENU.get(), DrinkStationScreen :: new);
         }
     }
 }

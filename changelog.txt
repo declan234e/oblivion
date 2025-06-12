@@ -1,4 +1,24 @@
-7/5/25
+12/6/25
+
+v1.0.1-1.20.1
+changed versioning starting on v1.0.0
+added coffee
+added coffee grinder
+added drink station
+added coffee grinder GUI
+added drink station GUI
+added coffee grinder/drink station Block entities
+added recipes
+added mining dimension
+added dimensional teleporter (non functional)
+removed some items from other versions so i can add them as needed
+added more datagen
+removed more blocks for them to be added as needed
+switched to neoforged.moddev.legacyforge in gradle
+added guideME dependency for in game guide
+added guide item
+updated gradle to 8.14.2
+
 
 v0.0.1-1.20.1
 made project for 1.20.1 forge
@@ -6,4 +26,7 @@ added all items from other versions
 added creative tab
 added datagen (PAIN and probably isn't fully working properly)
 added tiny reactor (just the block not anything functional)
-added dependency for mekanism for its cables
+added dependency for mekanism
+fixed deprecated code in datagen ModItemModelProvider
+fixed rendering of models
+added more of the blocks from fabric branch

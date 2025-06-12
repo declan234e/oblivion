@@ -1,0 +1,15 @@
+{
+  "item_settings": {
+    "display_name": {
+      "type": "translatable",
+      "translate": "guide.oblivion.name"
+    },
+    "tooltip_lines": [
+      {
+        "text": "Best guide ever!",
+        "color": "dark_gray"
+      }
+    ],
+    "model": "oblivion:item/guide"
+  }
+}
