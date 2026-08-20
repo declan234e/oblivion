@@ -6,6 +6,7 @@
 package dev.declan234e.oblivion.Init;
 
 import dev.declan234e.oblivion.Oblivion;
+import dev.declan234e.oblivion.worldgen.dimension.DimensionEffects;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -27,7 +28,7 @@ public class ModDimensions {
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(MININGDIM_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
-                true, // hasSkylight
+                false, // hasSkylight
                 true, // hasCeiling
                 false, // ultraWarm
                 false, // natural
@@ -38,7 +39,7 @@ public class ModDimensions {
                 256, // height
                 256, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                BuiltinDimensionTypes.END_EFFECTS, // effectsLocation
+                DimensionEffects.MININGDIM_EFFECTS, // effectsLocation
                 0.1f, // ambientLight
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 2)));
     }

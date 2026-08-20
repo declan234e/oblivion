@@ -3,12 +3,12 @@
     <a href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html"><img src="" alt="Supported on Forge" width="200"></a></h1>
 
 > [!NOTE]
-> Not everything from Mcreator has been ported.
+> This project will no longer recieve updates
  
 > [!IMPORTANT]
 > This build is the bare minimum. It has nearly zero functionality. The MCreator branch has the most functionality but also is not complete
 
-models and textures - ROLEMAYMOLY <br>
+models and textures - Dusk Starline <br>
 developer - declan234e <br>
 
 thanks to Kaupenjoe for his tutorials. Find his YouTube [here](https://www.youtube.com/@ModdingByKaupenjoe)
@@ -21,11 +21,10 @@ v1.16.5 FORGE unsupported [download old](https://github.com/declan234e/oblivion/
 v1.17.1 FORGE unsupported [download old](https://github.com/declan234e/oblivion/releases/tag/0.1.4A) <br>
 v1.18.2 FORGE unsupported [download old](https://github.com/declan234e/oblivion/releases/tag/0.1.5B) <br>
 v1.19.2 FABRIC unsupported no download <br>
-v1.20.1 FORGE development started 
+v1.20.1 FORGE development no more
 
 ## dependencies
 
 ### 1.20.1
 [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html) >= 47.4.0 <br>
 [Mekanism](https://modrinth.com/mod/mekanism) >= 1.20.1-10.4.15.75
-

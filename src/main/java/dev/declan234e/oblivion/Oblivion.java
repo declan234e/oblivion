@@ -39,7 +39,8 @@ public class Oblivion
 
 
 
-        testf(ResourceLocation.parse("oblivion:guide"));
+        testf();
+        MinecraftForge.EVENT_BUS.register(this);
         IEventBus modEventBus = context.getModEventBus();
 
         ModCreativeTabs.register(modEventBus);
@@ -66,8 +67,8 @@ public class Oblivion
 
     }
 
-    private void testf(ResourceLocation id) {
-        LOGGER.info("logging details: " + " guides/" + id.getNamespace() + "/" + id.getPath());
+    private void testf() {
+        LOGGER.info("logging details: " + ResourceLocation.tryParse("oblivion:mining_dim"));
     }
 
 
@@ -98,6 +99,8 @@ public class Oblivion
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+
+
 
             MenuScreens.register(ModMenuTypes.COFFEE_GRINDER_MENU.get(), CoffeeGrinderScreen :: new);
             MenuScreens.register(ModMenuTypes.DRINK_STATION_MENU.get(), DrinkStationScreen :: new);

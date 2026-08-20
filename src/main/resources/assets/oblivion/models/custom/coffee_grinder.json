@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench, by declan234e, Rolemaymoly",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "declansadditions:coffee_grinder_texture",
-		"particle": "declansadditions:coffee_grinder_texture"
+		"0": "oblivion:block/coffee_grinder_texture",
+		"particle": "oblivion:block/coffee_grinder_texture"
 	},
 	"elements": [
 		{
